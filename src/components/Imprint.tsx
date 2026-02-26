@@ -37,17 +37,20 @@ export function Imprint({ onClose }: ImprintProps) {
               Kontaktadresse
             </h3>
             <address className="not-italic leading-relaxed">
-              <strong>Andri Wild</strong>
+              <strong>ClickTrack</strong>
               <br />
               <p className="text-zinc-500 text-sm mt-2 italic">
-                [Adresse hier einfügen]
+                Im Baumgarten 4
+                <br />
+                6252 Dagmersellen
+                <br />
+                Schweiz
               </p>
-              Schweiz
               <br />
               <br />
               <strong>E-Mail:</strong>{' '}
               <a
-                href="mailto:info@awild.ch"
+                href="mailto:andri.rafael.wild@gmail.ch"
                 className="text-emerald-400 hover:text-emerald-300 transition-colors"
               >
                 info@awild.ch
