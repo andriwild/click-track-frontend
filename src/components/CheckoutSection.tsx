@@ -7,11 +7,13 @@ export function CheckoutSection() {
     'Water & sweat resistant',
     'Shockproof silicone build',
     '2-year battery life',
-    'Free worldwide shipping',
   ]
 
   return (
-    <section className="w-full py-24 bg-zinc-950 text-zinc-50 relative overflow-hidden">
+    <section
+      id="checkout"
+      className="w-full py-24 bg-zinc-950 text-zinc-50 relative overflow-hidden"
+    >
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
 
       <div className="container px-4 md:px-6 mx-auto max-w-5xl">

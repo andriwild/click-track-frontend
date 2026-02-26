@@ -8,7 +8,7 @@ export function FeaturesSection() {
         "Keep track of every brutal rally. One click and you're ready for the next serve.",
       icon: Trophy,
       image:
-        'https://images.unsplash.com/photo-1528646700854-bc324aef6ba8?q=80&w=600&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1628045622154-db2dfc3f0c3a?q=80&w=800&auto=format&fit=crop',
       color: 'from-blue-500/20 to-blue-900/20',
       accent: 'text-blue-400',
     },
@@ -18,7 +18,7 @@ export function FeaturesSection() {
         "Don't lose count during those long duels. Focus on your smash, we track the score.",
       icon: Target,
       image:
-        'https://images.unsplash.com/photo-1629828471131-ab10646c1cae?q=80&w=600&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1622226257579-2c7de4e50882?q=80&w=800&auto=format&fit=crop',
       color: 'from-emerald-500/20 to-emerald-900/20',
       accent: 'text-emerald-400',
     },
@@ -28,14 +28,17 @@ export function FeaturesSection() {
         'Perfect for refs or casual matches. Keep the score straight without breaking a sweat.',
       icon: Activity,
       image:
-        'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=600&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=800&auto=format&fit=crop',
       color: 'from-purple-500/20 to-purple-900/20',
       accent: 'text-purple-400',
     },
   ]
 
   return (
-    <section className="w-full py-24 bg-zinc-950 text-zinc-50 border-t border-zinc-900">
+    <section
+      id="features"
+      className="w-full py-24 bg-zinc-950 text-zinc-50 border-t border-zinc-900"
+    >
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
           <div className="inline-block rounded-lg bg-zinc-900 px-3 py-1 text-sm border border-zinc-800 text-zinc-300">

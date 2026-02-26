@@ -38,6 +38,11 @@ export function HeroSection() {
               <Button
                 size="lg"
                 className="h-14 px-8 text-lg font-bold bg-emerald-500 hover:bg-emerald-600 text-zinc-950 rounded-full transition-transform hover:scale-105"
+                onClick={() =>
+                  document
+                    .getElementById('checkout')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
               >
                 Get yours for 49 CHF
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -45,7 +50,12 @@ export function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="h-14 px-8 text-lg font-bold rounded-full border-zinc-700 hover:bg-zinc-800"
+                className="h-14 px-8 text-lg font-bold rounded-full border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800 hover:text-zinc-50"
+                onClick={() =>
+                  document
+                    .getElementById('features')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
               >
                 Learn more
               </Button>
