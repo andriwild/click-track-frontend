@@ -7,8 +7,7 @@ export function FeaturesSection() {
       description:
         "Keep track of every brutal rally. One click and you're ready for the next serve.",
       icon: Trophy,
-      image:
-        'https://images.unsplash.com/photo-1628045622154-db2dfc3f0c3a?q=80&w=800&auto=format&fit=crop',
+      image: '/squash.png',
       color: 'from-blue-500/20 to-blue-900/20',
       accent: 'text-blue-400',
     },
@@ -17,8 +16,7 @@ export function FeaturesSection() {
       description:
         "Don't lose count during those long duels. Focus on your smash, we track the score.",
       icon: Target,
-      image:
-        'https://images.unsplash.com/photo-1622226257579-2c7de4e50882?q=80&w=800&auto=format&fit=crop',
+      image: '/padel.png',
       color: 'from-emerald-500/20 to-emerald-900/20',
       accent: 'text-emerald-400',
     },
