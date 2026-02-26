@@ -52,7 +52,7 @@ export function CheckoutSection() {
               </div>
 
               <div className="mb-8 flex items-baseline text-5xl font-extrabold">
-                89 CHF
+                49 CHF
                 <span className="ml-2 text-xl font-medium text-zinc-500">
                   / one-time
                 </span>

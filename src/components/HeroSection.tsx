@@ -44,7 +44,7 @@ export function HeroSection() {
                     ?.scrollIntoView({ behavior: 'smooth' })
                 }
               >
-                Get your Duo Pack for 89 CHF
+                Get your Duo Pack for 49 CHF
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
@@ -89,8 +89,11 @@ export function HeroSection() {
               <img
                 src="/product.png"
                 alt="ClickTrack Pro Duo Pack Concept"
-                className="relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl border border-zinc-800/50 grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+                className="relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl border border-zinc-800/50 transition-all duration-700"
               />
+              <div className="absolute bottom-4 right-4 z-20 bg-zinc-950/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-zinc-800 text-zinc-400 text-xs shadow-lg font-medium">
+                * Symbolbild
+              </div>
             </div>
           </div>
         </div>
