@@ -3,6 +3,7 @@ import { Button } from './ui/button'
 
 export function CheckoutSection() {
   const features = [
+    '2x ClickTrack Pro Wristbands',
     'One-click score tracking',
     'Water & sweat resistant',
     'Shockproof silicone build',
@@ -20,12 +21,11 @@ export function CheckoutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase relative">
-              Ready to <span className="text-emerald-500">Upgrade</span> Your
-              Game?
+              Ready to <span className="text-emerald-500">Share</span> The Game?
             </h2>
             <p className="text-zinc-400 text-lg">
-              Get the ClickTrack Pro today and never lose track of the score
-              again. Simple, intuitive, and built for winners.
+              Get the ClickTrack Pro Duo Pack today. One for you, one for your
+              opponent. Never disagree on the score again.
             </p>
 
             <ul className="space-y-3 pt-4">
@@ -45,14 +45,14 @@ export function CheckoutSection() {
 
             <div className="relative rounded-3xl border border-zinc-800 bg-zinc-900/80 p-8 backdrop-blur-xl shadow-2xl">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold">ClickTrack Pro</h3>
+                <h3 className="text-2xl font-bold">ClickTrack Pro Duo Pack</h3>
                 <p className="text-zinc-400 mt-2">
-                  The ultimate sports companion.
+                  The ultimate sports companion for you and your rival.
                 </p>
               </div>
 
               <div className="mb-8 flex items-baseline text-5xl font-extrabold">
-                49 CHF
+                89 CHF
                 <span className="ml-2 text-xl font-medium text-zinc-500">
                   / one-time
                 </span>

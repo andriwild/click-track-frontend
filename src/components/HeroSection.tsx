@@ -44,7 +44,7 @@ export function HeroSection() {
                     ?.scrollIntoView({ behavior: 'smooth' })
                 }
               >
-                Get yours for 49 CHF
+                Get your Duo Pack for 89 CHF
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
@@ -87,8 +87,8 @@ export function HeroSection() {
             <div className="relative w-full aspect-square rounded-full flex items-center justify-center p-8">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-emerald-500/20 rounded-full blur-2xl animate-pulse" />
               <img
-                src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b0?q=80&w=1200&auto=format&fit=crop"
-                alt="ClickTrack Pro Wristband Concept"
+                src="/product.png"
+                alt="ClickTrack Pro Duo Pack Concept"
                 className="relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl border border-zinc-800/50 grayscale-[20%] hover:grayscale-0 transition-all duration-700"
               />
             </div>
