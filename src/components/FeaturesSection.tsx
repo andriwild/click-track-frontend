@@ -25,8 +25,7 @@ export function FeaturesSection() {
       description:
         'Perfect for refs or casual matches. Keep the score straight without breaking a sweat.',
       icon: Activity,
-      image:
-        'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=800&auto=format&fit=crop',
+      image: '/football.png',
       color: 'from-purple-500/20 to-purple-900/20',
       accent: 'text-purple-400',
     },
