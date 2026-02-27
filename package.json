@@ -4,14 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "astro dev",
+    "build": "astro build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "astro preview",
     "prepare": "husky"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/tailwind": "^6.0.2",
     "@radix-ui/react-slot": "^1.2.4",
+    "astro": "^5.18.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.575.0",
