@@ -4,6 +4,7 @@ import { FeaturesSection } from './components/FeaturesSection'
 import { CheckoutSection } from './components/CheckoutSection'
 import { Imprint } from './components/Imprint'
 import { Button } from './components/ui/button'
+import { AppFeaturesSection } from './components/AppFeaturesSection'
 
 function App() {
   const [showImprint, setShowImprint] = useState(false)
@@ -37,6 +38,7 @@ function App() {
       <main className="flex-1">
         <HeroSection />
         <FeaturesSection />
+        <AppFeaturesSection />
         <CheckoutSection />
       </main>
 
