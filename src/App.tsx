@@ -22,9 +22,8 @@ function App() {
           </span>
         </div>
         <Button
-          variant="outline"
           size="sm"
-          className="rounded-full border-zinc-800 text-zinc-300 hover:text-zinc-50"
+          className="rounded-full bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold transition-transform hover:scale-105"
           onClick={() =>
             document
               .getElementById('checkout')
