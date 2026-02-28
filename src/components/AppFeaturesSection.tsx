@@ -70,7 +70,7 @@ export function AppFeaturesSection() {
             More than just Hardware.
           </h2>
           <p className="max-w-[900px] text-zinc-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            The free ClickTrack Pro app turns your wristbands into a powerful,
+            The free Klikkr Pro app turns your wristbands into a powerful,
             intelligent scoreboard. Customize your game, connect instantly, and
             focus entirely on your match.
           </p>

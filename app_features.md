@@ -1,4 +1,4 @@
-# Click Track App – Funktionen & Features
+# Klikkr App – Funktionen & Features
 
 Die App ist ein digitaler Spielstandzähler (insbesondere für Sportarten wie Squash), der sowohl über physische Bluetooth-Buttons als auch über das Display bedient werden kann.
 

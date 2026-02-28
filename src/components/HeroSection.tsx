@@ -88,7 +88,7 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-emerald-500/20 rounded-full blur-2xl animate-pulse" />
               <img
                 src="/product.png"
-                alt="ClickTrack Pro Duo Pack Concept"
+                alt="Klikkr Pro Duo Pack Concept"
                 className="relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl border border-zinc-800/50 transition-all duration-700"
               />
               <div className="absolute bottom-4 right-4 z-20 bg-zinc-950/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-zinc-800 text-zinc-400 text-xs shadow-lg font-medium">

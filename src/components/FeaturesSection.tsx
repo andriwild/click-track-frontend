@@ -48,9 +48,9 @@ export function FeaturesSection() {
             </span>
           </h2>
           <p className="max-w-[700px] text-zinc-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            ClickTrack Pro is designed to be invisible when you don't need it,
-            and perfectly reliable when you do. Water resistant, sweat proof,
-            and built to survive impacts.
+            Klikkr Pro is designed to be invisible when you don't need it, and
+            perfectly reliable when you do. Water resistant, sweat proof, and
+            built to survive impacts.
           </p>
         </div>
 

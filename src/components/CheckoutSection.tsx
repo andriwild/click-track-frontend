@@ -3,7 +3,7 @@ import { Button } from './ui/button'
 
 export function CheckoutSection() {
   const features = [
-    '2x ClickTrack Pro Wristbands',
+    '2x Klikkr Pro Wristbands',
     'One-click score tracking',
     'Water & sweat resistant',
     'Shockproof silicone build',
@@ -24,7 +24,7 @@ export function CheckoutSection() {
               Ready to <span className="text-emerald-500">Share</span> The Game?
             </h2>
             <p className="text-zinc-400 text-lg">
-              Get the ClickTrack Pro Duo Pack today. One for you, one for your
+              Get the Klikkr Pro Duo Pack today. One for you, one for your
               opponent. Never disagree on the score again.
             </p>
 
@@ -45,7 +45,7 @@ export function CheckoutSection() {
 
             <div className="relative rounded-3xl border border-zinc-800 bg-zinc-900/80 p-8 backdrop-blur-xl shadow-2xl">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold">ClickTrack Pro Duo Pack</h3>
+                <h3 className="text-2xl font-bold">Klikkr Pro Duo Pack</h3>
                 <p className="text-zinc-400 mt-2">
                   The ultimate sports companion for you and your rival.
                 </p>

@@ -37,7 +37,7 @@ export function Imprint({ onClose }: ImprintProps) {
               Kontaktadresse
             </h3>
             <address className="not-italic leading-relaxed">
-              <strong>ClickTrack</strong>
+              <strong>Klikkr</strong>
               <br />
               <p className="text-zinc-500 text-sm mt-2 italic">
                 Im Baumgarten 4
@@ -58,10 +58,12 @@ export function Imprint({ onClose }: ImprintProps) {
               <br />
               <strong>Webseite:</strong>{' '}
               <a
-                href="http://clicktrack.awild.ch"
+                href="http://klikkr.awild.ch"
                 className="text-emerald-400 hover:text-emerald-300 transition-colors"
+                target="_blank"
+                rel="noreferrer"
               >
-                http://clicktrack.awild.ch
+                http://klikkr.awild.ch
               </a>
             </address>
           </section>
