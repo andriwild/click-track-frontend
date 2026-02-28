@@ -93,7 +93,7 @@ export function CheckoutSection() {
                   className="w-full h-14 text-lg font-bold bg-emerald-500 hover:bg-emerald-600 text-zinc-950 transition-transform active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.3)]"
                   onClick={() => {
                     window.location.href =
-                      'https://buy.stripe.com/bJe14m6UB5Qp3bybn31ZS00'
+                      'https://buy.stripe.com/28E4gy4MtfqZ5jG4YF1ZS02'
                   }}
                 >
                   Buy Duo Pack
