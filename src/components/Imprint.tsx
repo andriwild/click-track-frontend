@@ -58,12 +58,12 @@ export function Imprint({ onClose }: ImprintProps) {
               <br />
               <strong>Webseite:</strong>{' '}
               <a
-                href="http://klikkr.awild.ch"
+                href="https://klikkr.ch"
                 className="text-emerald-400 hover:text-emerald-300 transition-colors"
                 target="_blank"
                 rel="noreferrer"
               >
-                http://klikkr.awild.ch
+                https://klikkr.ch
               </a>
             </address>
           </section>
