@@ -20,7 +20,7 @@ serve(async (req) => {
   try {
     const body = await req.text()
     // Verify the webhook request
-    const event = await stripe.webhooks.signature.verifyAsync(
+    const event = await stripe.webhooks.constructEventAsync(
       body,
       signature,
       webhookSecret,
@@ -38,11 +38,18 @@ serve(async (req) => {
       ) as string
       const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
+      const customerName = session.customer_details?.name || 'Unknown'
+      const customerEmail = session.customer_details?.email || 'Unknown'
+      const shippingAddress = session.shipping_details?.address
+        ? `${session.shipping_details.address.line1 || ''}, ${session.shipping_details.address.postal_code || ''} ${session.shipping_details.address.city || ''}, ${session.shipping_details.address.country || ''}`.trim()
+        : null
+
       // Save the order to DB
       const { error } = await supabase.from('orders').insert({
         stripe_session_id: session.id,
-        customer_email: session.customer_details?.email,
-        customer_name: session.customer_details?.name,
+        customer_email: customerEmail,
+        customer_name: customerName,
+        shipping_address: shippingAddress,
         amount_total: session.amount_total,
         currency: session.currency,
         payment_status: session.payment_status,
@@ -50,11 +57,17 @@ serve(async (req) => {
       })
 
       if (error) {
-        console.error('Error inserting order:', error)
+        console.error(
+          'Error inserting order (possibly missing column):',
+          error.message
+        )
+        console.log(
+          'Ensure your "orders" table has these columns: stripe_session_id, customer_email, customer_name, shipping_address, amount_total, currency, payment_status, created_at'
+        )
         return new Response('Database error', { status: 500 })
       }
 
-      console.log(`Order saved for ${session.customer_details?.email}`)
+      console.log(`Order saved for ${customerEmail}`)
     }
 
     return new Response(JSON.stringify({ received: true }), { status: 200 })
