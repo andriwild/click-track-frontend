@@ -90,30 +90,36 @@ export function AGB({ onClose }: AGBProps) {
 
           <section>
             <h3 className="text-xl font-semibold text-zinc-50 mb-3">
-              5. Lieferbedingungen
+              5. Lieferbedingungen & Eigentumsvorbehalt
             </h3>
             <p className="leading-relaxed">
-              Die Lieferung erfolgt an die vom Kunden im Bestellprozess
-              angegebene Lieferadresse. Die Lieferzeit richtet sich nach dem
-              Bestimmungsort und der Verfügbarkeit. Bei Lieferverzögerungen wird
-              der Kunde umgehend per E-Mail informiert. Der Anbieter haftet
-              nicht für Lieferverzögerungen, die durch Dritte (wie Post oder
-              Kurierdienste) verursacht werden.
+              Die auf der Webseite angegebenen Lieferfristen sind unverbindliche
+              Richtwerte. Lieferverzögerungen begründen unter keinen Umständen
+              Schadenersatzansprüche oder ein Recht auf Vertragsrücktritt des
+              Käufers. Der Anbieter haftet nicht für Lieferverzögerungen, die
+              durch Dritte (wie Post oder Kurierdienste) oder durch höhere
+              Gewalt verursacht werden. Die gelieferte Ware bleibt bis zur
+              vollständigen Bezahlung Eigentum des Anbieters.
             </p>
           </section>
 
           <section>
             <h3 className="text-xl font-semibold text-zinc-50 mb-3">
-              6. Gewährleistung und Mängelhaftung
+              6. Prüfpflicht und Mängelgewährleistung
             </h3>
             <p className="leading-relaxed">
-              Dem Kunden steht die gesetzliche Gewährleistung für
-              Mängelreparaturen (in der Schweiz gemäss OR) von 2 Jahren zu. Der
-              Kunde ist verpflichtet, die gelieferte Ware umgehend nach Erhalt
-              zu prüfen und offensichtliche Mängel unverzüglich schriftlich per
-              E-Mail zu melden. Von der Gewährleistung ausgeschlossen sind
-              Schäden, die durch unsachgemässe Behandlung, normale Abnutzung
-              oder Fremdeinwirkung entstanden sind.
+              Der Kunde ist verpflichtet, die gelieferte Ware unmittelbar nach
+              Erhalt auf Mängel und Vollständigkeit zu prüfen. Offensichtliche
+              sowie verdeckte Mängel müssen zwingend innerhalb von 3
+              Kalendertagen nach Erhalt (oder nach Entdeckung) detailliert und
+              schriftlich (per E-Mail) unter Beilage von Beweisfotos gemeldet
+              werden. Versäumt der Kunde diese Rügefrist, gilt die Ware als
+              mängelfrei genehmigt. Geringfügige, handelsübliche Abweichungen
+              (z.B. im Farbton oder in leichten Spaltmassen) stellen keinen
+              Mangel dar. Die Gewährleistung des Anbieters beschränkt sich nach
+              dessen Wahl strikt auf Nachbesserung (Reparatur) oder
+              Ersatzlieferung. Wandelung und Minderung sind explizit
+              ausgeschlossen.
             </p>
           </section>
 
@@ -122,10 +128,13 @@ export function AGB({ onClose }: AGBProps) {
               7. Haftungsausschluss
             </h3>
             <p className="leading-relaxed">
-              Die Haftung des Anbieters für leichte Fahrlässigkeit wird
-              ausgeschlossen. Die Haftung für Hilfspersonen wird ebenfalls
-              vollständig ausgeschlossen. Zwingende gesetzliche Bestimmungen
-              (wie z.B. das Produkthaftpflichtgesetz) bleiben unberührt.
+              Die Haftung des Anbieters für direkte, indirekte oder Folgeschäden
+              (wie entgangener Gewinn, entgangene Sportresultate oder
+              immaterielle Schäden) wird – unabhängig von ihrem Rechtsgrund –
+              soweit gesetzlich zulässig (d.h. ausser bei rechtswidriger Absicht
+              oder grober Fahrlässigkeit) vollumfänglich und explizit
+              ausgeschlossen. Ebenso wird jede Haftung für Hilfspersonen
+              gestützt auf Art. 101 OR vollständig ausgeschlossen.
             </p>
           </section>
 

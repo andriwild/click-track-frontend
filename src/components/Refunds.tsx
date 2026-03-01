@@ -63,32 +63,42 @@ export function Refunds({ onClose }: RefundsProps) {
 
           <section>
             <h3 className="text-xl font-semibold text-zinc-50 mb-3">
-              Bedingungen für die Rückgabe
+              Bedingungen für die freiwillige Rückgabe
             </h3>
             <div className="leading-relaxed space-y-2">
               <p>
-                Eine reibungslose Rückerstattung des Kaufpreises ist an folgende
-                Bedingungen geknüpft:
+                Sollte der Anbieter einer freiwilligen Rücknahme zustimmen, ist
+                diese an folgende zwingende, kumulative Bedingungen geknüpft:
               </p>
               <ul className="list-disc list-inside space-y-1 ml-2 text-zinc-400">
-                <li>Die Frist von 14 Tagen nach Empfang wird eingehalten.</li>
+                <li>
+                  Die Frist von 14 Tagen nach Empfang wird strikt eingehalten.
+                </li>
                 <li>
                   Der Klikkr Pro ist{' '}
                   <strong>
-                    ungenutzt, originalverpackt und weisst keinerlei
-                    Gebrauchsspuren
-                  </strong>{' '}
-                  (wie z.B. Kratzer, Schweiss oder defekte Armbänder) auf.
+                    komplett ungenutzt, versiegelt und in der ungeöffneten
+                    Originalverpackung
+                  </strong>
+                  . Sobald das Siegel oder die Verpackung geöffnet wurde,
+                  erlischt jegliches Rückgaberecht.
                 </li>
                 <li>
-                  Das Rücksendeporto geht vollständig zu Lasten des Käufers.
+                  Das Rücksendeporto sowie das Risiko des Rückversands gehen
+                  vollständig zu Lasten des Käufers.
+                </li>
+                <li>
+                  Der Anbieter behält sich vor, eine Bearbeitungsgebühr
+                  (Restocking Fee) von bis zu 20% des Kaufpreises, mindestens
+                  aber die entstandenen initialen Versand- und Zahlungsgebühren,
+                  vom Erstattungsbetrag abzuziehen.
                 </li>
               </ul>
             </div>
             <p className="leading-relaxed mt-4">
-              Sollte die Ware beschädigt oder in einem offenkundig genutzten
-              Zustand bei uns eintreffen, behalten wir uns das Recht vor, die
-              Rücknahme und Rückerstattung des Kaufpreises abzulehnen.
+              Trifft die Ware geöffnet, beschädigt oder in anderweitig genutztem
+              Zustand bei uns ein, wird die Rücknahme verweigert und die Ware
+              auf Kosten des Käufers retourniert.
             </p>
           </section>
 
@@ -97,11 +107,10 @@ export function Refunds({ onClose }: RefundsProps) {
               Rückerstattung
             </h3>
             <p className="leading-relaxed">
-              Nach Erhalt und Prüfung der einwandfreien Retoure erstatten wir
-              Ihnen den Kaufpreis (exklusive entstandener Hin- und
-              Rückversandkosten) innerhalb von 10 Arbeitstagen über dieselbe
-              Zahlungsmethode (via Stripe) zurück, die Sie beim Kauf verwendet
-              haben.
+              Nach Erhalt und eingehender Prüfung der einwandfreien Retoure
+              erstatten wir Ihnen den verbleibenden Kaufpreis (abzüglich aller
+              Gebühren) innerhalb von 30 Tagen über dieselbe Zahlungsmethode
+              zurück.
             </p>
           </section>
 
@@ -110,11 +119,15 @@ export function Refunds({ onClose }: RefundsProps) {
               Defekte Ware (Garantie)
             </h3>
             <p className="leading-relaxed">
-              Weist Ihr Gerät einen Defekt oder Materialfehler (Garantiefall
-              nach OR) auf, kontaktieren Sie uns bitte ebenfalls umgehend per
-              E-Mail. Wir prüfen den Fall und sorgen, sofern ein
-              Garantieanspruch vorliegt, für eine kostenfreie Reparatur oder
-              Ersatzlieferung.
+              Weist Ihr Gerät einen nachweislichen Material- oder
+              Herstellungsfehler auf, kontaktieren Sie uns bitte umgehend (max.
+              3 Tage nach Entdeckung) per E-Mail. Bei berechtigten Reklamationen
+              behält sich der Anbieter allein das Recht vor, nach eigenem
+              Ermessen den Mangel durch kostenfreie Reparatur, Ersatzlieferung
+              oder vollständige bzw. teilweise Rückerstattung des Kaufpreises zu
+              beheben. Ein Anspruch des Käufers auf eine bestimmte Art der
+              Mängelbehebung (z.B. Ersatz anstatt Reparatur) besteht
+              ausdrücklich nicht.
             </p>
           </section>
         </div>
