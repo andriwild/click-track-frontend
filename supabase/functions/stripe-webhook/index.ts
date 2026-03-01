@@ -1,15 +1,15 @@
-import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
+// This enables autocomplete, go to definition, etc. in a Deno environment
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-import Stripe from 'https://esm.sh/stripe@12.1.1?target=deno'
+import Stripe from 'npm:stripe@^14.0.0'
 
 const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY') as string, {
-  apiVersion: '2022-11-15',
+  apiVersion: '2024-11-20.acacia',
   httpClient: Stripe.createFetchHttpClient(),
 })
 
 const cryptoProvider = Stripe.createSubtleCryptoProvider()
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   const signature = req.headers.get('Stripe-Signature')
   const webhookSecret = Deno.env.get('STRIPE_WEBHOOK_SECRET')
 
@@ -29,26 +29,46 @@ serve(async (req) => {
     )
 
     if (event.type === 'checkout.session.completed') {
-      const session = event.data.object
+      const session = event.data.object as Stripe.Checkout.Session
 
       // Initialize Supabase client
-      const supabaseUrl = Deno.env.get('SUPABASE_URL') as string
-      const supabaseServiceKey = Deno.env.get(
-        'SUPABASE_SERVICE_ROLE_KEY'
-      ) as string
+      const supabaseUrl = Deno.env.get('SUPABASE_URL')
+      const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
+
+      if (!supabaseUrl || !supabaseServiceKey) {
+        console.error('Missing Supabase environment variables')
+        return new Response('Server configuration error', { status: 500 })
+      }
+
       const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
-      const customerName = session.customer_details?.name || 'Unknown'
+      const customerName =
+        session.customer_details?.name ||
+        session.collected_information?.shipping_details?.name ||
+        'Unknown'
       const customerEmail = session.customer_details?.email || 'Unknown'
-      const shippingAddress = session.shipping_details?.address
-        ? `${session.shipping_details.address.line1 || ''}, ${session.shipping_details.address.postal_code || ''} ${session.shipping_details.address.city || ''}, ${session.shipping_details.address.country || ''}`.trim()
-        : null
+
+      // Helper to format Stripe addresses consistently
+      const formatAddress = (addr: Stripe.Address) => {
+        if (!addr) return null
+        return `${addr.line1 || ''}, ${addr.postal_code || ''} ${addr.city || ''}, ${addr.country || ''}`.trim()
+      }
+
+      const billingAddress =
+        formatAddress(session.customer_details?.address) ||
+        'Keine Rechnungsadresse hinterlegt'
+      const shippingAddress =
+        formatAddress(
+          session.shipping_details?.address ||
+            session.collected_information?.shipping_details?.address
+        ) || 'Keine Lieferadresse hinterlegt'
 
       // Save the order to DB
       const { error } = await supabase.from('orders').insert({
         stripe_session_id: session.id,
         customer_email: customerEmail,
         customer_name: customerName,
+        billing_address: billingAddress,
         shipping_address: shippingAddress,
         amount_total: session.amount_total,
         currency: session.currency,
@@ -58,11 +78,8 @@ serve(async (req) => {
 
       if (error) {
         console.error(
-          'Error inserting order (possibly missing column):',
+          'Error inserting order (possibly missing column or constraint):',
           error.message
-        )
-        console.log(
-          'Ensure your "orders" table has these columns: stripe_session_id, customer_email, customer_name, shipping_address, amount_total, currency, payment_status, created_at'
         )
         return new Response('Database error', { status: 500 })
       }
@@ -71,7 +88,7 @@ serve(async (req) => {
     }
 
     return new Response(JSON.stringify({ received: true }), { status: 200 })
-  } catch (err) {
+  } catch (err: Error) {
     console.error(`Webhook Error: ${err.message}`)
     return new Response(`Webhook Error: ${err.message}`, { status: 400 })
   }
