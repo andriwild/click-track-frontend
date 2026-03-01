@@ -14,9 +14,9 @@ function App() {
       <header className="w-full py-4 px-4 md:px-6 border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
-            src="/logo.png"
+            src="/favicon.svg"
             alt="Klikkr Logo"
-            className="h-8 w-8 object-contain rounded-md"
+            className="h-8 w-8 object-contain"
           />
           <span className="font-bold text-xl tracking-tight text-zinc-50">
             Klikkr <span className="text-emerald-400">Pro</span>
