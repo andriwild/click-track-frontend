@@ -50,8 +50,19 @@ function App() {
 
       <footer className="w-full py-6 border-t border-zinc-900 bg-zinc-950 relative z-10">
         <div className="container mx-auto px-4 md:px-6 flex flex-col sm:flex-row items-center justify-between text-sm text-zinc-500">
-          <p>© {new Date().getFullYear()} Klikkr Pro. All rights reserved.</p>
-          <div className="mt-4 sm:mt-0 flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-2">
+          <div className="flex flex-col items-center sm:items-start gap-1">
+            <p>© {new Date().getFullYear()} Klikkr Pro. All rights reserved.</p>
+            <a
+              href="mailto:andri.wild@gmx.ch?subject=Website%20Inquiry"
+              className="text-xs text-zinc-600 hover:text-emerald-400 transition-colors flex items-center gap-1"
+            >
+              <span>Design & Code by</span>
+              <span className="font-medium text-zinc-400 hover:text-emerald-400">
+                awild.ch
+              </span>
+            </a>
+          </div>
+          <div className="mt-6 sm:mt-0 flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-2">
             <button
               onClick={() => setShowAGB(true)}
               className="hover:text-emerald-400 transition-colors"
