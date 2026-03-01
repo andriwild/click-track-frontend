@@ -13,7 +13,29 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta name="description" content="Klikkr Pro - The ultimate tactical score-tracking wristband" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://klikkr.ch" />
+    <meta property="og:title" content="Klikkr Pro" />
+    <meta property="og:description" content="The ultimate tactical score-tracking wristband" />
+    <!-- TODO: Replace with a real 1200x630px preview image URL deployed to your website -->
+    <meta property="og:image" content="https://klikkr.ch/favicon.svg" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://klikkr.ch" />
+    <meta name="twitter:title" content="Klikkr Pro" />
+    <meta name="twitter:description" content="The ultimate tactical score-tracking wristband" />
+    <meta name="twitter:image" content="https://klikkr.ch/favicon.svg" />
+    
+    <!-- Web Analytics (Plausible - Privacy Friendly & Cookie-less) -->
+    <!-- <script defer data-domain="klikkr.ch" src="https://plausible.io/js/script.js"></script> -->
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>

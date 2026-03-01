@@ -3,11 +3,17 @@ import { HeroSection } from './components/HeroSection'
 import { FeaturesSection } from './components/FeaturesSection'
 import { CheckoutSection } from './components/CheckoutSection'
 import { Imprint } from './components/Imprint'
+import { AGB } from './components/AGB'
+import { Privacy } from './components/Privacy'
+import { Refunds } from './components/Refunds'
 import { Button } from './components/ui/button'
 import { AppFeaturesSection } from './components/AppFeaturesSection'
 
 function App() {
   const [showImprint, setShowImprint] = useState(false)
+  const [showAGB, setShowAGB] = useState(false)
+  const [showPrivacy, setShowPrivacy] = useState(false)
+  const [showRefunds, setShowRefunds] = useState(false)
 
   return (
     <div className="min-h-screen flex flex-col bg-zinc-950 text-zinc-50 selection:bg-emerald-500/30 font-sans">
@@ -45,7 +51,25 @@ function App() {
       <footer className="w-full py-6 border-t border-zinc-900 bg-zinc-950 relative z-10">
         <div className="container mx-auto px-4 md:px-6 flex flex-col sm:flex-row items-center justify-between text-sm text-zinc-500">
           <p>© {new Date().getFullYear()} Klikkr Pro. All rights reserved.</p>
-          <div className="mt-4 sm:mt-0 space-x-4">
+          <div className="mt-4 sm:mt-0 flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-2">
+            <button
+              onClick={() => setShowAGB(true)}
+              className="hover:text-emerald-400 transition-colors"
+            >
+              AGB
+            </button>
+            <button
+              onClick={() => setShowPrivacy(true)}
+              className="hover:text-emerald-400 transition-colors"
+            >
+              Datenschutz
+            </button>
+            <button
+              onClick={() => setShowRefunds(true)}
+              className="hover:text-emerald-400 transition-colors"
+            >
+              Widerruf
+            </button>
             <button
               onClick={() => setShowImprint(true)}
               className="hover:text-emerald-400 transition-colors"
@@ -56,6 +80,9 @@ function App() {
         </div>
       </footer>
 
+      {showAGB && <AGB onClose={() => setShowAGB(false)} />}
+      {showPrivacy && <Privacy onClose={() => setShowPrivacy(false)} />}
+      {showRefunds && <Refunds onClose={() => setShowRefunds(false)} />}
       {showImprint && <Imprint onClose={() => setShowImprint(false)} />}
     </div>
   )
