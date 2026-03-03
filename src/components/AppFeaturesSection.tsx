@@ -67,12 +67,12 @@ export function AppFeaturesSection() {
             Digital Companion App
           </div>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            More than just Hardware.
+            The Ultimate Companion App.
           </h2>
           <p className="max-w-[900px] text-zinc-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            The free Klikkr Pro app turns your wristbands into a powerful,
-            intelligent scoreboard. Customize your game, connect instantly, and
-            focus entirely on your match.
+            The free Klikkr Pro app turns your Bluetooth wristbands into a
+            powerful, intelligent smart scoreboard. Perfectly designed for
+            fast-paced racket sports like Padel, Tennis, and Squash.
           </p>
         </div>
 

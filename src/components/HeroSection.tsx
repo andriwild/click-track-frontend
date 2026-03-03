@@ -1,4 +1,4 @@
-import { ArrowRight, Trophy, Activity, Target } from 'lucide-react'
+import { ArrowRight, Trophy, Target } from 'lucide-react'
 import { Button } from './ui/button'
 
 export function HeroSection() {
@@ -29,8 +29,9 @@ export function HeroSection() {
                 </span>
               </h1>
               <p className="max-w-[600px] text-zinc-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto lg:mx-0 font-medium">
-                The ultimate tactical score-tracking wristband for Squash,
-                Padel, and Football. One click. Zero distractions.
+                The ultimate wearable Bluetooth score tracker for Padel, Tennis,
+                and Squash. Keep your eyes on the ball, track points with a
+                single click, and let the app handle the rest.
               </p>
             </div>
 
@@ -75,9 +76,9 @@ export function HeroSection() {
                 </span>
               </div>
               <div className="flex items-center">
-                <Activity className="mr-2 h-5 w-5 text-zinc-400" />
+                <Target className="mr-2 h-5 w-5 text-zinc-400" />
                 <span className="text-sm font-semibold uppercase tracking-wider">
-                  Football
+                  Tennis
                 </span>
               </div>
             </div>
