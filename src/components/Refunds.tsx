@@ -55,7 +55,7 @@ export function Refunds({ onClose }: RefundsProps) {
             <p className="leading-relaxed mt-4">
               Um eine Rückgabe in die Wege zu leiten, kontaktieren Sie uns
               zwingend vorab per E-Mail unter
-              <span className="text-emerald-400 ml-1">andri.wild@gmx.ch</span>,
+              <span className="text-emerald-400 ml-1">support@klikkr.ch</span>,
               damit wir Ihnen die genaue Vorgehensweise (Rücksendeadresse)
               mitteilen können.
             </p>

@@ -50,10 +50,10 @@ export function Imprint({ onClose }: ImprintProps) {
               <br />
               <strong>E-Mail:</strong>{' '}
               <a
-                href="mailto:andri.wild@gmx.ch"
+                href="mailto:support@klikkr.ch"
                 className="text-emerald-400 hover:text-emerald-300 transition-colors"
               >
-                andri.wild@gmx.ch
+                support@klikkr.ch
               </a>
               <br />
               <strong>Webseite:</strong>{' '}

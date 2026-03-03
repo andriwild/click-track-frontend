@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Impressum - Klikkr">
+  <div class="min-h-screen flex flex-col bg-zinc-950 text-zinc-50 selection:bg-emerald-500/30 font-sans">
+    
+    <header class="w-full py-4 px-4 md:px-6 border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <img
+          src="/favicon.svg"
+          alt="Klikkr Logo"
+          class="h-7 w-7 object-contain"
+        />
+        <span class="font-bold text-xl tracking-tight text-zinc-50">
+          Klikkr <span class="text-cyan-400">Pro</span>
+        </span>
+      </a>
+      <a
+        href="/"
+        class="inline-flex h-9 items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-sm font-bold text-zinc-950 transition-transform hover:scale-105 hover:bg-emerald-600"
+      >
+        Zurück zur Webseite
+      </a>
+    </header>
+
+    <main class="flex-1 p-6 md:p-12 lg:p-24">
+      <div class="max-w-3xl mx-auto space-y-12">
+        <div class="space-y-6 pb-12 border-b border-zinc-800/50">
+          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Impressum</h1>
+          <p class="text-xl text-zinc-400 font-medium">Informationen gemäss Art. 5 Schweizer UWG</p>
+        </div>
+
+        <div class="space-y-12 text-zinc-300">
+          <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-zinc-50">Kontaktadresse</h2>
+            <address class="not-italic leading-relaxed p-6 bg-zinc-900/50 border border-zinc-800/50 rounded-2xl">
+              <strong class="text-lg text-emerald-400 block mb-2">Klikkr</strong>
+              Andri Wild<br />
+              Im Baumgarten 4<br />
+              6252 Dagmersellen<br />
+              Schweiz<br /><br />
+              <strong>E-Mail:</strong>{' '}
+              <a href="mailto:support@klikkr.ch" class="text-emerald-400 hover:text-emerald-300 transition-colors">support@klikkr.ch</a><br />
+              <strong>Webseite:</strong>{' '}
+              <a href="https://klikkr.ch" class="text-emerald-400 hover:text-emerald-300 transition-colors" target="_blank" rel="noreferrer">https://klikkr.ch</a>
+            </address>
+          </section>
+
+          <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-zinc-50">Haftungsausschluss</h2>
+            <p class="leading-relaxed">
+              Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen.<br /><br />
+              Haftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.<br /><br />
+              Alle Angebote sind unverbindlich. Der Autor behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.
+            </p>
+          </section>
+
+          <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-zinc-50">Haftung für Links</h2>
+            <p class="leading-relaxed">
+              Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf eigene Gefahr des Nutzers oder der Nutzerin.
+            </p>
+          </section>
+
+          <section class="space-y-4 pb-12">
+            <h2 class="text-2xl font-bold text-zinc-50">Urheberrechte</h2>
+            <p class="leading-relaxed">
+              Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf der Website gehören ausschliesslich <strong>Andri Wild</strong> oder den speziell genannten Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="w-full py-6 border-t border-zinc-900 bg-zinc-950 relative z-10">
+      <div class="container mx-auto px-4 md:px-6 flex flex-col sm:flex-row items-center justify-between text-sm text-zinc-500">
+        <div class="flex flex-col items-center sm:items-start gap-1">
+          <p>© {new Date().getFullYear()} Klikkr Pro. All rights reserved.</p>
+          <a
+            href="mailto:support@klikkr.ch?subject=Website%20Inquiry"
+            class="text-xs text-zinc-600 hover:text-emerald-400 transition-colors flex items-center gap-1"
+          >
+            <span>Design & Code by</span>
+            <span class="font-medium text-zinc-400 hover:text-emerald-400">
+              awild.ch
+            </span>
+          </a>
+        </div>
+        <div class="mt-6 sm:mt-0">
+          <a href="/" class="hover:text-emerald-400 transition-colors">
+            Zurück zur Startseite
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</Layout>

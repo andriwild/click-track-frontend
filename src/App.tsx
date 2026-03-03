@@ -53,7 +53,7 @@ function App() {
           <div className="flex flex-col items-center sm:items-start gap-1">
             <p>© {new Date().getFullYear()} Klikkr Pro. All rights reserved.</p>
             <a
-              href="mailto:andri.wild@gmx.ch?subject=Website%20Inquiry"
+              href="mailto:support@klikkr.ch?subject=Website%20Inquiry"
               className="text-xs text-zinc-600 hover:text-emerald-400 transition-colors flex items-center gap-1"
             >
               <span>Design & Code by</span>

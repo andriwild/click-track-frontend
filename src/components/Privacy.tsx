@@ -28,7 +28,7 @@ export function Privacy({ onClose }: PrivacyProps) {
             </h2>
             <p className="text-zinc-400">
               Verantwortliche Stelle: Andri Wild, Im Baumgarten 4, 6252
-              Dagmersellen, andri.wild@gmx.ch
+              Dagmersellen, support@klikkr.ch
             </p>
           </div>
 
