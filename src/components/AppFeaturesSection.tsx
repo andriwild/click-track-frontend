@@ -69,11 +69,42 @@ export function AppFeaturesSection() {
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             The Ultimate Companion App.
           </h2>
-          <p className="max-w-[900px] text-zinc-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          <p className="max-w-[700px] text-zinc-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
             The free Klikkr Pro app turns your Bluetooth wristbands into a
             powerful, intelligent smart scoreboard. Perfectly designed for
             fast-paced racket sports like Padel, Tennis, and Squash.
           </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 mb-4">
+            <div className="opacity-60 saturate-0 transition-all duration-300 hover:saturate-100 hover:opacity-100 cursor-not-allowed">
+              <div className="flex items-center gap-4 bg-zinc-950/60 border border-zinc-700/50 px-6 py-3 rounded-2xl shadow-xl backdrop-blur-sm">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-8 h-8 text-emerald-500"
+                  fill="currentColor"
+                >
+                  <path d="M4 2.691V21.31c0 .484.554.758.94.464l14.24-10.846a.584.584 0 000-.928L4.94 2.227A.582.582 0 004 2.691z" />
+                </svg>
+                <div className="text-left">
+                  <div className="text-[11px] font-bold uppercase tracking-widest text-emerald-400/80 leading-none mb-1.5">
+                    Coming soon for Android
+                  </div>
+                  <div className="text-xl font-bold text-zinc-50 leading-none tracking-tight">
+                    Google Play
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative w-full max-w-3xl mx-auto mt-12 overflow-hidden rounded-3xl border border-zinc-800 shadow-2xl">
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent z-10 pointer-events-none"></div>
+            <img
+              src="/Gemini_Generated_Image_y804huy804huy804.png"
+              alt="Klikkr App Preview Interface"
+              className="w-full h-auto object-cover opacity-90 transition-transform duration-700 hover:scale-[1.02]"
+            />
+          </div>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
