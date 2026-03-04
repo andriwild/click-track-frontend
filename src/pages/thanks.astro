@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Vielen Dank - Klikkr">
+  <div class="min-h-screen flex flex-col bg-zinc-950 text-zinc-50 selection:bg-emerald-500/30 font-sans">
+    
+    <header class="w-full py-4 px-4 md:px-6 border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <img
+          src="/favicon.svg"
+          alt="Klikkr Logo"
+          class="h-7 w-7 object-contain"
+        />
+        <span class="font-bold text-xl tracking-tight text-zinc-50">
+          Klikkr <span class="text-cyan-400">Pro</span>
+        </span>
+      </a>
+      <a
+        href="/"
+        class="inline-flex h-9 items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-sm font-bold text-zinc-950 transition-transform hover:scale-105 hover:bg-emerald-600"
+      >
+        Zurück zur Webseite
+      </a>
+    </header>
+
+    <main class="flex-1 flex flex-col items-center justify-center p-6 md:p-12 lg:p-24 text-center">
+      <div class="max-w-3xl mx-auto space-y-8 animate-in fade-in zoom-in duration-700">
+        
+        <div class="w-24 h-24 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+
+        <div class="space-y-4">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
+            Vielen Dank!
+          </h1>
+          <h2 class="text-xl md:text-2xl font-bold text-zinc-200">
+            Deine Bestellung war erfolgreich.
+          </h2>
+        </div>
+
+        <p class="text-lg md:text-xl text-zinc-400 font-medium leading-relaxed max-w-2xl mx-auto mt-6">
+          Wir haben deine Bestellung erhalten und werden sie so schnell wie möglich bearbeiten. Du erhältst in Kürze eine Bestätigungs-E-Mail mit weiteren Details zu deinem Kauf.
+        </p>
+
+        <div class="pt-8">
+          <a
+            href="/"
+            class="inline-flex h-12 items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-base font-bold text-zinc-950 transition-transform hover:scale-105 hover:bg-emerald-600 gap-2 shadow-lg shadow-emerald-500/20"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Zurück zur Startseite
+          </a>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="w-full py-6 border-t border-zinc-900 bg-zinc-950 relative z-10">
+      <div class="container mx-auto px-4 md:px-6 flex flex-col sm:flex-row items-center justify-between text-sm text-zinc-500">
+        <div class="flex flex-col items-center sm:items-start gap-1">
+          <p>© {new Date().getFullYear()} Klikkr Pro. All rights reserved.</p>
+          <a
+            href="mailto:support@klikkr.ch?subject=Website%20Inquiry"
+            class="text-xs text-zinc-600 hover:text-emerald-400 transition-colors flex items-center gap-1"
+          >
+            <span>Design & Code by</span>
+            <span class="font-medium text-zinc-400 hover:text-emerald-400">
+              awild.ch
+            </span>
+          </a>
+        </div>
+        <div class="mt-6 sm:mt-0 flex gap-4">
+          <a href="/imprint" class="hover:text-emerald-400 transition-colors">
+            Impressum
+          </a>
+          <a href="/app-privacy" class="hover:text-emerald-400 transition-colors">
+            Datenschutz
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</Layout>
