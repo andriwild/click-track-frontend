@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import App from '../../App.tsx';
+import { Footer } from '../../components/Footer.tsx';
+---
+
+<Layout title="Klikkr Pro | Wearable Score Tracker for Padel, Tennis & Squash" currentPage="home" lang="en">
+  <App client:load lang="en" />
+  <Footer client:visible slot="footer" lang="en" />
+</Layout>

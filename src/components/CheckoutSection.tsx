@@ -1,14 +1,9 @@
 import { Check, ArrowRight } from 'lucide-react'
 import { Button } from './ui/button'
+import { getTranslations, type Locale } from '../i18n'
 
-export function CheckoutSection() {
-  const features = [
-    '2x Klikkr Pro Wristbands',
-    'One-click score tracking',
-    'Water & sweat resistant',
-    'Shockproof silicone build',
-    '2-year battery life',
-  ]
+export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
+  const t = getTranslations(lang).checkout
 
   return (
     <section
@@ -21,15 +16,14 @@ export function CheckoutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase relative">
-              Ready to <span className="text-emerald-500">Share</span> The Game?
+              {t.title}{' '}
+              <span className="text-emerald-500">{t.titleAccent}</span>
+              {t.titleEnd}
             </h2>
-            <p className="text-zinc-400 text-lg">
-              Get the Klikkr Pro Duo Pack today. One for you, one for your
-              opponent. Never disagree on the score again.
-            </p>
+            <p className="text-zinc-400 text-lg">{t.description}</p>
 
             <ul className="space-y-3 pt-4">
-              {features.map((feature, i) => (
+              {t.featuresList.map((feature, i) => (
                 <li key={i} className="flex items-center text-zinc-300">
                   <div className="mr-3 p-1 rounded-full bg-emerald-500/20 text-emerald-500">
                     <Check className="h-4 w-4" />
@@ -46,16 +40,14 @@ export function CheckoutSection() {
             <div className="space-y-6">
               <div className="relative rounded-3xl border border-zinc-800 bg-zinc-900/80 p-8 backdrop-blur-xl shadow-2xl">
                 <div className="mb-6">
-                  <h3 className="text-2xl font-bold">Klikkr Pro Single Pack</h3>
-                  <p className="text-zinc-400 mt-2">
-                    Perfect for individual tracking.
-                  </p>
+                  <h3 className="text-2xl font-bold">{t.singleTitle}</h3>
+                  <p className="text-zinc-400 mt-2">{t.singleDescription}</p>
                 </div>
 
                 <div className="mb-8 flex items-baseline text-4xl font-extrabold">
-                  39 CHF
+                  {t.singlePrice}
                   <span className="ml-2 text-lg font-medium text-zinc-500">
-                    / one-time
+                    {t.singlePriceLabel}
                   </span>
                 </div>
 
@@ -66,26 +58,24 @@ export function CheckoutSection() {
                       'https://buy.stripe.com/4gM6oG7YF6Ut27ubn31ZS01'
                   }}
                 >
-                  Buy Single Pack
+                  {t.singleCta}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
 
               <div className="relative rounded-3xl border border-emerald-500/30 bg-zinc-900/80 p-8 backdrop-blur-xl shadow-2xl overflow-hidden">
                 <div className="absolute top-0 right-0 bg-emerald-500 text-zinc-950 font-bold text-xs px-3 py-1 rounded-bl-xl uppercase tracking-wider">
-                  Most Popular
+                  {t.duoBadge}
                 </div>
                 <div className="mb-6">
-                  <h3 className="text-2xl font-bold">Klikkr Pro Duo Pack</h3>
-                  <p className="text-zinc-400 mt-2">
-                    The ultimate sports companion for you and your rival.
-                  </p>
+                  <h3 className="text-2xl font-bold">{t.duoTitle}</h3>
+                  <p className="text-zinc-400 mt-2">{t.duoDescription}</p>
                 </div>
 
                 <div className="mb-8 flex items-baseline text-4xl font-extrabold">
-                  49 CHF
+                  {t.duoPrice}
                   <span className="ml-2 text-lg font-medium text-zinc-500">
-                    / one-time
+                    {t.duoPriceLabel}
                   </span>
                 </div>
 
@@ -96,12 +86,12 @@ export function CheckoutSection() {
                       'https://buy.stripe.com/28E4gy4MtfqZ5jG4YF1ZS02'
                   }}
                 >
-                  Buy Duo Pack
+                  {t.duoCta}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
 
                 <p className="text-center text-xs text-zinc-500 mt-4">
-                  Secure payment processing by Stripe. Fully encrypted.
+                  {t.securePayment}
                 </p>
               </div>
             </div>

@@ -1,7 +1,10 @@
 import { ArrowRight, Trophy, Target } from 'lucide-react'
 import { Button } from './ui/button'
+import { getTranslations, type Locale } from '../i18n'
 
-export function HeroSection() {
+export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
+  const t = getTranslations(lang).hero
+
   return (
     <section className="relative overflow-hidden w-full pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 bg-zinc-950 text-zinc-50">
       <div className="absolute inset-0 z-0">
@@ -15,23 +18,24 @@ export function HeroSection() {
             <div className="space-y-4">
               <div className="inline-flex items-center rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1 text-sm text-zinc-400 font-medium backdrop-blur-sm">
                 <span className="flex h-2 w-2 rounded-full bg-emerald-500 mr-2"></span>
-                Now available for pre-order
+                {t.badge}
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter uppercase leading-tight">
-                Track Every{' '}
+                {t.titleLine1}{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                  Point.
+                  {t.titleAccent1}
                 </span>
                 <br />
-                Own the{' '}
+                {t.titleLine2}{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                  Game.
+                  {t.titleAccent2}
                 </span>
               </h1>
+              <p className="text-2xl md:text-3xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400 italic">
+                {t.slogan}
+              </p>
               <p className="max-w-[600px] text-zinc-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto lg:mx-0 font-medium">
-                The ultimate wearable Bluetooth score tracker for Padel, Tennis,
-                and Squash. Keep your eyes on the ball, track points with a
-                single click, and let the app handle the rest.
+                {t.description}
               </p>
             </div>
 
@@ -45,7 +49,7 @@ export function HeroSection() {
                     ?.scrollIntoView({ behavior: 'smooth' })
                 }
               >
-                Get your Duo Pack for 49 CHF
+                {t.ctaPrimary}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
@@ -58,7 +62,7 @@ export function HeroSection() {
                     ?.scrollIntoView({ behavior: 'smooth' })
                 }
               >
-                Learn more
+                {t.ctaSecondary}
               </Button>
             </div>
 
@@ -66,19 +70,19 @@ export function HeroSection() {
               <div className="flex items-center">
                 <Trophy className="mr-2 h-5 w-5 text-zinc-400" />
                 <span className="text-sm font-semibold uppercase tracking-wider">
-                  Squash
+                  {t.sportSquash}
                 </span>
               </div>
               <div className="flex items-center">
                 <Target className="mr-2 h-5 w-5 text-zinc-400" />
                 <span className="text-sm font-semibold uppercase tracking-wider">
-                  Padel
+                  {t.sportPadel}
                 </span>
               </div>
               <div className="flex items-center">
                 <Target className="mr-2 h-5 w-5 text-zinc-400" />
                 <span className="text-sm font-semibold uppercase tracking-wider">
-                  Tennis
+                  {t.sportTennis}
                 </span>
               </div>
             </div>
@@ -89,11 +93,11 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-emerald-500/20 rounded-full blur-2xl animate-pulse" />
               <img
                 src="/product.png"
-                alt="Klikkr Pro Duo Pack Concept"
+                alt={t.productAlt}
                 className="relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl border border-zinc-800/50 transition-all duration-700"
               />
               <div className="absolute bottom-4 right-4 z-20 bg-zinc-950/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-zinc-800 text-zinc-400 text-xs shadow-lg font-medium">
-                * Symbolbild
+                {t.symbolImage}
               </div>
             </div>
           </div>

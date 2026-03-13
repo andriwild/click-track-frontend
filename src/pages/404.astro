@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Footer } from '../components/Footer.tsx';
+---
+
+<Layout title="404 – Page Not Found | Klikkr Pro" currentPage="" lang="de">
+  <div class="flex flex-col" style="min-height: calc(100dvh - 7rem);">
+    <section class="flex-1 flex flex-col items-center justify-center bg-zinc-950 text-zinc-50 overflow-hidden px-4">
+      <!-- Background glow -->
+      <div class="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[140px] opacity-60 -translate-x-1/2 -translate-y-1/2"></div>
+
+      <div class="relative z-10 flex flex-col items-center text-center space-y-6 max-w-lg">
+        <h1 class="text-[10rem] sm:text-[12rem] font-black tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-b from-zinc-700 to-zinc-900 select-none">
+          404
+        </h1>
+
+        <div class="space-y-3 -mt-8">
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight uppercase">
+            Out of <span class="text-emerald-400">Bounds</span>
+          </h2>
+          <p class="text-zinc-400 text-lg font-medium max-w-md">
+            This page doesn't exist — like a point that was never scored. Let's get you back in the game.
+          </p>
+        </div>
+
+        <a
+          href="/"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold transition-transform hover:scale-105 h-12 px-8 text-base mt-4"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Back to Home
+        </a>
+      </div>
+    </section>
+
+    <Footer client:visible lang="de" />
+  </div>
+</Layout>
