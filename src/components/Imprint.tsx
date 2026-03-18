@@ -37,7 +37,7 @@ export function Imprint({ onClose }: ImprintProps) {
               Kontaktadresse
             </h3>
             <address className="not-italic leading-relaxed">
-              <strong>Klikkr</strong>
+              <strong className="text-emerald-400">Wild Tec</strong>
               <br />
               <p className="text-zinc-500 text-sm mt-2 italic">
                 Im Baumgarten 4
@@ -111,7 +111,7 @@ export function Imprint({ onClose }: ImprintProps) {
             <p className="leading-relaxed">
               Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos
               oder anderen Dateien auf der Website gehören ausschliesslich{' '}
-              <strong>Andri Wild</strong> oder den speziell genannten
+              <strong>Wild Tec</strong> oder den speziell genannten
               Rechtsinhabern. Für die Reproduktion jeglicher Elemente ist die
               schriftliche Zustimmung der Urheberrechtsträger im Voraus
               einzuholen.

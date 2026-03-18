@@ -37,11 +37,10 @@ export function AGB({ onClose }: AGBProps) {
             </h3>
             <p className="leading-relaxed">
               Für die Nutzung dieser Webseite sowie die Geschäftsbeziehungen
-              zwischen Klikkr (Andri Wild, Im Baumgarten 4, 6252 Dagmersellen,
-              nachfolgend "Anbieter") und ihren Kunden gelten die nachfolgenden
-              Allgemeinen Geschäftsbedingungen (AGB) in der bei Aufruf der
-              Webseite bzw. bei Warenbestellung aktuell abrufbaren und gültigen
-              Fassung.
+              zwischen Wild Tec (Im Baumgarten 4, 6252 Dagmersellen, nachfolgend
+              "Anbieter") und ihren Kunden gelten die nachfolgenden Allgemeinen
+              Geschäftsbedingungen (AGB) in der bei Aufruf der Webseite bzw. bei
+              Warenbestellung aktuell abrufbaren und gültigen Fassung.
             </p>
           </section>
 

@@ -21,12 +21,12 @@ export function Footer({ lang = 'de' }: { lang?: Locale }) {
               © {new Date().getFullYear()} Klikkr Pro. {t.allRightsReserved}
             </p>
             <a
-              href="mailto:support@klikkr.ch?subject=Website%20Inquiry"
+              href="mailto:info@wild-tec.ch?subject=Website%20Inquiry"
               className="text-xs text-zinc-600 hover:text-emerald-400 transition-colors flex items-center gap-1"
             >
               <span>{t.designBy}</span>
               <span className="font-medium text-zinc-400 hover:text-emerald-400">
-                awild.ch
+                Wild Tec
               </span>
             </a>
           </div>
