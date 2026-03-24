@@ -29,3 +29,6 @@ dist-ssr
 bg_venv/
 bg_venv_cli/
 bg_venv_cpu/
+
+
+todo.md

@@ -49,7 +49,7 @@ Deno.serve(async (req) => {
       const customerEmail = session.customer_details?.email || 'Unknown'
 
       // Helper to format Stripe addresses consistently
-      const formatAddress = (addr: Stripe.Address) => {
+      const formatAddress = (addr: Stripe.Address | null | undefined) => {
         if (!addr) return null
         return `${addr.line1 || ''}, ${addr.postal_code || ''} ${addr.city || ''}, ${addr.country || ''}`.trim()
       }
@@ -63,33 +63,84 @@ Deno.serve(async (req) => {
             session.collected_information?.shipping_details?.address
         ) || 'Keine Lieferadresse hinterlegt'
 
-      // Save the order to DB
-      const { error } = await supabase.from('orders').insert({
-        stripe_session_id: session.id,
-        customer_email: customerEmail,
-        customer_name: customerName,
-        billing_address: billingAddress,
-        shipping_address: shippingAddress,
-        amount_total: session.amount_total,
-        currency: session.currency,
-        payment_status: session.payment_status,
-        created_at: new Date().toISOString(),
-      })
+      // 1. Save the order to DB and get the generated order UUID
+      const { data: orderData, error: orderError } = await supabase
+        .from('orders')
+        .insert({
+          stripe_session_id: session.id,
+          customer_email: customerEmail,
+          customer_name: customerName,
+          billing_address: billingAddress,
+          shipping_address: shippingAddress,
+          amount_total: session.amount_total,
+          currency: session.currency,
+          payment_status: session.payment_status,
+          created_at: new Date().toISOString(),
+        })
+        .select('id')
+        .single()
 
-      if (error) {
-        console.error(
-          'Error inserting order (possibly missing column or constraint):',
-          error.message
-        )
+      if (orderError) {
+        console.error('Error inserting order:', orderError.message)
         return new Response('Database error', { status: 500 })
       }
 
-      console.log(`Order saved for ${customerEmail}`)
+      console.log(`Order saved for ${customerEmail} with ID: ${orderData.id}`)
+
+      // 2. Fetch Line Items from Stripe (they are not fully included in the session object by default)
+      const lineItems = await stripe.checkout.sessions.listLineItems(session.id)
+
+      // 3. Loop through Line Items, create/update Product and insert Order Item
+      for (const item of lineItems.data) {
+        // Stripe Product ID als SKU (Stock Keeping Unit) nutzen
+        const sku =
+          typeof item.price?.product === 'string'
+            ? item.price.product
+            : 'unknown-sku'
+
+        // 3a. Produkt in DB anlegen oder aktualisieren (Upsert anhand der SKU)
+        const { data: productData, error: productError } = await supabase
+          .from('products')
+          .upsert(
+            {
+              name: item.description || 'Unbekanntes Produkt',
+              sku: sku,
+              unit: 'Stk.', // Standardwert
+            },
+            { onConflict: 'sku' }
+          ) // <- Verhindert Duplikate, wenn das Produkt schon existiert
+          .select('id')
+          .single()
+
+        if (productError) {
+          console.error('Error upserting product:', productError.message)
+          continue // Wir machen mit dem nächsten Item weiter
+        }
+
+        // 3b. Bestellposition (Order Item) speichern
+        const quantity = item.quantity || 1
+        // Der Preis in Cents für 1 Stück (amount_total des Items geteilt durch Menge)
+        const unitPriceCents = Math.round(item.amount_total / quantity)
+
+        const { error: itemError } = await supabase.from('order_items').insert({
+          order_id: orderData.id, // Verknüpfung zur gerade erstellten Order
+          product_id: productData.id, // Verknüpfung zum Produkt
+          quantity: quantity,
+          unit_price_cents: unitPriceCents,
+        })
+
+        if (itemError) {
+          console.error('Error inserting order item:', itemError.message)
+        }
+      }
+
+      console.log(`Order Items saved for Session ${session.id}`)
     }
 
     return new Response(JSON.stringify({ received: true }), { status: 200 })
-  } catch (err: Error) {
-    console.error(`Webhook Error: ${err.message}`)
-    return new Response(`Webhook Error: ${err.message}`, { status: 400 })
+  } catch (err) {
+    const error = err as Error
+    console.error(`Webhook Error: ${error.message}`)
+    return new Response(`Webhook Error: ${error.message}`, { status: 400 })
   }
 })

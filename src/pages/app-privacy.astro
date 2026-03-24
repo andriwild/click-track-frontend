@@ -1,98 +1,141 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Shield, Bluetooth, Smartphone, MapPin, Mail, HardDrive } from 'lucide-react';
 ---
 
-<Layout title="Privacy Policy - Klikkr App">
+<Layout title="Datenschutzerklärung App – Klikkr Pro" currentPage="" lang="de">
   <main class="min-h-screen bg-zinc-950 text-zinc-50 font-sans p-6 md:p-12 lg:p-24 selection:bg-emerald-500/30">
     <div class="max-w-3xl mx-auto space-y-12">
-      
-      {/* Header */}
+
+      <!-- Header -->
       <div class="space-y-6 pb-12 border-b border-zinc-800/50">
         <a href="/" class="inline-flex items-center text-zinc-400 hover:text-emerald-400 transition-colors text-sm font-medium group">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
-          Back to klikkr.ch
+          Zurück zu klikkr.ch
         </a>
         <div>
-          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Privacy Policy</h1>
+          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Datenschutzerklärung</h1>
           <p class="text-xl text-zinc-400 font-medium">Klikkr Pro Companion App (Android & iOS)</p>
         </div>
         <div class="flex flex-wrap items-center gap-4 text-sm text-zinc-500 bg-zinc-900/50 p-4 rounded-xl border border-zinc-800/50">
-          <span class="flex items-center gap-2"><Shield size={16} class="text-emerald-500" /> Effective Date: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+          <span>Stand: 24. März 2026</span>
           <span class="hidden sm:inline">•</span>
-          <a href="mailto:support@klikkr.ch" class="flex items-center gap-2 hover:text-emerald-400 transition-colors"><Mail size={16} /> support@klikkr.ch</a>
+          <a href="mailto:support@klikkr.ch" class="hover:text-emerald-400 transition-colors">support@klikkr.ch</a>
         </div>
       </div>
 
-      {/* Content */}
+      <!-- Content -->
       <div class="space-y-12">
-        
+
         <section class="space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="p-2 bg-emerald-500/10 rounded-lg"><Shield class="text-emerald-500" size={24} /></div>
-            <h2 class="text-2xl font-bold text-zinc-50">1. Core Principle</h2>
+          <h2 class="text-2xl font-bold text-zinc-50">1. Verantwortliche Stelle</h2>
+          <div class="p-6 bg-zinc-900/50 border border-zinc-800/50 rounded-2xl leading-relaxed">
+            <strong class="text-emerald-400">Wild Tec</strong> (Einzelfirma)<br />
+            Inhaber: Andri Wild<br />
+            Im Baumgarten 4<br />
+            6252 Dagmersellen, Schweiz<br /><br />
+            <strong>E-Mail:</strong>{' '}
+            <a href="mailto:support@klikkr.ch" class="text-emerald-400 hover:text-emerald-300 transition-colors">support@klikkr.ch</a>
           </div>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold text-zinc-50">2. Grundprinzip</h2>
           <p class="text-zinc-300 leading-relaxed text-lg">
-            Our app is designed with a privacy-first approach. The Klikkr Pro app 
-            <strong class="text-emerald-400"> does not collect, transmit, or store any personal data</strong> on external servers. 
-            There are no user accounts, no cloud sync, and no tracking analytics.
+            Die Klikkr Pro App verfolgt einen <strong class="text-emerald-400">Privacy-First-Ansatz</strong>.
+            Die App erhebt, überträgt oder speichert keine personenbezogenen Daten auf externen Servern.
+            Es gibt keine Benutzerkonten, keinen Cloud-Sync und kein Tracking.
           </p>
         </section>
 
         <section class="space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="p-2 bg-blue-500/10 rounded-lg"><HardDrive class="text-blue-500" size={24} /></div>
-            <h2 class="text-2xl font-bold text-zinc-50">2. Local Storage Only</h2>
-          </div>
+          <h2 class="text-2xl font-bold text-zinc-50">3. Lokale Datenspeicherung</h2>
           <p class="text-zinc-300 leading-relaxed">
-            All your match data, scores, settings, and paired wristbands are stored <strong>strictly locally</strong> on your own device. When you uninstall the app, all associated data is permanently erased.
+            Alle Spieldaten, Spielstände, Einstellungen und gekoppelten Armbänder werden
+            <strong>ausschliesslich lokal</strong> auf Ihrem Gerät gespeichert.
+            Es findet keine Übertragung an externe Server statt.
           </p>
         </section>
 
         <section class="space-y-4">
-          <h2 class="text-2xl font-bold text-zinc-50 pt-4">3. Required Permissions</h2>
-          <p class="text-zinc-400 mb-6">To function properly as a remote display for your Klikkr Pro wristbands, the app requires specific device permissions.</p>
-          
+          <h2 class="text-2xl font-bold text-zinc-50">4. Erforderliche Berechtigungen</h2>
+          <p class="text-zinc-400 mb-6">
+            Damit die App als Anzeige und Fernbedienung für die Klikkr Pro Armbänder funktioniert,
+            benötigt sie folgende Geräteberechtigungen:
+          </p>
+
           <div class="grid gap-6">
             <div class="bg-zinc-900/50 border border-zinc-800/50 p-6 rounded-2xl">
-              <div class="flex items-start gap-4">
-                <div class="p-3 bg-indigo-500/10 rounded-xl mt-1"><Bluetooth class="text-indigo-400" size={24} /></div>
-                <div>
-                  <h3 class="text-xl font-semibold text-zinc-100 mb-2">Bluetooth (BLE)</h3>
-                  <p class="text-zinc-400 leading-relaxed">
-                    This permission is absolutely critical for the app to work. It allows your phone to discover, connect to, and exchange score data with the Klikkr Pro hardware beacons via Bluetooth Low Energy.
-                  </p>
-                </div>
-              </div>
+              <h3 class="text-xl font-semibold text-zinc-100 mb-2">Bluetooth (BLE)</h3>
+              <p class="text-zinc-400 leading-relaxed">
+                Diese Berechtigung ist zwingend erforderlich. Sie ermöglicht es dem Smartphone,
+                die Klikkr Pro Hardware-Beacons via Bluetooth Low Energy zu erkennen, sich mit ihnen
+                zu verbinden und Spielstanddaten auszutauschen. Es werden keine Bluetooth-Daten
+                an Dritte weitergegeben.
+              </p>
             </div>
 
             <div class="bg-zinc-900/50 border border-zinc-800/50 p-6 rounded-2xl">
-              <div class="flex items-start gap-4">
-                <div class="p-3 bg-amber-500/10 rounded-xl mt-1"><MapPin class="text-amber-400" size={24} /></div>
-                <div>
-                  <h3 class="text-xl font-semibold text-zinc-100 mb-2">Location (Android 11 and older)</h3>
-                  <p class="text-zinc-400 leading-relaxed">
-                    Due to underlying Android system architecture on older versions, scanning for nearby Bluetooth devices requires "Fine Location" permission. 
-                    <span class="block mt-2 text-zinc-300 font-medium">We do not track, determine, read, or share your physical location at any time.</span>
-                  </p>
-                </div>
-              </div>
+              <h3 class="text-xl font-semibold text-zinc-100 mb-2">Kamera</h3>
+              <p class="text-zinc-400 leading-relaxed">
+                Die Kamera wird ausschliesslich für den integrierten QR-Code-Scanner verwendet.
+                Damit können die Bluetooth-Geräte (MAC-Adressen) schnell und bequem gekoppelt werden,
+                ohne manuell in der Bluetooth-Liste suchen zu müssen. Die Kamera wird nur aktiviert,
+                wenn Sie den Scanner explizit öffnen. Es werden keine Bilder oder Videos aufgenommen oder gespeichert.
+              </p>
+            </div>
+
+            <div class="bg-zinc-900/50 border border-zinc-800/50 p-6 rounded-2xl">
+              <h3 class="text-xl font-semibold text-zinc-100 mb-2">Standort (nur Android 11 und älter)</h3>
+              <p class="text-zinc-400 leading-relaxed">
+                Auf älteren Android-Versionen erfordert das Scannen nach Bluetooth-Geräten
+                systembedingt die Berechtigung «Genauer Standort».
+              </p>
+              <p class="text-zinc-300 font-medium mt-2">
+                Wir ermitteln, lesen, speichern oder teilen Ihren physischen Standort zu keinem Zeitpunkt.
+              </p>
             </div>
           </div>
         </section>
 
-        <section class="space-y-4 pt-8 border-t border-zinc-800/50">
-          <div class="flex items-center gap-3">
-            <div class="p-2 bg-zinc-800 rounded-lg"><Smartphone class="text-zinc-300" size={24} /></div>
-            <h2 class="text-2xl font-bold text-zinc-50">4. Third-Party Services</h2>
-          </div>
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold text-zinc-50">5. Keine Weitergabe an Dritte</h2>
           <p class="text-zinc-300 leading-relaxed">
-            The Klikkr Pro Companion App does not integrate any third-party ad networks, telemetry trackers, or crash reporting services. Your usage remains entirely private.
+            Die Klikkr Pro App gibt keinerlei Daten an Dritte weiter. Es sind keine
+            Werbenetzwerke, Analyse-Tools, Crash-Reporting-Dienste oder sonstige
+            Drittanbieter-Services integriert. Ihre Nutzung bleibt vollständig privat.
           </p>
         </section>
-        
-      </div>
 
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold text-zinc-50">6. Datenlöschung</h2>
+          <p class="text-zinc-300 leading-relaxed">
+            Da alle Daten ausschliesslich lokal auf Ihrem Gerät gespeichert werden,
+            genügt es, die App zu deinstallieren, um sämtliche Daten unwiderruflich zu löschen.
+            Es verbleiben keine Daten auf externen Servern.
+          </p>
+        </section>
+
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold text-zinc-50">7. Kontakt bei Datenschutzfragen</h2>
+          <p class="text-zinc-300 leading-relaxed">
+            Bei Fragen oder Anliegen zum Datenschutz erreichen Sie uns jederzeit unter:
+          </p>
+          <div class="p-6 bg-zinc-900/50 border border-zinc-800/50 rounded-2xl">
+            <a href="mailto:support@klikkr.ch" class="text-emerald-400 hover:text-emerald-300 transition-colors font-medium text-lg">
+              support@klikkr.ch
+            </a>
+          </div>
+        </section>
+
+        <section class="space-y-4 pb-12">
+          <h2 class="text-2xl font-bold text-zinc-50">8. Änderungen</h2>
+          <p class="text-zinc-300 leading-relaxed">
+            Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen.
+            Die aktuelle Version ist stets unter dieser Adresse abrufbar.
+          </p>
+        </section>
+
+      </div>
     </div>
   </main>
 </Layout>
