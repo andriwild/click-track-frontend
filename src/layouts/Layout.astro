@@ -1,6 +1,8 @@
 ---
 import '../index.css';
 import { getTranslations, getLocalizedPath, locales, localeLabels, type Locale } from '../i18n';
+import { CartIcon } from '../components/CartIcon';
+import { CartDrawer } from '../components/CartDrawer';
 
 interface Props {
   title: string;
@@ -104,6 +106,8 @@ const currentPathWithoutLang = Astro.url.pathname
             </div>
           </details>
 
+          <CartIcon client:load />
+
           <a
             href={getLocalizedPath('/', lang) + '#checkout'}
             class="hidden sm:inline-flex items-center justify-center rounded-full bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold transition-transform hover:scale-105 h-9 px-4 text-sm whitespace-nowrap"
@@ -138,6 +142,8 @@ const currentPathWithoutLang = Astro.url.pathname
     </main>
 
     <slot name="footer" />
+
+    <CartDrawer client:load lang={lang} />
 
     <script is:inline>
       document.addEventListener('click', (e) => {

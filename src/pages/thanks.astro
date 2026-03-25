@@ -87,4 +87,13 @@ import Layout from '../layouts/Layout.astro';
     </footer>
 
   </div>
+
+  <!-- Clear cart after successful checkout -->
+  <script is:inline>
+    try {
+      Object.keys(localStorage).forEach(function(key) {
+        if (key.startsWith('cart:')) localStorage.removeItem(key);
+      });
+    } catch (e) {}
+  </script>
 </Layout>

@@ -281,6 +281,31 @@ export const fr: Translations = {
     ],
   },
 
+  cart: {
+    title: 'Panier',
+    empty: 'Votre panier est vide.',
+    checkout: 'Passer à la caisse',
+    remove: 'Supprimer',
+    total: 'Total',
+    addedToCart: 'Ajouté',
+    continueShopping: 'Continuer les achats',
+    close: 'Fermer',
+  },
+
+  products: {
+    'single-pack': {
+      name: 'Klikkr Pro Single Pack',
+      description: 'Parfait pour le suivi individuel.',
+    },
+    'duo-pack': {
+      name: 'Klikkr Pro Duo Pack',
+      description: 'Le compagnon sportif ultime pour vous et votre rival.',
+    },
+    mostPopular: 'Le plus populaire',
+    oneTime: '/ unique',
+    cta: 'Ajouter au panier',
+  },
+
   footer: {
     allRightsReserved: 'Tous droits réservés.',
     designBy: 'Design & Code par',
