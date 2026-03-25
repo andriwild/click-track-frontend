@@ -166,6 +166,41 @@ export const de: Translations = {
     ctaLine2: 'Bereit dein Spiel aufzuleveln?',
   },
 
+  appWalkthrough: {
+    badge: 'App Anleitung',
+    title: 'Die App',
+    titleAccent: 'Schritt für Schritt',
+    description:
+      'So nutzt du die Klikkr Pro Companion App — vom ersten Start bis zum Matchball.',
+    steps: [
+      {
+        title: 'App starten',
+        description:
+          'Öffne die Klikkr Pro App. Du siehst sofort den Startbildschirm mit allen Optionen.',
+      },
+      {
+        title: 'Armband verbinden',
+        description:
+          'Scanne den QR-Code auf dem Armband oder wähle dein Gerät aus der Bluetooth-Liste. Die Verbindung steht in Sekunden.',
+      },
+      {
+        title: 'Sportart wählen',
+        description:
+          'Wähle deine Sportart und konfiguriere die Spielregeln. Padel, Tennis oder Squash — alles ist vorbereitet.',
+      },
+      {
+        title: 'Spieleinstellungen',
+        description:
+          'Lege Spielernamen, Satzanzahl und weitere Regeln fest — alles individuell anpassbar vor dem Start.',
+      },
+      {
+        title: 'Punkte tracken',
+        description:
+          'Ein Klick am Armband zählt den Punkt. Die App übernimmt Sätze, Spiele und zeigt den Live-Score.',
+      },
+    ],
+  },
+
   reviews: {
     badge: 'Was Spieler sagen',
     title: 'Spieler-',

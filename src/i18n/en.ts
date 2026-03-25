@@ -164,6 +164,41 @@ export const en: Translations = {
     ctaLine2: 'Ready to level up your game?',
   },
 
+  appWalkthrough: {
+    badge: 'App Guide',
+    title: 'The App',
+    titleAccent: 'Step by Step',
+    description:
+      'How to use the Klikkr Pro Companion App — from first launch to match point.',
+    steps: [
+      {
+        title: 'Launch the App',
+        description:
+          "Open the Klikkr Pro app. You'll see the home screen with all options right away.",
+      },
+      {
+        title: 'Connect Wristband',
+        description:
+          'Scan the QR code on the wristband or pick your device from the Bluetooth list. Connected in seconds.',
+      },
+      {
+        title: 'Choose Your Sport',
+        description:
+          'Select your sport and configure the game rules. Padel, Tennis or Squash — everything is ready.',
+      },
+      {
+        title: 'Game Settings',
+        description:
+          'Set player names, number of sets and other rules — fully customisable before the match starts.',
+      },
+      {
+        title: 'Track Points',
+        description:
+          'One click on the wristband scores a point. The app handles sets, games and shows the live score.',
+      },
+    ],
+  },
+
   reviews: {
     badge: 'What Players Say',
     title: 'Player',

@@ -164,6 +164,41 @@ export const fr: Translations = {
     ctaLine2: 'Prêt à passer au niveau supérieur ?',
   },
 
+  appWalkthrough: {
+    badge: "Guide de l'app",
+    title: "L'App",
+    titleAccent: 'étape par étape',
+    description:
+      "Comment utiliser l'app Klikkr Pro — du premier lancement au point de match.",
+    steps: [
+      {
+        title: "Lancer l'app",
+        description:
+          "Ouvrez l'app Klikkr Pro. L'écran d'accueil s'affiche immédiatement avec toutes les options.",
+      },
+      {
+        title: 'Connecter le bracelet',
+        description:
+          'Scannez le code QR sur le bracelet ou sélectionnez votre appareil dans la liste Bluetooth. Connecté en quelques secondes.',
+      },
+      {
+        title: 'Choisir le sport',
+        description:
+          'Sélectionnez votre sport et configurez les règles du jeu. Padel, Tennis ou Squash — tout est prêt.',
+      },
+      {
+        title: 'Paramètres de jeu',
+        description:
+          "Définissez les noms des joueurs, le nombre de sets et d'autres règles — entièrement personnalisable avant le début du match.",
+      },
+      {
+        title: 'Compter les points',
+        description:
+          "Un clic sur le bracelet marque un point. L'app gère les sets, les jeux et affiche le score en direct.",
+      },
+    ],
+  },
+
   reviews: {
     badge: 'Ce que disent les joueurs',
     title: 'Avis des',
