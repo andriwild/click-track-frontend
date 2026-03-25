@@ -28,7 +28,7 @@ export function Privacy({ onClose }: PrivacyProps) {
             </h2>
             <p className="text-zinc-400">
               Verantwortliche Stelle: Wild Tec, Im Baumgarten 4, 6252
-              Dagmersellen, support@klikkr.ch
+              Dagmersellen, Schweiz, UID: CHE-386.932.040, support@klikkr.ch
             </p>
           </div>
 

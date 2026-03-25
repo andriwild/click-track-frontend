@@ -37,10 +37,11 @@ export function AGB({ onClose }: AGBProps) {
             </h3>
             <p className="leading-relaxed">
               Für die Nutzung dieser Webseite sowie die Geschäftsbeziehungen
-              zwischen Wild Tec (Im Baumgarten 4, 6252 Dagmersellen, nachfolgend
-              "Anbieter") und ihren Kunden gelten die nachfolgenden Allgemeinen
-              Geschäftsbedingungen (AGB) in der bei Aufruf der Webseite bzw. bei
-              Warenbestellung aktuell abrufbaren und gültigen Fassung.
+              zwischen Wild Tec (Im Baumgarten 4, 6252 Dagmersellen, UID:
+              CHE-386.932.040, nachfolgend "Anbieter") und ihren Kunden gelten
+              die nachfolgenden Allgemeinen Geschäftsbedingungen (AGB) in der
+              bei Aufruf der Webseite bzw. bei Warenbestellung aktuell
+              abrufbaren und gültigen Fassung.
             </p>
           </section>
 

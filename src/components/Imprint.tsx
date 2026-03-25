@@ -45,6 +45,8 @@ export function Imprint({ onClose }: ImprintProps) {
                 6252 Dagmersellen
                 <br />
                 Schweiz
+                <br />
+                UID: CHE-386.932.040
               </p>
               <br />
               <br />
