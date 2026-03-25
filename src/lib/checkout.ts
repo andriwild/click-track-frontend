@@ -2,7 +2,7 @@ import { clearCart, getCartItems } from '../stores/cart'
 import type { Locale } from '../i18n'
 
 const CHECKOUT_FUNCTION_URL =
-  import.meta.env.PUBLIC_SUPABASE_URL + '/functions/v1/create-checkout-session'
+  'https://xhhticogilsokkpypzwe.supabase.co/functions/v1/create-checkout-session'
 
 export async function initiateCheckout(lang: Locale) {
   const items = getCartItems().map(({ product, quantity }) => ({
