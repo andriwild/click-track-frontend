@@ -1,19 +1,43 @@
 import { useState } from 'react'
-import { Check, ShoppingBag } from 'lucide-react'
-import { Button } from './ui/button'
+import { Check, ShoppingBag, Plus, Minus } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
-import { products, formatPrice } from '../config/products'
+import { products, formatPrice, type ProductCategory } from '../config/products'
 import { addToCart } from '../stores/cart'
+
+const categoryOrder: ProductCategory[] = ['wristband', 'holder', 'accessory']
 
 export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang)
+  const [quantities, setQuantities] = useState<Record<string, number>>(() =>
+    Object.fromEntries(
+      products.map((p) => [p.slug, p.category === 'wristband' ? 2 : 1])
+    )
+  )
   const [addedSlug, setAddedSlug] = useState<string | null>(null)
 
+  const setQty = (slug: string, qty: number) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [slug]: Math.max(1, Math.min(qty, 10)),
+    }))
+  }
+
   const handleAdd = (slug: string, priceId: string) => {
-    addToCart(priceId)
+    const qty = quantities[slug] || 1
+    for (let i = 0; i < qty; i++) {
+      addToCart(priceId)
+    }
     setAddedSlug(slug)
     setTimeout(() => setAddedSlug(null), 1200)
   }
+
+  // Group products by category
+  const grouped = categoryOrder
+    .map((cat) => ({
+      category: cat,
+      items: products.filter((p) => p.category === cat),
+    }))
+    .filter((g) => g.items.length > 0)
 
   return (
     <section
@@ -23,7 +47,7 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
 
       <div className="container px-4 md:px-6 mx-auto max-w-5xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase relative">
               {t.checkout.title}{' '}
@@ -42,76 +66,108 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
                 </li>
               ))}
             </ul>
+
+            <p className="text-xs text-zinc-500 pt-2">
+              {t.checkout.securePayment}
+            </p>
           </div>
 
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-blue-500/20 blur-3xl rounded-3xl" />
 
-            <div className="space-y-6">
-              {products.map((product) => {
-                const pt =
-                  t.products[product.slug as 'single-pack' | 'duo-pack']
-                const isPopular = product.badge === 'mostPopular'
-                const isAdded = addedSlug === product.slug
+            <div className="relative space-y-8">
+              {grouped.map(({ category, items }) => (
+                <div key={category} className="space-y-4">
+                  <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider">
+                    {t.products.categories[category]}
+                  </h3>
 
-                return (
-                  <div
-                    key={product.slug}
-                    className={`relative rounded-3xl border ${
-                      isPopular ? 'border-emerald-500/30' : 'border-zinc-800'
-                    } bg-zinc-900/80 p-8 backdrop-blur-xl shadow-2xl ${
-                      isPopular ? 'overflow-hidden' : ''
-                    }`}
-                  >
-                    {isPopular && (
-                      <div className="absolute top-0 right-0 bg-emerald-500 text-zinc-950 font-bold text-xs px-3 py-1 rounded-bl-xl uppercase tracking-wider">
-                        {t.products.mostPopular}
+                  {items.map((product) => {
+                    const pt = t.products[
+                      product.slug as keyof typeof t.products
+                    ] as {
+                      name: string
+                      description: string
+                    }
+                    const qty = quantities[product.slug] || 1
+                    const isAdded = addedSlug === product.slug
+
+                    return (
+                      <div
+                        key={product.slug}
+                        className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-6 backdrop-blur-xl shadow-xl"
+                      >
+                        <div className="flex gap-4">
+                          <img
+                            src={product.image}
+                            alt={pt.name}
+                            className="w-20 h-20 rounded-xl object-cover bg-zinc-800 flex-shrink-0"
+                          />
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-lg font-bold text-zinc-100">
+                              {pt.name}
+                            </h4>
+                            <p className="text-sm text-zinc-400 mt-0.5">
+                              {pt.description}
+                            </p>
+                            <div className="flex items-baseline gap-1 mt-2">
+                              <span className="text-xl font-extrabold">
+                                {formatPrice(product.priceCHF)}
+                              </span>
+                              <span className="text-sm text-zinc-500">
+                                {t.products.perUnit}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-3 mt-4">
+                          {/* Quantity picker */}
+                          <div className="flex items-center rounded-xl border border-zinc-700 bg-zinc-800/50">
+                            <button
+                              onClick={() => setQty(product.slug, qty - 1)}
+                              disabled={qty <= 1}
+                              className="p-2.5 text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-30"
+                            >
+                              <Minus className="h-4 w-4" />
+                            </button>
+                            <span className="w-10 text-center font-bold text-zinc-200">
+                              {qty}
+                            </span>
+                            <button
+                              onClick={() => setQty(product.slug, qty + 1)}
+                              disabled={qty >= 10}
+                              className="p-2.5 text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-30"
+                            >
+                              <Plus className="h-4 w-4" />
+                            </button>
+                          </div>
+
+                          {/* Add to cart */}
+                          <button
+                            onClick={() =>
+                              handleAdd(product.slug, product.stripePriceId)
+                            }
+                            className="flex-1 h-11 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold text-sm transition-all active:scale-95 flex items-center justify-center gap-2"
+                          >
+                            {isAdded ? (
+                              <>
+                                <Check className="h-4 w-4" />
+                                {t.cart.addedToCart}
+                              </>
+                            ) : (
+                              <>
+                                <ShoppingBag className="h-4 w-4" />
+                                {t.products.cta}
+                              </>
+                            )}
+                          </button>
+                        </div>
                       </div>
-                    )}
-
-                    <div className="mb-6">
-                      <h3 className="text-2xl font-bold">{pt.name}</h3>
-                      <p className="text-zinc-400 mt-2">{pt.description}</p>
-                    </div>
-
-                    <div className="mb-8 flex items-baseline text-4xl font-extrabold">
-                      {formatPrice(product.priceCHF)}
-                      <span className="ml-2 text-lg font-medium text-zinc-500">
-                        {t.products.oneTime}
-                      </span>
-                    </div>
-
-                    <Button
-                      className={`w-full h-14 text-lg font-bold transition-all active:scale-95 ${
-                        isPopular
-                          ? 'bg-emerald-500 hover:bg-emerald-600 text-zinc-950 shadow-[0_0_20px_rgba(16,185,129,0.3)]'
-                          : 'bg-zinc-100 hover:bg-white text-zinc-900'
-                      }`}
-                      onClick={() =>
-                        handleAdd(product.slug, product.stripePriceId)
-                      }
-                    >
-                      {isAdded ? (
-                        <>
-                          <Check className="mr-2 h-5 w-5" />
-                          {t.cart.addedToCart}
-                        </>
-                      ) : (
-                        <>
-                          <ShoppingBag className="mr-2 h-5 w-5" />
-                          {t.products.cta}
-                        </>
-                      )}
-                    </Button>
-
-                    {isPopular && (
-                      <p className="text-center text-xs text-zinc-500 mt-4">
-                        {t.checkout.securePayment}
-                      </p>
-                    )}
-                  </div>
-                )
-              })}
+                    )
+                  })}
+                </div>
+              ))}
             </div>
           </div>
         </div>

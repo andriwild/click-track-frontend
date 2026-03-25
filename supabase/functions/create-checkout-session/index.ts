@@ -7,8 +7,8 @@ const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY') as string, {
 
 // Server-side allowlist of valid Stripe Price IDs
 const ALLOWED_PRICE_IDS = new Set([
-  'price_1T5qDHApnOf6m4doN3DwbrKW', // single
-  'price_1T5q4SApnOf6m4dod8NScP3u', // duo pack
+  'price_1TEvAVApnOf6m4doqtBC7OJX', // wristband
+  'price_1TEvJPApnOf6m4dozIv5Ze8W', // holder squash
 ])
 
 const ALLOWED_ORIGINS = [

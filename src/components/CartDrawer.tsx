@@ -73,16 +73,22 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
                   <img
                     src={product.image}
                     alt={
-                      t.products[product.slug as 'single-pack' | 'duo-pack']
-                        .name
+                      (
+                        t.products[product.slug as keyof typeof t.products] as {
+                          name: string
+                        }
+                      ).name
                     }
                     className="w-16 h-16 rounded-xl object-cover bg-zinc-800"
                   />
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-zinc-100 text-sm truncate">
                       {
-                        t.products[product.slug as 'single-pack' | 'duo-pack']
-                          .name
+                        (
+                          t.products[
+                            product.slug as keyof typeof t.products
+                          ] as { name: string }
+                        ).name
                       }
                     </h3>
                     <p className="text-emerald-400 font-bold text-sm mt-1">

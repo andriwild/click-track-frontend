@@ -27,7 +27,7 @@ export function Refunds({ onClose }: RefundsProps) {
               Widerrufsrecht & Rückgaben
             </h2>
             <p className="text-zinc-400">
-              Informationen zur Rückgabe Ihres Klikkr Pro Armbands.
+              Informationen zur Rückgabe Ihres Klikkr Armbands.
             </p>
           </div>
 
@@ -75,7 +75,7 @@ export function Refunds({ onClose }: RefundsProps) {
                   Die Frist von 14 Tagen nach Empfang wird strikt eingehalten.
                 </li>
                 <li>
-                  Der Klikkr Pro ist{' '}
+                  Der Klikkr ist{' '}
                   <strong>
                     komplett ungenutzt, versiegelt und in der ungeöffneten
                     Originalverpackung

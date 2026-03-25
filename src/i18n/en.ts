@@ -18,12 +18,12 @@ export const en: Translations = {
     slogan: 'Focus on your Game!',
     description:
       'The ultimate wearable Bluetooth score tracker for Padel, Tennis, and Squash. Keep your eyes on the ball, track points with a single click, and let the app handle the rest.',
-    ctaPrimary: 'Get your Duo Pack for 49 CHF',
+    ctaPrimary: 'Order Now',
     ctaSecondary: 'Learn more',
     sportSquash: 'Squash',
     sportPadel: 'Padel',
     sportTennis: 'Tennis',
-    productAlt: 'Klikkr Pro Duo Pack Concept',
+    productAlt: 'Klikkr Wristband Concept',
     symbolImage: '* Concept image',
   },
 
@@ -32,7 +32,7 @@ export const en: Translations = {
     title: 'Built for Your',
     titleAccent: 'Sport',
     description:
-      "Klikkr Pro is designed to be invisible when you don't need it, and perfectly reliable when you do. Water resistant, sweat proof, and built to survive impacts.",
+      "Klikkr is designed to be invisible when you don't need it, and perfectly reliable when you do. Water resistant, sweat proof, and built to survive impacts.",
     items: [
       {
         title: 'Squash',
@@ -56,7 +56,7 @@ export const en: Translations = {
     badge: 'Digital Companion App',
     title: 'The Ultimate Companion App.',
     description:
-      'The free Klikkr Pro app turns your Bluetooth wristbands into a powerful, intelligent smart scoreboard. Perfectly designed for fast-paced racket sports like Padel, Tennis, and Squash.',
+      'The free Klikkr app turns your Bluetooth wristbands into a powerful, intelligent smart scoreboard. Perfectly designed for fast-paced racket sports like Padel, Tennis, and Squash.',
     storeBadgeLabel: 'Coming soon for Android',
     storeName: 'Google Play',
     appPreviewAlt: 'Klikkr App Preview Interface',
@@ -96,28 +96,16 @@ export const en: Translations = {
 
   checkout: {
     title: 'Ready to',
-    titleAccent: 'Share',
+    titleAccent: 'Dominate',
     titleEnd: ' The Game?',
     description:
-      'Get the Klikkr Pro Duo Pack today. One for you, one for your opponent. Never disagree on the score again.',
+      'Choose your gear and quantity — whether one wristband or a full set for your crew.',
     featuresList: [
-      '2x Klikkr Pro Wristbands',
       'One-click score tracking',
       'Water & sweat resistant',
       'Shockproof silicone build',
       '2-year battery life',
     ],
-    singleTitle: 'Klikkr Pro Single Pack',
-    singleDescription: 'Perfect for individual tracking.',
-    singlePrice: '39 CHF',
-    singlePriceLabel: '/ one-time',
-    singleCta: 'Buy Single Pack',
-    duoTitle: 'Klikkr Pro Duo Pack',
-    duoDescription: 'The ultimate sports companion for you and your rival.',
-    duoPrice: '49 CHF',
-    duoPriceLabel: '/ one-time',
-    duoCta: 'Buy Duo Pack',
-    duoBadge: 'Most Popular',
     securePayment: 'Secure payment processing by Stripe. Fully encrypted.',
   },
 
@@ -131,7 +119,7 @@ export const en: Translations = {
       {
         title: 'Unboxing',
         description:
-          'Open your Klikkr Pro Duo Pack – two wristbands, fully charged and ready to go.',
+          'Open your Klikkr package – wristbands fully charged and ready to go.',
       },
       {
         title: 'Download the App',
@@ -169,12 +157,12 @@ export const en: Translations = {
     title: 'The App',
     titleAccent: 'Step by Step',
     description:
-      'How to use the Klikkr Pro Companion App — from first launch to match point.',
+      'How to use the Klikkr Companion App — from first launch to match point.',
     steps: [
       {
         title: 'Launch the App',
         description:
-          "Open the Klikkr Pro app. You'll see the home screen with all options right away.",
+          "Open the Klikkr app. You'll see the home screen with all options right away.",
       },
       {
         title: 'Connect Wristband',
@@ -213,10 +201,9 @@ export const en: Translations = {
     title: 'Player',
     titleAccent: 'Reviews',
     description:
-      'Hear from athletes who are already using Klikkr Pro in their daily matches.',
+      'Hear from athletes who are already using Klikkr in their daily matches.',
     reviewsCount: 'Reviews',
-    bottomCta:
-      'Join the community of happy players – get your Klikkr Pro today.',
+    bottomCta: 'Join the community of happy players – get your Klikkr today.',
     happyPlayers: 'happy players',
     items: [
       {
@@ -244,7 +231,7 @@ export const en: Translations = {
         name: 'Sarah M.',
         sport: 'Padel',
         rating: 5,
-        text: 'Got the Duo Pack as a gift – best present ever. The sound effects on every point are so much fun.',
+        text: 'Got Klikkr as a gift – best present ever. The sound effects on every point are so much fun.',
         date: 'Mar 3, 2026',
       },
       {
@@ -269,18 +256,18 @@ export const en: Translations = {
     title: 'Frequently Asked',
     titleAccent: 'Questions',
     description:
-      'Everything you need to know about Klikkr Pro – from setup to gameplay.',
+      'Everything you need to know about Klikkr – from setup to gameplay.',
     contactCta: 'Still have questions? Write to us at',
     items: [
       {
-        question: "What's included in the Klikkr Pro Duo Pack?",
+        question: "What's included with Klikkr?",
         answer:
-          'The Duo Pack contains two Klikkr Pro wristbands that come fully charged. Just unbox, download the app, and start playing.',
+          'Each Klikkr wristband comes fully charged. Just unbox, download the app, and start playing. Order as many wristbands as you need.',
       },
       {
         question: 'Which sports are supported?',
         answer:
-          'Klikkr Pro currently supports Padel, Tennis, Squash, and Football. More sports are planned and will be added via app updates.',
+          'Klikkr currently supports Padel, Tennis, Squash, and Football. More sports are planned and will be added via app updates.',
       },
       {
         question: 'How long does the battery last?',
@@ -290,7 +277,7 @@ export const en: Translations = {
       {
         question: 'Is the wristband waterproof?',
         answer:
-          "Yes! Klikkr Pro is water and sweat resistant and can handle even intense matches. It's made of robust, shockproof silicone.",
+          "Yes! Klikkr is water and sweat resistant and can handle even intense matches. It's made of robust, shockproof silicone.",
       },
       {
         question: 'How do I connect the wristband to the app?',
@@ -320,7 +307,7 @@ export const en: Translations = {
       {
         question: 'Is there a warranty?',
         answer:
-          'Yes, Klikkr Pro comes with a 1-year manufacturer warranty. For defects or issues, contact our support team.',
+          'Yes, Klikkr comes with a 1-year manufacturer warranty. For defects or issues, contact our support team.',
       },
     ],
   },
@@ -337,17 +324,22 @@ export const en: Translations = {
   },
 
   products: {
-    'single-pack': {
-      name: 'Klikkr Pro Single Pack',
-      description: 'Perfect for individual tracking.',
+    wristband: {
+      name: 'Wearable Score Clicker',
+      description: 'Bluetooth score tracker for your wrist.',
     },
-    'duo-pack': {
-      name: 'Klikkr Pro Duo Pack',
-      description: 'The ultimate sports companion for you and your rival.',
+    'holder-squash': {
+      name: 'Glass Mount (Squash)',
+      description:
+        'Mounts on the squash court glass for the perfect view of the score.',
     },
-    mostPopular: 'Most Popular',
-    oneTime: '/ one-time',
+    perUnit: '/ unit',
     cta: 'Add to Cart',
+    categories: {
+      wristband: 'Wristbands',
+      holder: 'Holders',
+      accessory: 'Accessories',
+    },
   },
 
   footer: {

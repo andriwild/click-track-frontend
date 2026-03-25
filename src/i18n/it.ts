@@ -18,12 +18,12 @@ export const it: Translations = {
     slogan: 'Focus on your Game!',
     description:
       "Il tracker di punteggio Bluetooth indossabile definitivo per Padel, Tennis e Squash. Tieni gli occhi sulla palla, segna i punti con un solo clic e lascia che l'app faccia il resto.",
-    ctaPrimary: 'Duo Pack per 49 CHF',
+    ctaPrimary: 'Ordina ora',
     ctaSecondary: 'Scopri di più',
     sportSquash: 'Squash',
     sportPadel: 'Padel',
     sportTennis: 'Tennis',
-    productAlt: 'Concetto Klikkr Pro Duo Pack',
+    productAlt: 'Concetto Braccialetto Klikkr',
     symbolImage: '* Immagine simbolica',
   },
 
@@ -32,7 +32,7 @@ export const it: Translations = {
     title: 'Fatto per il tuo',
     titleAccent: 'Sport',
     description:
-      "Klikkr Pro è invisibile quando non ti serve e perfettamente affidabile quando ne hai bisogno. Resistente all'acqua, al sudore e agli urti.",
+      "Klikkr è invisibile quando non ti serve e perfettamente affidabile quando ne hai bisogno. Resistente all'acqua, al sudore e agli urti.",
     items: [
       {
         title: 'Squash',
@@ -56,7 +56,7 @@ export const it: Translations = {
     badge: 'App compagna digitale',
     title: "L'app compagna definitiva.",
     description:
-      "L'app gratuita Klikkr Pro trasforma i tuoi braccialetti Bluetooth in un tabellone segnapunti intelligente e potente. Perfettamente progettata per sport di racchetta veloci.",
+      "L'app gratuita Klikkr trasforma i tuoi braccialetti Bluetooth in un tabellone segnapunti intelligente e potente. Perfettamente progettata per sport di racchetta veloci.",
     storeBadgeLabel: 'Presto disponibile per Android',
     storeName: 'Google Play',
     appPreviewAlt: 'Anteprima interfaccia app Klikkr',
@@ -96,28 +96,16 @@ export const it: Translations = {
 
   checkout: {
     title: 'Pronto a',
-    titleAccent: 'condividere',
+    titleAccent: 'dominare',
     titleEnd: ' il gioco?',
     description:
-      'Prendi il Klikkr Pro Duo Pack oggi. Uno per te, uno per il tuo avversario. Mai più disaccordi sul punteggio.',
+      'Scegli la tua attrezzatura e la quantità — un braccialetto o un set completo per la tua squadra.',
     featuresList: [
-      '2x braccialetti Klikkr Pro',
       'Punteggio con un clic',
       'Resistente ad acqua e sudore',
       'Struttura in silicone antiurto',
       '2 anni di autonomia',
     ],
-    singleTitle: 'Klikkr Pro Single Pack',
-    singleDescription: 'Perfetto per il tracciamento individuale.',
-    singlePrice: '39 CHF',
-    singlePriceLabel: '/ una tantum',
-    singleCta: 'Acquista il Single Pack',
-    duoTitle: 'Klikkr Pro Duo Pack',
-    duoDescription: 'Il compagno sportivo definitivo per te e il tuo rivale.',
-    duoPrice: '49 CHF',
-    duoPriceLabel: '/ una tantum',
-    duoCta: 'Acquista il Duo Pack',
-    duoBadge: 'Più popolare',
     securePayment:
       'Pagamento sicuro tramite Stripe. Completamente crittografato.',
   },
@@ -132,7 +120,7 @@ export const it: Translations = {
       {
         title: 'Unboxing',
         description:
-          "Apri il tuo Klikkr Pro Duo Pack – due braccialetti, completamente carichi e pronti all'uso.",
+          "Apri il tuo pacchetto Klikkr – braccialetti completamente carichi e pronti all'uso.",
       },
       {
         title: "Scarica l'app",
@@ -169,13 +157,12 @@ export const it: Translations = {
     badge: 'Guida App',
     title: "L'App",
     titleAccent: 'passo dopo passo',
-    description:
-      "Come usare l'app Klikkr Pro — dal primo avvio al match point.",
+    description: "Come usare l'app Klikkr — dal primo avvio al match point.",
     steps: [
       {
         title: "Avvia l'app",
         description:
-          "Apri l'app Klikkr Pro. Vedrai subito la schermata principale con tutte le opzioni.",
+          "Apri l'app Klikkr. Vedrai subito la schermata principale con tutte le opzioni.",
       },
       {
         title: 'Collega il braccialetto',
@@ -214,10 +201,10 @@ export const it: Translations = {
     title: 'Recensioni dei',
     titleAccent: 'giocatori',
     description:
-      'Scopri cosa pensano gli atleti che usano già Klikkr Pro nelle loro partite quotidiane.',
+      'Scopri cosa pensano gli atleti che usano già Klikkr nelle loro partite quotidiane.',
     reviewsCount: 'Recensioni',
     bottomCta:
-      'Unisciti alla community di giocatori soddisfatti – prendi il tuo Klikkr Pro oggi.',
+      'Unisciti alla community di giocatori soddisfatti – prendi il tuo Klikkr oggi.',
     happyPlayers: 'giocatori soddisfatti',
     items: [
       {
@@ -245,7 +232,7 @@ export const it: Translations = {
         name: 'Sarah M.',
         sport: 'Padel',
         rating: 5,
-        text: 'Ho ricevuto il Duo Pack in regalo – il miglior regalo di sempre. Gli effetti sonori ad ogni punto sono divertentissimi.',
+        text: 'Ho ricevuto Klikkr in regalo – il miglior regalo di sempre. Gli effetti sonori ad ogni punto sono divertentissimi.',
         date: '3 mar. 2026',
       },
       {
@@ -270,18 +257,18 @@ export const it: Translations = {
     title: 'Domande',
     titleAccent: 'frequenti',
     description:
-      'Tutto quello che devi sapere su Klikkr Pro – dalla configurazione al gameplay.',
+      'Tutto quello che devi sapere su Klikkr – dalla configurazione al gameplay.',
     contactCta: 'Altre domande? Scrivici a',
     items: [
       {
-        question: 'Cosa contiene il Klikkr Pro Duo Pack?',
+        question: 'Cosa include Klikkr?',
         answer:
-          "Il Duo Pack contiene due braccialetti Klikkr Pro completamente carichi. Basta aprire, scaricare l'app e iniziare a giocare.",
+          "Ogni braccialetto Klikkr viene consegnato completamente carico. Basta aprire, scaricare l'app e iniziare a giocare. Ordina quanti braccialetti ti servono.",
       },
       {
         question: 'Quali sport sono supportati?',
         answer:
-          "Klikkr Pro supporta attualmente Padel, Tennis, Squash e Calcio. Altri sport sono in programma e verranno aggiunti tramite aggiornamenti dell'app.",
+          "Klikkr supporta attualmente Padel, Tennis, Squash e Calcio. Altri sport sono in programma e verranno aggiunti tramite aggiornamenti dell'app.",
       },
       {
         question: 'Quanto dura la batteria?',
@@ -291,7 +278,7 @@ export const it: Translations = {
       {
         question: 'Il braccialetto è impermeabile?',
         answer:
-          'Sì! Klikkr Pro è resistente ad acqua e sudore e sopporta anche i match più intensi. È realizzato in silicone robusto e antiurto.',
+          'Sì! Klikkr è resistente ad acqua e sudore e sopporta anche i match più intensi. È realizzato in silicone robusto e antiurto.',
       },
       {
         question: "Come collego il braccialetto all'app?",
@@ -321,7 +308,7 @@ export const it: Translations = {
       {
         question: "C'è una garanzia?",
         answer:
-          'Sì, Klikkr Pro viene fornito con una garanzia del produttore di 1 anno. Per difetti o problemi, contatta il nostro team di supporto.',
+          'Sì, Klikkr viene fornito con una garanzia del produttore di 1 anno. Per difetti o problemi, contatta il nostro team di supporto.',
       },
     ],
   },
@@ -338,17 +325,22 @@ export const it: Translations = {
   },
 
   products: {
-    'single-pack': {
-      name: 'Klikkr Pro Single Pack',
-      description: 'Perfetto per il tracciamento individuale.',
+    wristband: {
+      name: 'Wearable Score Clicker',
+      description: 'Contapunti Bluetooth da polso.',
     },
-    'duo-pack': {
-      name: 'Klikkr Pro Duo Pack',
-      description: 'Il compagno sportivo definitivo per te e il tuo rivale.',
+    'holder-squash': {
+      name: 'Glass Mount (Squash)',
+      description:
+        'Si fissa al vetro del campo da squash per una vista perfetta del punteggio.',
     },
-    mostPopular: 'Più popolare',
-    oneTime: '/ una tantum',
+    perUnit: '/ pezzo',
     cta: 'Aggiungi al carrello',
+    categories: {
+      wristband: 'Braccialetti',
+      holder: 'Supporti',
+      accessory: 'Accessori',
+    },
   },
 
   footer: {

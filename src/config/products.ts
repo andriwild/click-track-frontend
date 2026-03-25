@@ -1,24 +1,28 @@
+export type ProductCategory = 'wristband' | 'holder' | 'accessory'
+
 export interface Product {
   slug: string
   stripePriceId: string
   priceCHF: number // in cents
   image: string
-  badge?: string // i18n key
+  category: ProductCategory
 }
 
+// TODO: Replace placeholder Price IDs with real Stripe Price IDs
 export const products: Product[] = [
   {
-    slug: 'single-pack',
-    stripePriceId: 'price_1T5qDHApnOf6m4doN3DwbrKW',
-    priceCHF: 3900,
+    slug: 'wristband',
+    stripePriceId: 'price_1TEvAVApnOf6m4doqtBC7OJX',
+    priceCHF: 2900,
     image: '/product_single.png',
+    category: 'wristband',
   },
   {
-    slug: 'duo-pack',
-    stripePriceId: 'price_1T5q4SApnOf6m4dod8NScP3u',
-    priceCHF: 4900,
-    image: '/product.png',
-    badge: 'mostPopular',
+    slug: 'holder-squash',
+    stripePriceId: 'price_1TEvJPApnOf6m4dozIv5Ze8W',
+    priceCHF: 1900,
+    image: '/holder_squash.png',
+    category: 'holder',
   },
 ]
 
@@ -28,6 +32,10 @@ export function getProduct(slug: string): Product | undefined {
 
 export function getProductByPriceId(priceId: string): Product | undefined {
   return products.find((p) => p.stripePriceId === priceId)
+}
+
+export function getProductsByCategory(category: ProductCategory): Product[] {
+  return products.filter((p) => p.category === category)
 }
 
 export function formatPrice(cents: number): string {

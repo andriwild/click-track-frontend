@@ -18,12 +18,12 @@ export const de: Translations = {
     slogan: 'Focus on your Game!',
     description:
       'Der ultimative tragbare Bluetooth Score-Tracker für Padel, Tennis und Squash. Behalte den Ball im Auge, tracke Punkte mit einem Klick und lass die App den Rest erledigen.',
-    ctaPrimary: 'Duo Pack für 49 CHF bestellen',
+    ctaPrimary: 'Jetzt bestellen',
     ctaSecondary: 'Mehr erfahren',
     sportSquash: 'Squash',
     sportPadel: 'Padel',
     sportTennis: 'Tennis',
-    productAlt: 'Klikkr Pro Duo Pack Konzept',
+    productAlt: 'Klikkr Armband Konzept',
     symbolImage: '* Symbolbild',
   },
 
@@ -32,7 +32,7 @@ export const de: Translations = {
     title: 'Gemacht für deinen',
     titleAccent: 'Sport',
     description:
-      'Klikkr Pro ist unsichtbar wenn du es nicht brauchst, und absolut zuverlässig wenn es drauf ankommt. Wasserresistent, schweissfest und stosssicher gebaut.',
+      'Klikkr ist unsichtbar wenn du es nicht brauchst, und absolut zuverlässig wenn es drauf ankommt. Wasserresistent, schweissfest und stosssicher gebaut.',
     items: [
       {
         title: 'Squash',
@@ -56,7 +56,7 @@ export const de: Translations = {
     badge: 'Digitale Begleiter-App',
     title: 'Die ultimative Begleiter-App.',
     description:
-      'Die kostenlose Klikkr Pro App verwandelt deine Bluetooth-Armbänder in ein leistungsstarkes, intelligentes Scoreboard. Perfekt konzipiert für schnelle Racketsportarten wie Padel, Tennis und Squash.',
+      'Die kostenlose Klikkr App verwandelt deine Bluetooth-Armbänder in ein leistungsstarkes, intelligentes Scoreboard. Perfekt konzipiert für schnelle Racketsportarten wie Padel, Tennis und Squash.',
     storeBadgeLabel: 'Bald verfügbar für Android',
     storeName: 'Google Play',
     appPreviewAlt: 'Klikkr App Vorschau',
@@ -96,29 +96,16 @@ export const de: Translations = {
 
   checkout: {
     title: 'Bereit das Spiel zu',
-    titleAccent: 'teilen',
+    titleAccent: 'dominieren',
     titleEnd: '?',
     description:
-      'Hol dir heute das Klikkr Pro Duo Pack. Eins für dich, eins für deinen Gegner. Nie wieder Streit über den Spielstand.',
+      'Wähle deine Ausrüstung und Menge — ob ein Armband oder gleich ein ganzes Set für deine Crew.',
     featuresList: [
-      '2x Klikkr Pro Armbänder',
       'Punktzählung per Knopfdruck',
       'Wasser- & schweissresistent',
       'Stossfestes Silikon-Gehäuse',
       '2 Jahre Batterielaufzeit',
     ],
-    singleTitle: 'Klikkr Pro Single Pack',
-    singleDescription: 'Perfekt für individuelles Tracking.',
-    singlePrice: '39 CHF',
-    singlePriceLabel: '/ einmalig',
-    singleCta: 'Single Pack kaufen',
-    duoTitle: 'Klikkr Pro Duo Pack',
-    duoDescription:
-      'Der ultimative Sport-Begleiter für dich und deinen Rivalen.',
-    duoPrice: '49 CHF',
-    duoPriceLabel: '/ einmalig',
-    duoCta: 'Duo Pack kaufen',
-    duoBadge: 'Beliebteste Wahl',
     securePayment:
       'Sichere Zahlungsabwicklung über Stripe. Vollständig verschlüsselt.',
   },
@@ -133,7 +120,7 @@ export const de: Translations = {
       {
         title: 'Auspacken',
         description:
-          'Öffne dein Klikkr Pro Duo Pack – zwei Armbänder, vollgeladen und bereit.',
+          'Öffne dein Klikkr Paket – Armbänder vollgeladen und bereit.',
       },
       {
         title: 'App herunterladen',
@@ -171,12 +158,12 @@ export const de: Translations = {
     title: 'Die App',
     titleAccent: 'Schritt für Schritt',
     description:
-      'So nutzt du die Klikkr Pro Companion App — vom ersten Start bis zum Matchball.',
+      'So nutzt du die Klikkr Companion App — vom ersten Start bis zum Matchball.',
     steps: [
       {
         title: 'App starten',
         description:
-          'Öffne die Klikkr Pro App. Du siehst sofort den Startbildschirm mit allen Optionen.',
+          'Öffne die Klikkr App. Du siehst sofort den Startbildschirm mit allen Optionen.',
       },
       {
         title: 'Armband verbinden',
@@ -215,10 +202,10 @@ export const de: Translations = {
     title: 'Spieler-',
     titleAccent: 'Bewertungen',
     description:
-      'Höre von Athleten, die Klikkr Pro bereits in ihren täglichen Matches nutzen.',
+      'Höre von Athleten, die Klikkr bereits in ihren täglichen Matches nutzen.',
     reviewsCount: 'Bewertungen',
     bottomCta:
-      'Werde Teil der Community zufriedener Spieler – hol dir dein Klikkr Pro noch heute.',
+      'Werde Teil der Community zufriedener Spieler – hol dir dein Klikkr noch heute.',
     happyPlayers: 'zufriedener Spieler',
     items: [
       {
@@ -246,7 +233,7 @@ export const de: Translations = {
         name: 'Sarah M.',
         sport: 'Padel',
         rating: 5,
-        text: 'Habe das Duo Pack geschenkt bekommen – bestes Geschenk ever. Die Sound-Effekte bei jedem Punkt machen richtig Spass.',
+        text: 'Habe Klikkr geschenkt bekommen – bestes Geschenk ever. Die Sound-Effekte bei jedem Punkt machen richtig Spass.',
         date: '3. März 2026',
       },
       {
@@ -271,18 +258,18 @@ export const de: Translations = {
     title: 'Häufig gestellte',
     titleAccent: 'Fragen',
     description:
-      'Alles was du über Klikkr Pro wissen musst – von der Einrichtung bis zum Gameplay.',
+      'Alles was du über Klikkr wissen musst – von der Einrichtung bis zum Gameplay.',
     contactCta: 'Noch Fragen? Schreib uns an',
     items: [
       {
-        question: 'Was ist im Klikkr Pro Duo Pack enthalten?',
+        question: 'Was ist bei Klikkr enthalten?',
         answer:
-          'Das Duo Pack enthält zwei Klikkr Pro Wristbands, die bereits vollständig geladen sind. Einfach auspacken, App herunterladen und losspielen.',
+          'Jedes Klikkr Armband wird vollständig geladen geliefert. Einfach auspacken, App herunterladen und losspielen. Bestelle so viele Armbänder wie du brauchst.',
       },
       {
         question: 'Welche Sportarten werden unterstützt?',
         answer:
-          'Klikkr Pro unterstützt aktuell Padel, Tennis, Squash und Fussball. Weitere Sportarten sind in Planung und werden über App-Updates hinzugefügt.',
+          'Klikkr unterstützt aktuell Padel, Tennis, Squash und Fussball. Weitere Sportarten sind in Planung und werden über App-Updates hinzugefügt.',
       },
       {
         question: 'Wie lange hält die Batterie?',
@@ -292,7 +279,7 @@ export const de: Translations = {
       {
         question: 'Ist das Wristband wasserfest?',
         answer:
-          'Ja! Klikkr Pro ist wasser- und schweissresistent und übersteht auch intensive Matches problemlos. Es besteht aus robustem, stossfestem Silikon.',
+          'Ja! Klikkr ist wasser- und schweissresistent und übersteht auch intensive Matches problemlos. Es besteht aus robustem, stossfestem Silikon.',
       },
       {
         question: 'Wie verbinde ich das Wristband mit der App?',
@@ -322,7 +309,7 @@ export const de: Translations = {
       {
         question: 'Gibt es eine Garantie?',
         answer:
-          'Ja, Klikkr Pro kommt mit einer 1-jährigen Herstellergarantie. Bei Defekten oder Problemen melde dich bei unserem Support-Team.',
+          'Ja, Klikkr kommt mit einer 1-jährigen Herstellergarantie. Bei Defekten oder Problemen melde dich bei unserem Support-Team.',
       },
     ],
   },
@@ -339,18 +326,22 @@ export const de: Translations = {
   },
 
   products: {
-    'single-pack': {
-      name: 'Klikkr Pro Single Pack',
-      description: 'Perfekt für individuelles Tracking.',
+    wristband: {
+      name: 'Wearable Score Clicker',
+      description: 'Bluetooth Score-Tracker fürs Handgelenk.',
     },
-    'duo-pack': {
-      name: 'Klikkr Pro Duo Pack',
+    'holder-squash': {
+      name: 'Glass Mount (Squash)',
       description:
-        'Der ultimative Sport-Begleiter für dich und deinen Rivalen.',
+        'Befestigung an der Squash-Scheibe für den perfekten Blick auf den Score.',
     },
-    mostPopular: 'Beliebteste Wahl',
-    oneTime: '/ einmalig',
+    perUnit: '/ Stück',
     cta: 'In den Warenkorb',
+    categories: {
+      wristband: 'Armbänder',
+      holder: 'Halterungen',
+      accessory: 'Zubehör',
+    },
   },
 
   footer: {

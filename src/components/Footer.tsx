@@ -18,7 +18,7 @@ export function Footer({ lang = 'de' }: { lang?: Locale }) {
         <div className="container mx-auto px-4 md:px-6 flex flex-col sm:flex-row items-center justify-between text-sm text-zinc-500">
           <div className="flex flex-col items-center sm:items-start gap-1">
             <p>
-              © {new Date().getFullYear()} Klikkr Pro. {t.allRightsReserved}
+              © {new Date().getFullYear()} Klikkr. {t.allRightsReserved}
             </p>
             <a
               href="mailto:info@wild-tec.ch?subject=Website%20Inquiry"
