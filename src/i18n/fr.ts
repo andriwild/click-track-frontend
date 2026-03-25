@@ -199,6 +199,15 @@ export const fr: Translations = {
     ],
   },
 
+  phoneHolder: {
+    badge: 'Nouvel accessoire',
+    title: 'Le Support',
+    titleAccent: 'Smartphone',
+    description:
+      'Fixez votre smartphone directement sur la vitre du court de squash — vue parfaite du score en direct pendant le jeu.',
+    hint: 'Glissez pour tourner, scrollez pour zoomer',
+  },
+
   reviews: {
     badge: 'Ce que disent les joueurs',
     title: 'Avis des',

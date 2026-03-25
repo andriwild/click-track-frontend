@@ -199,6 +199,15 @@ export const en: Translations = {
     ],
   },
 
+  phoneHolder: {
+    badge: 'New Accessory',
+    title: 'The Phone',
+    titleAccent: 'Holder',
+    description:
+      'Mount your smartphone on the squash court glass — perfect view of the live score during the game.',
+    hint: 'Drag to rotate, scroll to zoom',
+  },
+
   reviews: {
     badge: 'What Players Say',
     title: 'Player',

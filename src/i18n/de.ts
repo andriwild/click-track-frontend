@@ -201,6 +201,15 @@ export const de: Translations = {
     ],
   },
 
+  phoneHolder: {
+    badge: 'Neues Zubehör',
+    title: 'Der Smartphone',
+    titleAccent: 'Halter',
+    description:
+      'Befestige dein Smartphone direkt an der Squash-Scheibe — perfekter Blick auf den Live-Score während des Spiels.',
+    hint: 'Ziehen zum Drehen, Scrollen zum Zoomen',
+  },
+
   reviews: {
     badge: 'Was Spieler sagen',
     title: 'Spieler-',

@@ -200,6 +200,15 @@ export const it: Translations = {
     ],
   },
 
+  phoneHolder: {
+    badge: 'Nuovo accessorio',
+    title: 'Il Supporto',
+    titleAccent: 'Smartphone',
+    description:
+      'Fissa il tuo smartphone direttamente al vetro del campo da squash — vista perfetta del punteggio in tempo reale durante il gioco.',
+    hint: 'Trascina per ruotare, scorri per zoomare',
+  },
+
   reviews: {
     badge: 'Cosa dicono i giocatori',
     title: 'Recensioni dei',
