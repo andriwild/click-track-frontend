@@ -2,9 +2,9 @@ import {
   Smartphone,
   Bluetooth,
   MonitorSmartphone,
-  Volume2,
   Trophy,
   ScanLine,
+  WifiOff,
 } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
 
@@ -13,24 +13,24 @@ const icons = [
   Bluetooth,
   MonitorSmartphone,
   Smartphone,
-  Volume2,
   ScanLine,
+  WifiOff,
 ]
 const iconColors = [
   'text-yellow-400',
   'text-blue-400',
   'text-emerald-400',
   'text-purple-400',
-  'text-orange-400',
   'text-rose-400',
+  'text-red-400',
 ]
 const iconBgs = [
   'bg-yellow-400/10',
   'bg-blue-400/10',
   'bg-emerald-400/10',
   'bg-purple-400/10',
-  'bg-orange-400/10',
   'bg-rose-400/10',
+  'bg-red-400/10',
 ]
 
 export function AppFeaturesSection({ lang = 'de' }: { lang?: Locale }) {

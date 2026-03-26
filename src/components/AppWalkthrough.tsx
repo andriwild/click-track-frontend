@@ -24,8 +24,13 @@ export function AppWalkthrough({ lang = 'de' }: { lang?: Locale }) {
     return () => observers.forEach((o) => o.disconnect())
   }, [])
 
-  // Images are simply /smartphone/1.png, /smartphone/2.png, etc.
-  // Add or remove steps in the i18n file and matching images — that's it.
+  const images =
+    t.images ??
+    t.steps.map((_: unknown, i: number) => `/smartphone/${i + 1}.png`)
+
+  // Check if the active image is a non-phone image (not inside smartphone mockup)
+  const isFrameless =
+    images[activeIndex] && !images[activeIndex].startsWith('/smartphone/')
 
   return (
     <section className="relative w-full bg-zinc-950 text-zinc-50">
@@ -53,23 +58,49 @@ export function AppWalkthrough({ lang = 'de' }: { lang?: Locale }) {
         {/* Sticky phone — stays centered behind the text */}
         <div className="sticky top-0 h-screen flex items-center justify-center pointer-events-none z-0">
           <div className="relative w-[260px] sm:w-[280px] md:w-[300px]">
-            <div className="relative rounded-[3rem] border-[6px] border-zinc-700 bg-zinc-900 shadow-2xl shadow-black/50 overflow-hidden">
+            {/* Phone frame — fades out for frameless images */}
+            <div
+              className={`relative rounded-[3rem] border-[6px] border-zinc-700 bg-zinc-900 shadow-2xl shadow-black/50 overflow-hidden transition-opacity duration-500 ${
+                isFrameless ? 'opacity-0' : 'opacity-100'
+              }`}
+            >
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-zinc-900 rounded-b-2xl z-20" />
               <div className="relative aspect-[9/19.5] overflow-hidden bg-zinc-900">
-                {t.steps.map((step, i) => (
-                  <img
-                    key={i}
-                    src={`/smartphone/${i + 1}.png`}
-                    alt={step.title}
-                    className={`absolute inset-0 w-full h-full object-contain transition-all duration-500 ${
-                      i === activeIndex
-                        ? 'opacity-100 scale-100'
-                        : 'opacity-0 scale-105'
-                    }`}
-                  />
-                ))}
+                {t.steps.map((step, i) => {
+                  if (!images[i]?.startsWith('/smartphone/')) return null
+                  return (
+                    <img
+                      key={i}
+                      src={images[i]}
+                      alt={step.title}
+                      className={`absolute inset-0 w-full h-full object-contain transition-all duration-500 ${
+                        i === activeIndex
+                          ? 'opacity-100 scale-100'
+                          : 'opacity-0 scale-105'
+                      }`}
+                    />
+                  )
+                })}
               </div>
             </div>
+
+            {/* Frameless image — shown outside the phone frame */}
+            {t.steps.map((step, i) => {
+              if (images[i]?.startsWith('/smartphone/')) return null
+              return (
+                <img
+                  key={`frameless-${i}`}
+                  src={images[i]}
+                  alt={step.title}
+                  className={`absolute inset-0 w-full h-full object-contain rounded-3xl transition-all duration-500 ${
+                    i === activeIndex
+                      ? 'opacity-100 scale-100'
+                      : 'opacity-0 scale-105'
+                  }`}
+                />
+              )
+            })}
+
             <div className="absolute -inset-4 bg-gradient-to-b from-emerald-500/10 via-transparent to-cyan-500/10 rounded-[4rem] blur-2xl -z-10" />
           </div>
 

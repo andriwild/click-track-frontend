@@ -82,14 +82,14 @@ export const it: Translations = {
           'Gesti swipe a schermo intero per segnare direttamente sul display del tuo dispositivo.',
       },
       {
-        title: 'Feedback audio',
-        description:
-          'Suoni distintivi per ogni punto segnato e notifica unica di match point.',
-      },
-      {
         title: 'Accoppiamento QR rapido',
         description:
           'Salta le impostazioni Bluetooth. Scansiona il codice a barre sul braccialetto e sei pronto.',
+      },
+      {
+        title: 'Rilevamento connessione',
+        description:
+          'Se un beacon perde la connessione, vieni avvisato immediatamente — nessun punto va perso.',
       },
     ],
   },
@@ -167,7 +167,12 @@ export const it: Translations = {
       {
         title: 'Collega il braccialetto',
         description:
-          'Scansiona il codice QR sul braccialetto o seleziona il dispositivo dalla lista Bluetooth. Connesso in pochi secondi.',
+          'Tieni premuto il pulsante per 3 secondi per accendere (6 sec per spegnere). Scansiona il QR code o seleziona il dispositivo dalla lista Bluetooth.',
+      },
+      {
+        title: 'Beacon connessi',
+        description:
+          "I tuoi braccialetti sono connessi e pronti. Puoi vedere tutti i dispositivi connessi in un colpo d'occhio.",
       },
       {
         title: 'Scegli lo sport',
@@ -183,6 +188,37 @@ export const it: Translations = {
         title: 'Segna i punti',
         description:
           "Un clic sul braccialetto segna un punto. L'app gestisce set, giochi e mostra il punteggio in tempo reale.",
+      },
+    ],
+    images: [
+      '/smartphone/1.png',
+      '/wristband_click.png',
+      '/smartphone/2.png',
+      '/smartphone/3.png',
+      '/smartphone/4.png',
+      '/smartphone/5.png',
+    ],
+  },
+
+  appCustomization: {
+    badge: 'Personalizzabile',
+    title: 'Il tuo gioco, il tuo',
+    titleAccent: 'stile',
+    items: [
+      {
+        title: 'Set di suoni multipli',
+        description:
+          'Scegli tra diversi set di suoni per punti e match ball — o disattiva completamente i suoni.',
+      },
+      {
+        title: 'Colori personalizzati',
+        description:
+          'Personalizza i colori dei giocatori — scegli tra modelli o imposta i tuoi colori con il selettore.',
+      },
+      {
+        title: 'Tema chiaro & scuro',
+        description:
+          'Passa tra modalità chiara e scura — a seconda delle condizioni di luce e delle tue preferenze.',
       },
     ],
   },
@@ -357,6 +393,153 @@ export const it: Translations = {
     message:
       'Questa pagina è in fase di aggiornamento e sarà presto disponibile. Restate sintonizzati!',
     backHome: 'Torna alla Home',
+  },
+
+  gameModes: {
+    badge: 'Modalità di gioco',
+    title: 'Come vuoi',
+    titleAccent: 'giocare?',
+    description:
+      "Con o senza beacon, da solo o in torneo — l'app Klikkr si adatta al tuo setup.",
+    modes: {
+      swipe: {
+        label: 'Swipe',
+        description: 'Segna manualmente sul telefono — senza beacon.',
+        steps: [
+          {
+            title: "Apri l'app",
+            description:
+              "Avvia l'app senza beacon connessi. Ti basta il tuo smartphone.",
+          },
+          {
+            title: 'Scegli lo sport',
+            description:
+              'Seleziona il tuo sport — Tennis, Squash, Padel o Calcio sono pronti.',
+          },
+          {
+            title: 'Imposta le regole',
+            description:
+              'Imposta il punteggio target, "Win by 2" e la rotazione del servizio — completamente personalizzabile.',
+          },
+          {
+            title: 'Swipe & Score',
+            description:
+              "Fai swipe verso l'alto o il basso sul numero per cambiare il punteggio. Swipe verso il basso per cambiare il servizio.",
+          },
+        ],
+        images: [
+          '/smartphone/semantic/dark_sport_screen_favorites.png',
+          '/smartphone/semantic/dark_sport_screen_favorites.png',
+          '/smartphone/semantic/dark_squash_settings.png',
+          '/smartphone/semantic/dark_score_portrait.png',
+        ],
+      },
+      oneBeacon: {
+        label: '1 Beacon',
+        description:
+          'Un braccialetto per entrambi i giocatori — semplice e veloce.',
+        steps: [
+          {
+            title: 'Connetti il beacon',
+            description:
+              'Accendi il braccialetto (tieni premuto 3 sec) e connettilo tramite QR code o Bluetooth. Un beacon è sufficiente.',
+          },
+          {
+            title: 'Scegli lo sport',
+            description:
+              "Seleziona il tuo sport — l'app rileva automaticamente la modalità 1 beacon.",
+          },
+          {
+            title: 'Imposta le regole',
+            description:
+              'Configura punteggio target, "Win by 2" e altre impostazioni specifiche dello sport.',
+          },
+          {
+            title: 'Clic & Score',
+            description:
+              '1 clic = punto per Giocatore 1. 2 clic = punto per Giocatore 2. Swipe verso il basso per cambiare il servizio.',
+          },
+        ],
+        images: [
+          '/smartphone/semantic/dark_connect_screen_2_beacons_connected.png', // TODO: screenshot con solo 1 beacon connesso mancante
+          '/smartphone/semantic/dark_sport_screen_favorites.png',
+          '/smartphone/semantic/dark_squash_settings.png',
+          '/smartphone/semantic/dark_score_table.png',
+        ],
+      },
+      twoBeacons: {
+        label: '2 Beacons',
+        description: 'Ogni giocatore ha il proprio braccialetto.',
+        steps: [
+          {
+            title: 'Connetti entrambi i beacon',
+            description:
+              'Accendi entrambi i braccialetti (tieni premuto 3 sec) e connettili tramite QR code o Bluetooth.',
+          },
+          {
+            title: 'Scegli lo sport',
+            description:
+              "Seleziona il tuo sport — l'app rileva la modalità 2 beacon e assegna ogni beacon a un giocatore.",
+          },
+          {
+            title: 'Imposta le regole',
+            description:
+              'Configura le impostazioni specifiche dello sport come al solito.',
+          },
+          {
+            title: 'Clic & Score',
+            description:
+              '1 clic = punteggio +1. 2 clic = punteggio -1. Doppio clic per cambiare il servizio.',
+          },
+        ],
+        images: [
+          '/smartphone/semantic/dark_connect_screen_2_beacons_connected.png',
+          '/smartphone/semantic/dark_sport_screen_favorites.png',
+          '/smartphone/semantic/dark_squash_settings.png',
+          '/smartphone/semantic/dark_score_table.png',
+        ],
+      },
+      tournament: {
+        label: 'Torneo',
+        description: '3+ beacon — più giocatori, classifica automatica.',
+        steps: [
+          {
+            title: 'Connetti 3+ beacon',
+            description:
+              "Connetti 3 o più braccialetti — l'app entra automaticamente in modalità torneo.",
+          },
+          {
+            title: 'Scegli lo sport',
+            description:
+              'Seleziona il tuo sport e configura le impostazioni del torneo.',
+          },
+          {
+            title: 'Seleziona i giocatori',
+            description:
+              'Attiva o disattiva i giocatori con un clic. Scegli chi gioca contro chi prima di ogni match.',
+          },
+          {
+            title: 'Avvia il match',
+            description:
+              'Doppio clic su un giocatore per avviare il match. 1 clic = punteggio +1, 2 clic = punteggio -1.',
+          },
+          {
+            title: 'Risultati del torneo',
+            description:
+              'Dopo ogni match la classifica generale si aggiorna: chi ha battuto chi?',
+          },
+        ],
+        images: [
+          '/smartphone/semantic/dark_connect_screen_4_beacons_connected.png',
+          '/smartphone/semantic/dark_squash_settings_tournament.png',
+          '/smartphone/semantic/dar_start_tournament_player_selections.png',
+          '/smartphone/semantic/dark_tournament_player_selected.png',
+          '/smartphone/semantic/dark_score_table.png', // TODO: screenshot risultati torneo mancante
+        ],
+      },
+    },
+    prev: 'Precedente',
+    next: 'Avanti',
   },
 
   langSwitcher: {

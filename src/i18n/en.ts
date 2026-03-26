@@ -82,14 +82,14 @@ export const en: Translations = {
           'Easy full-screen swipe-to-score gestures directly on your device display.',
       },
       {
-        title: 'Audio Feedback',
-        description:
-          'Distinctive sounds for every point scored and a unique match point notification.',
-      },
-      {
         title: 'Quick QR Pairing',
         description:
           'Skip the Bluetooth settings. Scan the barcode on the wristband and you are ready.',
+      },
+      {
+        title: 'Connection Detection',
+        description:
+          'If a beacon loses connection, you get notified instantly — no point goes missing.',
       },
     ],
   },
@@ -167,7 +167,12 @@ export const en: Translations = {
       {
         title: 'Connect Wristband',
         description:
-          'Scan the QR code on the wristband or pick your device from the Bluetooth list. Connected in seconds.',
+          'Hold the button for 3 seconds to turn on (6 sec to turn off). Scan the QR code or pick your device from the Bluetooth list.',
+      },
+      {
+        title: 'Beacons Connected',
+        description:
+          'Your wristbands are connected and ready. You can see all connected devices at a glance.',
       },
       {
         title: 'Choose Your Sport',
@@ -183,6 +188,37 @@ export const en: Translations = {
         title: 'Track Points',
         description:
           'One click on the wristband scores a point. The app handles sets, games and shows the live score.',
+      },
+    ],
+    images: [
+      '/smartphone/1.png',
+      '/wristband_click.png',
+      '/smartphone/2.png',
+      '/smartphone/3.png',
+      '/smartphone/4.png',
+      '/smartphone/5.png',
+    ],
+  },
+
+  appCustomization: {
+    badge: 'Customizable',
+    title: 'Your game, your',
+    titleAccent: 'style',
+    items: [
+      {
+        title: 'Multiple Sound Sets',
+        description:
+          'Choose from different sound sets for points and match ball — or turn sounds off entirely.',
+      },
+      {
+        title: 'Custom Colors',
+        description:
+          'Customize player colors — pick from presets or set your own with the color picker.',
+      },
+      {
+        title: 'Light & Dark Theme',
+        description:
+          'Switch between light and dark mode — depending on lighting conditions and preference.',
       },
     ],
   },
@@ -356,6 +392,151 @@ export const en: Translations = {
     message:
       'This page is currently being updated and will be available soon. Stay tuned for updates!',
     backHome: 'Back to Home',
+  },
+
+  gameModes: {
+    badge: 'Game Modes',
+    title: 'How do you want to',
+    titleAccent: 'play?',
+    description:
+      'With or without a beacon, solo or tournament — the Klikkr app adapts to your setup.',
+    modes: {
+      swipe: {
+        label: 'Swipe',
+        description: 'Score manually on your phone — no beacon needed.',
+        steps: [
+          {
+            title: 'Open the app',
+            description:
+              'Start the app without any connected beacons. All you need is your smartphone.',
+          },
+          {
+            title: 'Choose your sport',
+            description:
+              'Select your sport — Tennis, Squash, Padel or Football are ready to go.',
+          },
+          {
+            title: 'Set the rules',
+            description:
+              'Set target score, "Win by 2" and serve rotation — fully customizable.',
+          },
+          {
+            title: 'Swipe & Score',
+            description:
+              'Swipe up or down over the number to change the score. Swipe down to switch serve.',
+          },
+        ],
+        images: [
+          '/smartphone/semantic/dark_sport_screen_favorites.png',
+          '/smartphone/semantic/dark_sport_screen_favorites.png',
+          '/smartphone/semantic/dark_squash_settings.png',
+          '/smartphone/semantic/dark_score_portrait.png',
+        ],
+      },
+      oneBeacon: {
+        label: '1 Beacon',
+        description: 'One wristband for both players — simple and fast.',
+        steps: [
+          {
+            title: 'Connect beacon',
+            description:
+              'Turn on your wristband (hold 3 sec) and connect via QR code or Bluetooth. One beacon is enough.',
+          },
+          {
+            title: 'Choose your sport',
+            description:
+              'Select your sport — the app automatically detects 1-beacon mode.',
+          },
+          {
+            title: 'Set the rules',
+            description:
+              'Configure target score, "Win by 2" and other sport-specific settings.',
+          },
+          {
+            title: 'Click & Score',
+            description:
+              '1 click = point for Player 1. 2 clicks = point for Player 2. Swipe down to switch serve.',
+          },
+        ],
+        images: [
+          '/smartphone/semantic/dark_connect_screen_2_beacons_connected.png', // TODO: screenshot with only 1 connected beacon missing
+          '/smartphone/semantic/dark_sport_screen_favorites.png',
+          '/smartphone/semantic/dark_squash_settings.png',
+          '/smartphone/semantic/dark_score_table.png',
+        ],
+      },
+      twoBeacons: {
+        label: '2 Beacons',
+        description: 'Each player has their own wristband.',
+        steps: [
+          {
+            title: 'Connect both beacons',
+            description:
+              'Turn on both wristbands (hold 3 sec) and connect via QR code or Bluetooth.',
+          },
+          {
+            title: 'Choose your sport',
+            description:
+              'Select your sport — the app auto-detects 2-beacon mode and assigns each beacon to a player.',
+          },
+          {
+            title: 'Set the rules',
+            description: 'Configure sport-specific settings as usual.',
+          },
+          {
+            title: 'Click & Score',
+            description:
+              '1 click = score up. 2 clicks = score down. Double-click to switch serve.',
+          },
+        ],
+        images: [
+          '/smartphone/semantic/dark_connect_screen_2_beacons_connected.png',
+          '/smartphone/semantic/dark_sport_screen_favorites.png',
+          '/smartphone/semantic/dark_squash_settings.png',
+          '/smartphone/semantic/dark_score_table.png',
+        ],
+      },
+      tournament: {
+        label: 'Tournament',
+        description: '3+ beacons — multiple players, automatic rankings.',
+        steps: [
+          {
+            title: 'Connect 3+ beacons',
+            description:
+              'Connect 3 or more wristbands — the app automatically enters tournament mode.',
+          },
+          {
+            title: 'Choose your sport',
+            description:
+              'Select your sport and configure tournament-specific settings.',
+          },
+          {
+            title: 'Select players',
+            description:
+              'Activate or deactivate players with a click. Choose who plays against whom before each match.',
+          },
+          {
+            title: 'Start match',
+            description:
+              'Double-click a player to start the match. 1 click = score up, 2 clicks = score down.',
+          },
+          {
+            title: 'Tournament results',
+            description:
+              'After each match the overall standings update: who beat whom?',
+          },
+        ],
+        images: [
+          '/smartphone/semantic/dark_connect_screen_4_beacons_connected.png',
+          '/smartphone/semantic/dark_squash_settings_tournament.png',
+          '/smartphone/semantic/dar_start_tournament_player_selections.png',
+          '/smartphone/semantic/dark_tournament_player_selected.png',
+          '/smartphone/semantic/dark_score_table.png', // TODO: tournament results/rankings screenshot missing
+        ],
+      },
+    },
+    prev: 'Previous',
+    next: 'Next',
   },
 
   langSwitcher: {

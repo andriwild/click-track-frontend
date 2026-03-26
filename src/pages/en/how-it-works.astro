@@ -1,10 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { AppWalkthrough } from '../../components/AppWalkthrough.tsx';
+import { AppCustomization } from '../../components/AppCustomization.tsx';
+import { GameModes } from '../../components/GameModes.tsx';
 import { Footer } from '../../components/Footer.tsx';
 ---
 
 <Layout title="How It Works | Klikkr" currentPage="how-it-works" lang="en">
   <AppWalkthrough client:visible lang="en" />
+  <AppCustomization client:visible lang="en" />
+  <GameModes client:visible lang="en" />
   <Footer client:visible slot="footer" lang="en" />
 </Layout>
