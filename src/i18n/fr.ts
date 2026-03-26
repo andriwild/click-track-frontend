@@ -57,8 +57,14 @@ export const fr: Translations = {
     title: "L'application compagnon ultime.",
     description:
       "L'application gratuite Klikkr transforme vos bracelets Bluetooth en un tableau de score intelligent et puissant. Parfaitement conçue pour les sports de raquette rapides.",
-    storeBadgeLabel: 'Bientôt disponible pour Android',
-    storeName: 'Google Play',
+    betaBadge: 'Bêta',
+    betaTitle: 'Rejoins la bêta',
+    betaDescription:
+      "L'app Klikkr est en bêta pour Android & iOS. Inscris-toi et on t'invite.",
+    betaPlaceholder: 'Ton adresse e-mail',
+    betaButton: "S'inscrire",
+    betaSuccess: 'Merci ! On te recontacte bientôt.',
+    betaError: "Quelque chose s'est mal passé. Réessaie.",
     appPreviewAlt: "Aperçu de l'interface Klikkr",
     items: [
       {
@@ -124,7 +130,7 @@ export const fr: Translations = {
       {
         title: "Télécharger l'app",
         description:
-          "Installez l'application gratuite Klikkr depuis le Google Play Store sur votre appareil Android.",
+          "Installe l'app gratuite Klikkr — disponible pour Android & iOS (Bêta).",
       },
       {
         title: 'Scanner & Connecter',
@@ -294,7 +300,16 @@ export const fr: Translations = {
     titleAccent: 'fréquentes',
     description:
       "Tout ce que vous devez savoir sur Klikkr – de l'installation au jeu.",
+    emptyTitle: 'Personne ne nous a jamais rien demandé.',
+    emptyDescription:
+      "Soit Klikkr est tellement intuitif qu'aucune question n'est nécessaire — soit tout le monde est trop occupé à jouer. On parie sur la deuxième option. On a quand même préparé quelques réponses, au cas où.",
     contactCta: "D'autres questions ? Écrivez-nous à",
+    contactTitle: "Ta question n'était pas là ?",
+    contactDescription: 'Écris-nous directement — on ne mord pas (en général).',
+    contactEmail: 'Ton adresse e-mail',
+    contactMessage: 'Que voudrais-tu savoir ?',
+    contactButton: 'Envoyer',
+    contactSuccess: "Ton client mail s'ouvre — il suffit d'envoyer !",
     items: [
       {
         question: 'Que comprend Klikkr ?',
@@ -329,7 +344,7 @@ export const fr: Translations = {
       {
         question: "Sur quels appareils l'app est-elle disponible ?",
         answer:
-          "L'app Klikkr est actuellement disponible pour Android et peut être téléchargée gratuitement depuis le Google Play Store. Une version iOS est prévue.",
+          "L'app Klikkr est disponible pour Android & iOS en bêta. Inscris-toi sur notre site et on t'invite à la bêta.",
       },
       {
         question: 'Puis-je personnaliser les règles du jeu ?',
@@ -428,9 +443,9 @@ export const fr: Translations = {
           },
         ],
         images: [
+          '/smartphone/1.png',
+          '/smartphone/3.png',
           '/smartphone/semantic/dark_sport_screen_favorites.png',
-          '/smartphone/semantic/dark_sport_screen_favorites.png',
-          '/smartphone/semantic/dark_squash_settings.png',
           '/smartphone/semantic/dark_score_portrait.png',
         ],
       },
@@ -460,10 +475,10 @@ export const fr: Translations = {
           },
         ],
         images: [
-          '/smartphone/semantic/dark_connect_screen_2_beacons_connected.png', // TODO: screenshot avec 1 seul beacon connecté manquant
-          '/smartphone/semantic/dark_sport_screen_favorites.png',
-          '/smartphone/semantic/dark_squash_settings.png',
-          '/smartphone/semantic/dark_score_table.png',
+          '/smartphone/semantic/dark_connect_1_beacon_connected.png',
+          '/smartphone/3.png',
+          '/smartphone/semantic/dark_sport_settings_1_beacon.png',
+          '/smartphone/semantic/dark_score_portrait.png',
         ],
       },
       twoBeacons: {
@@ -494,8 +509,8 @@ export const fr: Translations = {
         images: [
           '/smartphone/semantic/dark_connect_screen_2_beacons_connected.png',
           '/smartphone/semantic/dark_sport_screen_favorites.png',
-          '/smartphone/semantic/dark_squash_settings.png',
-          '/smartphone/semantic/dark_score_table.png',
+          '/smartphone/semantic/dark_sport_settings_1_beacon.png',
+          '/smartphone/semantic/dark_score_portrait.png',
         ],
       },
       tournament: {
@@ -509,8 +524,11 @@ export const fr: Translations = {
           },
           {
             title: 'Choisis ton sport',
-            description:
-              'Sélectionne ton sport et configure les paramètres du tournoi.',
+            description: 'Sélectionne ton sport parmi les options disponibles.',
+          },
+          {
+            title: 'Configure les règles',
+            description: 'Paramètre les réglages spécifiques au tournoi.',
           },
           {
             title: 'Sélectionner les joueurs',
@@ -518,9 +536,9 @@ export const fr: Translations = {
               "Active ou désactive les joueurs d'un clic. Choisis qui joue contre qui avant chaque match.",
           },
           {
-            title: 'Lancer le match',
+            title: 'Jouer le match',
             description:
-              'Double-clic sur un joueur pour lancer le match. 1 clic = score +1, 2 clics = score -1.',
+              'Double-clic pour lancer. 1 clic = score +1, 2 clics = score -1.',
           },
           {
             title: 'Résultats du tournoi',
@@ -530,10 +548,11 @@ export const fr: Translations = {
         ],
         images: [
           '/smartphone/semantic/dark_connect_screen_4_beacons_connected.png',
-          '/smartphone/semantic/dark_squash_settings_tournament.png',
-          '/smartphone/semantic/dar_start_tournament_player_selections.png',
-          '/smartphone/semantic/dark_tournament_player_selected.png',
-          '/smartphone/semantic/dark_score_table.png', // TODO: screenshot résultats tournoi manquant
+          '/smartphone/semantic/dark_sport_screen_favorites.png',
+          '/smartphone/semantic/dark_sport_settings_1_beacon.png',
+          '/smartphone/semantic/dark_tournament_player_selection.png',
+          '/smartphone/semantic/dark_score_portrait.png',
+          '/smartphone/semantic/dark_tounament_result.png',
         ],
       },
     },

@@ -1,10 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { ComingSoon } from '../../components/ComingSoon.tsx';
+import { FaqSection } from '../../components/FaqSection.tsx';
 import { Footer } from '../../components/Footer.tsx';
 ---
 
 <Layout title="FAQ | Klikkr" currentPage="faq" lang="it">
-  <ComingSoon client:load lang="it" />
+  <FaqSection client:load lang="it" />
   <Footer client:visible slot="footer" lang="it" />
 </Layout>

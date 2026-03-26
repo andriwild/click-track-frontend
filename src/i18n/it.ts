@@ -57,8 +57,14 @@ export const it: Translations = {
     title: "L'app compagna definitiva.",
     description:
       "L'app gratuita Klikkr trasforma i tuoi braccialetti Bluetooth in un tabellone segnapunti intelligente e potente. Perfettamente progettata per sport di racchetta veloci.",
-    storeBadgeLabel: 'Presto disponibile per Android',
-    storeName: 'Google Play',
+    betaBadge: 'Beta',
+    betaTitle: 'Unisciti alla beta',
+    betaDescription:
+      "L'app Klikkr è in beta per Android & iOS. Iscriviti e ti invitiamo.",
+    betaPlaceholder: 'Il tuo indirizzo email',
+    betaButton: 'Iscriviti',
+    betaSuccess: 'Grazie! Ti ricontattiamo presto.',
+    betaError: 'Qualcosa è andato storto. Riprova.',
     appPreviewAlt: 'Anteprima interfaccia app Klikkr',
     items: [
       {
@@ -125,7 +131,7 @@ export const it: Translations = {
       {
         title: "Scarica l'app",
         description:
-          "Installa l'app gratuita Klikkr dal Google Play Store sul tuo dispositivo Android.",
+          "Installa l'app gratuita Klikkr — disponibile per Android & iOS (Beta).",
       },
       {
         title: 'Scansiona & Connetti',
@@ -294,7 +300,16 @@ export const it: Translations = {
     titleAccent: 'frequenti',
     description:
       'Tutto quello che devi sapere su Klikkr – dalla configurazione al gameplay.',
+    emptyTitle: 'Nessuno ci ha mai chiesto niente.',
+    emptyDescription:
+      'O Klikkr è così intuitivo che non servono domande — oppure tutti sono troppo impegnati a giocare. Scommettiamo sulla seconda. Comunque, abbiamo preparato qualche risposta, per ogni evenienza.',
     contactCta: 'Altre domande? Scrivici a',
+    contactTitle: 'Non hai trovato la tua risposta?',
+    contactDescription: 'Scrivici direttamente — non mordiamo (di solito).',
+    contactEmail: 'Il tuo indirizzo e-mail',
+    contactMessage: 'Cosa vorresti sapere?',
+    contactButton: 'Invia',
+    contactSuccess: 'Il tuo client mail si sta aprendo — basta inviare!',
     items: [
       {
         question: 'Cosa include Klikkr?',
@@ -329,7 +344,7 @@ export const it: Translations = {
       {
         question: "Su quali dispositivi è disponibile l'app?",
         answer:
-          "L'app Klikkr è attualmente disponibile per Android e può essere scaricata gratuitamente dal Google Play Store. Una versione iOS è in programma.",
+          "L'app Klikkr è disponibile per Android & iOS in beta. Iscriviti sul nostro sito e ti invitiamo alla beta.",
       },
       {
         question: 'Posso personalizzare le regole di gioco?',
@@ -428,9 +443,9 @@ export const it: Translations = {
           },
         ],
         images: [
+          '/smartphone/1.png',
+          '/smartphone/3.png',
           '/smartphone/semantic/dark_sport_screen_favorites.png',
-          '/smartphone/semantic/dark_sport_screen_favorites.png',
-          '/smartphone/semantic/dark_squash_settings.png',
           '/smartphone/semantic/dark_score_portrait.png',
         ],
       },
@@ -461,10 +476,10 @@ export const it: Translations = {
           },
         ],
         images: [
-          '/smartphone/semantic/dark_connect_screen_2_beacons_connected.png', // TODO: screenshot con solo 1 beacon connesso mancante
-          '/smartphone/semantic/dark_sport_screen_favorites.png',
-          '/smartphone/semantic/dark_squash_settings.png',
-          '/smartphone/semantic/dark_score_table.png',
+          '/smartphone/semantic/dark_connect_1_beacon_connected.png',
+          '/smartphone/3.png',
+          '/smartphone/semantic/dark_sport_settings_1_beacon.png',
+          '/smartphone/semantic/dark_score_portrait.png',
         ],
       },
       twoBeacons: {
@@ -495,8 +510,8 @@ export const it: Translations = {
         images: [
           '/smartphone/semantic/dark_connect_screen_2_beacons_connected.png',
           '/smartphone/semantic/dark_sport_screen_favorites.png',
-          '/smartphone/semantic/dark_squash_settings.png',
-          '/smartphone/semantic/dark_score_table.png',
+          '/smartphone/semantic/dark_sport_settings_1_beacon.png',
+          '/smartphone/semantic/dark_score_portrait.png',
         ],
       },
       tournament: {
@@ -510,8 +525,11 @@ export const it: Translations = {
           },
           {
             title: 'Scegli lo sport',
-            description:
-              'Seleziona il tuo sport e configura le impostazioni del torneo.',
+            description: 'Seleziona il tuo sport tra le opzioni disponibili.',
+          },
+          {
+            title: 'Imposta le regole',
+            description: 'Configura le impostazioni specifiche del torneo.',
           },
           {
             title: 'Seleziona i giocatori',
@@ -519,9 +537,9 @@ export const it: Translations = {
               'Attiva o disattiva i giocatori con un clic. Scegli chi gioca contro chi prima di ogni match.',
           },
           {
-            title: 'Avvia il match',
+            title: 'Gioca il match',
             description:
-              'Doppio clic su un giocatore per avviare il match. 1 clic = punteggio +1, 2 clic = punteggio -1.',
+              'Doppio clic per avviare. 1 clic = punteggio +1, 2 clic = punteggio -1.',
           },
           {
             title: 'Risultati del torneo',
@@ -531,10 +549,11 @@ export const it: Translations = {
         ],
         images: [
           '/smartphone/semantic/dark_connect_screen_4_beacons_connected.png',
-          '/smartphone/semantic/dark_squash_settings_tournament.png',
-          '/smartphone/semantic/dar_start_tournament_player_selections.png',
-          '/smartphone/semantic/dark_tournament_player_selected.png',
-          '/smartphone/semantic/dark_score_table.png', // TODO: screenshot risultati torneo mancante
+          '/smartphone/semantic/dark_sport_screen_favorites.png',
+          '/smartphone/semantic/dark_sport_settings_1_beacon.png',
+          '/smartphone/semantic/dark_tournament_player_selection.png',
+          '/smartphone/semantic/dark_score_portrait.png',
+          '/smartphone/semantic/dark_tounament_result.png',
         ],
       },
     },
