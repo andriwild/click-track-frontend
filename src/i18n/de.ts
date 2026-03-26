@@ -53,8 +53,8 @@ export const de: Translations = {
   },
 
   appFeatures: {
-    badge: 'Digitale Begleiter-App',
-    title: 'Die ultimative Begleiter-App.',
+    badge: 'Klikkr App',
+    title: 'Die kostenlose Klikkr App.',
     description:
       'Die kostenlose Klikkr App verwandelt deine Bluetooth-Armbänder in ein leistungsstarkes, intelligentes Scoreboard. Perfekt konzipiert für schnelle Racketsportarten wie Padel, Tennis und Squash.',
     betaBadge: 'Beta',
