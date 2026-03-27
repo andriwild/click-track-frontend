@@ -109,7 +109,8 @@ export const en: Translations = {
     featuresList: [
       'One-click score tracking',
       'Water & sweat resistant',
-      'Shockproof silicone build',
+      'Great feel — perfect for sports',
+      'Ultra-lightweight on the wrist',
       '2-year battery life',
     ],
     securePayment: 'Secure payment processing by Stripe. Fully encrypted.',

@@ -109,7 +109,8 @@ export const it: Translations = {
     featuresList: [
       'Punteggio con un clic',
       'Resistente ad acqua e sudore',
-      'Struttura in silicone antiurto',
+      'Sensazione piacevole — ideale per lo sport',
+      'Ultra-leggero al polso',
       '2 anni di autonomia',
     ],
     securePayment:

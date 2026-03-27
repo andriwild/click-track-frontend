@@ -109,7 +109,8 @@ export const de: Translations = {
     featuresList: [
       'Punktzählung per Knopfdruck',
       'Wasser- & schweissresistent',
-      'Stossfestes Silikon-Gehäuse',
+      'Angenehme Haptik — ideal im Sport',
+      'Ultraleicht am Handgelenk',
       '2 Jahre Batterielaufzeit',
     ],
     securePayment:

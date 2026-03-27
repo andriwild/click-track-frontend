@@ -109,7 +109,8 @@ export const fr: Translations = {
     featuresList: [
       'Comptage de points en un clic',
       "Résistant à l'eau et à la transpiration",
-      'Boîtier en silicone antichoc',
+      'Toucher agréable — idéal pour le sport',
+      'Ultra-léger au poignet',
       "2 ans d'autonomie",
     ],
     securePayment: 'Paiement sécurisé via Stripe. Entièrement chiffré.',
