@@ -1,10 +1,19 @@
 import { useState } from 'react'
 import { Check, ShoppingBag, Plus, Minus } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
-import { products, formatPrice, type ProductCategory } from '../config/products'
+import {
+  products,
+  formatPrice,
+  type ProductCategory,
+  type Product,
+} from '../config/products'
 import { addToCart } from '../stores/cart'
 
 const categoryOrder: ProductCategory[] = ['wristband', 'holder', 'accessory']
+
+type DisplayItem =
+  | { type: 'single'; product: Product }
+  | { type: 'variant-group'; groupKey: string; variants: Product[] }
 
 export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang)
@@ -14,6 +23,7 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
     )
   )
   const [addedSlug, setAddedSlug] = useState<string | null>(null)
+  const [selectedSize, setSelectedSize] = useState<Record<string, string>>({})
 
   const setQty = (slug: string, qty: number) => {
     setQuantities((prev) => ({
@@ -31,11 +41,33 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
     setTimeout(() => setAddedSlug(null), 1200)
   }
 
-  // Group products by category
+  // Group products by category, collapsing variant groups
+  function buildDisplayItems(categoryProducts: Product[]): DisplayItem[] {
+    const items: DisplayItem[] = []
+    const seenGroups = new Set<string>()
+    for (const p of categoryProducts) {
+      if (p.variantGroup) {
+        if (seenGroups.has(p.variantGroup)) continue
+        seenGroups.add(p.variantGroup)
+        const variants = categoryProducts.filter(
+          (v) => v.variantGroup === p.variantGroup
+        )
+        items.push({
+          type: 'variant-group',
+          groupKey: p.variantGroup,
+          variants,
+        })
+      } else {
+        items.push({ type: 'single', product: p })
+      }
+    }
+    return items
+  }
+
   const grouped = categoryOrder
     .map((cat) => ({
       category: cat,
-      items: products.filter((p) => p.category === cat),
+      items: buildDisplayItems(products.filter((p) => p.category === cat)),
     }))
     .filter((g) => g.items.length > 0)
 
@@ -82,7 +114,130 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
                     {t.products.categories[category]}
                   </h3>
 
-                  {items.map((product) => {
+                  {items.map((item) => {
+                    if (item.type === 'variant-group') {
+                      const { groupKey, variants } = item
+                      const selected =
+                        selectedSize[groupKey] || variants[0].slug
+                      const activeVariant =
+                        variants.find((v) => v.slug === selected) || variants[0]
+                      const groupT = t.products[
+                        groupKey as keyof typeof t.products
+                      ] as { name: string; description: string }
+                      const variantT = t.products[
+                        selected as keyof typeof t.products
+                      ] as { name: string; description: string }
+                      const qty = quantities[selected] || 1
+                      const isAdded = addedSlug === selected
+
+                      return (
+                        <div
+                          key={groupKey}
+                          className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-6 backdrop-blur-xl shadow-xl"
+                        >
+                          <div className="flex gap-4">
+                            <img
+                              src={activeVariant.image}
+                              alt={groupT.name}
+                              className="w-20 h-20 rounded-xl object-cover bg-zinc-800 flex-shrink-0"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-lg font-bold text-zinc-100">
+                                {groupT.name}
+                              </h4>
+                              <p className="text-sm text-zinc-400 mt-0.5">
+                                {groupT.description}
+                              </p>
+                              <p className="text-sm text-zinc-300 font-medium mt-1">
+                                {variantT.description}
+                              </p>
+                              <div className="flex items-baseline gap-1 mt-2">
+                                <span className="text-xl font-extrabold">
+                                  {formatPrice(activeVariant.priceCHF)}
+                                </span>
+                                <span className="text-sm text-zinc-500">
+                                  {t.products.perUnit}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Size selector */}
+                          <div className="mt-4">
+                            <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">
+                              {
+                                (t.products as Record<string, unknown>)
+                                  .sizeLabel
+                              }
+                            </span>
+                            <div className="flex gap-2 mt-1.5">
+                              {variants.map((v) => (
+                                <button
+                                  key={v.slug}
+                                  onClick={() =>
+                                    setSelectedSize((prev) => ({
+                                      ...prev,
+                                      [groupKey]: v.slug,
+                                    }))
+                                  }
+                                  className={`h-10 w-12 rounded-lg text-sm font-bold transition-all ${
+                                    selected === v.slug
+                                      ? 'bg-emerald-500 text-zinc-950'
+                                      : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                                  }`}
+                                >
+                                  {v.size}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-3 mt-4">
+                            <div className="flex items-center rounded-xl border border-zinc-700 bg-zinc-800/50">
+                              <button
+                                onClick={() => setQty(selected, qty - 1)}
+                                disabled={qty <= 1}
+                                className="p-2.5 text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-30"
+                              >
+                                <Minus className="h-4 w-4" />
+                              </button>
+                              <span className="w-10 text-center font-bold text-zinc-200">
+                                {qty}
+                              </span>
+                              <button
+                                onClick={() => setQty(selected, qty + 1)}
+                                disabled={qty >= 10}
+                                className="p-2.5 text-zinc-400 hover:text-zinc-200 transition-colors disabled:opacity-30"
+                              >
+                                <Plus className="h-4 w-4" />
+                              </button>
+                            </div>
+
+                            <button
+                              onClick={() =>
+                                handleAdd(selected, activeVariant.stripePriceId)
+                              }
+                              className="flex-1 h-11 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold text-sm transition-all active:scale-95 flex items-center justify-center gap-2"
+                            >
+                              {isAdded ? (
+                                <>
+                                  <Check className="h-4 w-4" />
+                                  {t.cart.addedToCart}
+                                </>
+                              ) : (
+                                <>
+                                  <ShoppingBag className="h-4 w-4" />
+                                  {t.products.cta}
+                                </>
+                              )}
+                            </button>
+                          </div>
+                        </div>
+                      )
+                    }
+
+                    // Single product (no variants)
+                    const { product } = item
                     const pt = t.products[
                       product.slug as keyof typeof t.products
                     ] as {
@@ -122,7 +277,6 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
                         </div>
 
                         <div className="flex items-center gap-3 mt-4">
-                          {/* Quantity picker */}
                           <div className="flex items-center rounded-xl border border-zinc-700 bg-zinc-800/50">
                             <button
                               onClick={() => setQty(product.slug, qty - 1)}
@@ -143,7 +297,6 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
                             </button>
                           </div>
 
-                          {/* Add to cart */}
                           <button
                             onClick={() =>
                               handleAdd(product.slug, product.stripePriceId)

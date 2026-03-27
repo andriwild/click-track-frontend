@@ -384,6 +384,19 @@ export const en: Translations = {
       description:
         'Mounts on the squash court glass for the perfect view of the score.',
     },
+    'holder-squash-s': {
+      name: 'Glass Mount S (Squash)',
+      description: 'Slot: 162 × 15.5 mm (L × W)',
+    },
+    'holder-squash-m': {
+      name: 'Glass Mount M (Squash)',
+      description: 'Slot: 167 × 16 mm (L × W)',
+    },
+    'holder-squash-l': {
+      name: 'Glass Mount L (Squash)',
+      description: 'Slot: 175 × 16.5 mm (L × W)',
+    },
+    sizeLabel: 'Size',
     perUnit: '/ unit',
     cta: 'Add to Cart',
     categories: {

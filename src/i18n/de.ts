@@ -386,6 +386,19 @@ export const de: Translations = {
       description:
         'Befestigung an der Squash-Scheibe für den perfekten Blick auf den Score.',
     },
+    'holder-squash-s': {
+      name: 'Glass Mount S (Squash)',
+      description: 'Aussparung: 162 × 15.5 mm (L × B)',
+    },
+    'holder-squash-m': {
+      name: 'Glass Mount M (Squash)',
+      description: 'Aussparung: 167 × 16 mm (L × B)',
+    },
+    'holder-squash-l': {
+      name: 'Glass Mount L (Squash)',
+      description: 'Aussparung: 175 × 16.5 mm (L × B)',
+    },
+    sizeLabel: 'Grösse',
     perUnit: '/ Stück',
     cta: 'In den Warenkorb',
     categories: {

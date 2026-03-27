@@ -8,7 +8,9 @@ const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY') as string, {
 // Server-side allowlist of valid Stripe Price IDs
 const ALLOWED_PRICE_IDS = new Set([
   'price_1TEvAVApnOf6m4doqtBC7OJX', // wristband
-  'price_1TEvJPApnOf6m4dozIv5Ze8W', // holder squash
+  'price_1TEvJPApnOf6m4dozIv5Ze8W', // holder squash S
+  'price_1TFVZDApnOf6m4doCkFyvOI7', // holder squash M
+  'price_1TFVZiApnOf6m4do3uj4HloR', // holder squash L
 ])
 
 const ALLOWED_ORIGINS = [
@@ -85,6 +87,7 @@ Deno.serve(async (req) => {
       shipping_address_collection: {
         allowed_countries: ['CH', 'DE', 'AT', 'FR', 'IT'],
       },
+      allow_promotion_codes: true,
       success_url: successUrl,
       cancel_url: cancelUrl,
       locale: lang as Stripe.Checkout.SessionCreateParams.Locale,

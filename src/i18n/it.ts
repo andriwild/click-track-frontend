@@ -385,6 +385,19 @@ export const it: Translations = {
       description:
         'Si fissa al vetro del campo da squash per una vista perfetta del punteggio.',
     },
+    'holder-squash-s': {
+      name: 'Glass Mount S (Squash)',
+      description: 'Fessura: 162 × 15.5 mm (L × L)',
+    },
+    'holder-squash-m': {
+      name: 'Glass Mount M (Squash)',
+      description: 'Fessura: 167 × 16 mm (L × L)',
+    },
+    'holder-squash-l': {
+      name: 'Glass Mount L (Squash)',
+      description: 'Fessura: 175 × 16.5 mm (L × L)',
+    },
+    sizeLabel: 'Taglia',
     perUnit: '/ pezzo',
     cta: 'Aggiungi al carrello',
     categories: {

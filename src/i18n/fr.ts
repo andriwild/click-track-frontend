@@ -385,6 +385,19 @@ export const fr: Translations = {
       description:
         'Se fixe sur la vitre du court de squash pour une vue parfaite du score.',
     },
+    'holder-squash-s': {
+      name: 'Glass Mount S (Squash)',
+      description: 'Fente : 162 × 15.5 mm (L × l)',
+    },
+    'holder-squash-m': {
+      name: 'Glass Mount M (Squash)',
+      description: 'Fente : 167 × 16 mm (L × l)',
+    },
+    'holder-squash-l': {
+      name: 'Glass Mount L (Squash)',
+      description: 'Fente : 175 × 16.5 mm (L × l)',
+    },
+    sizeLabel: 'Taille',
     perUnit: '/ pièce',
     cta: 'Ajouter au panier',
     categories: {
