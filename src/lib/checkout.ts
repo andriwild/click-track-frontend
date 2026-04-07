@@ -4,7 +4,7 @@ import type { Locale } from '../i18n'
 const CHECKOUT_FUNCTION_URL =
   'https://xhhticogilsokkpypzwe.supabase.co/functions/v1/create-checkout-session'
 
-export async function initiateCheckout(lang: Locale) {
+export async function initiateCheckout(lang: Locale, newsletter = false) {
   const items = getCartItems().map(({ product, quantity }) => ({
     priceId: product.stripePriceId,
     quantity,
@@ -15,7 +15,7 @@ export async function initiateCheckout(lang: Locale) {
   const res = await fetch(CHECKOUT_FUNCTION_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ items, lang }),
+    body: JSON.stringify({ items, lang, newsletter }),
   })
 
   if (!res.ok) {

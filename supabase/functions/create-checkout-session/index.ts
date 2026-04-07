@@ -45,7 +45,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { items, lang = 'de' } = await req.json()
+    const { items, lang = 'de', newsletter = false } = await req.json()
 
     if (!Array.isArray(items) || items.length === 0) {
       return new Response(JSON.stringify({ error: 'No items provided' }), {
@@ -80,6 +80,7 @@ Deno.serve(async (req) => {
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
+      metadata: { newsletter: newsletter ? 'true' : 'false' },
       line_items: lineItems,
       shipping_options: [
         { shipping_rate: Deno.env.get('SHIPPING_RATE_ID') as string },

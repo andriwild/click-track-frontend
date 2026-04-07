@@ -135,6 +135,39 @@ Deno.serve(async (req) => {
       }
 
       console.log(`Order Items saved for Session ${session.id}`)
+
+      // Newsletter opt-in: add customer to Brevo list
+      if (
+        session.metadata?.newsletter === 'true' &&
+        customerEmail !== 'Unknown'
+      ) {
+        const brevoApiKey = Deno.env.get('BREVO_API_KEY')
+        if (brevoApiKey) {
+          try {
+            const brevoRes = await fetch('https://api.brevo.com/v3/contacts', {
+              method: 'POST',
+              headers: {
+                'api-key': brevoApiKey,
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+              },
+              body: JSON.stringify({
+                email: customerEmail,
+                listIds: [5],
+                updateEnabled: false,
+              }),
+            })
+            if (brevoRes.ok) {
+              console.log(`Newsletter signup for ${customerEmail}`)
+            } else {
+              const body = await brevoRes.text()
+              console.error('Brevo API error:', body)
+            }
+          } catch (err) {
+            console.error('Brevo signup failed:', (err as Error).message)
+          }
+        }
+      }
     }
 
     return new Response(JSON.stringify({ received: true }), { status: 200 })

@@ -323,6 +323,7 @@ export const en: Translations = {
     title: 'Cart',
     empty: 'Your cart is empty.',
     checkout: 'Checkout',
+    newsletterOptIn: 'Yes, I want to receive the Klikkr newsletter',
     remove: 'Remove',
     total: 'Total',
     addedToCart: 'Added',

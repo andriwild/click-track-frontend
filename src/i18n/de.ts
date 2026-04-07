@@ -324,6 +324,7 @@ export const de: Translations = {
     title: 'Warenkorb',
     empty: 'Dein Warenkorb ist leer.',
     checkout: 'Zur Kasse',
+    newsletterOptIn: 'Ja, ich möchte den Klikkr Newsletter erhalten',
     remove: 'Entfernen',
     total: 'Total',
     addedToCart: 'Hinzugefügt',

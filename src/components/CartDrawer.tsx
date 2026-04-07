@@ -20,6 +20,7 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang)
   const items = getCartItems()
   const [loading, setLoading] = useState(false)
+  const [newsletter, setNewsletter] = useState(false)
 
   if (!isOpen) return null
 
@@ -30,7 +31,7 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
     })
     setLoading(true)
     try {
-      await initiateCheckout(lang)
+      await initiateCheckout(lang, newsletter)
     } catch {
       setLoading(false)
     }
@@ -159,6 +160,17 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
                 {formatPrice(total)}
               </span>
             </div>
+            <label className="flex items-start gap-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                checked={newsletter}
+                onChange={(e) => setNewsletter(e.target.checked)}
+                className="mt-0.5 h-4 w-4 rounded border-zinc-600 bg-zinc-800 text-emerald-500 focus:ring-emerald-500/50 accent-emerald-500"
+              />
+              <span className="text-xs text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                {t.cart.newsletterOptIn}
+              </span>
+            </label>
             <button
               onClick={handleCheckout}
               disabled={loading}

@@ -324,6 +324,7 @@ export const fr: Translations = {
     title: 'Panier',
     empty: 'Votre panier est vide.',
     checkout: 'Passer à la caisse',
+    newsletterOptIn: 'Oui, je souhaite recevoir la newsletter Klikkr',
     remove: 'Supprimer',
     total: 'Total',
     addedToCart: 'Ajouté',
