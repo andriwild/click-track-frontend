@@ -30,6 +30,7 @@ const currentPathWithoutLang = Astro.url.pathname
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#09090b" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -144,9 +145,8 @@ const currentPathWithoutLang = Astro.url.pathname
     <CartDrawer client:load lang={lang} />
 
     <!-- Sticky mobile CTA -->
-    <div id="sticky-cta" class="fixed bottom-0 inset-x-0 z-50 transition-transform duration-300 pb-[env(safe-area-inset-bottom)]" style="display:none">
+    <div id="sticky-cta" class="fixed bottom-0 inset-x-0 z-50 transition-transform duration-300" style="display:none; padding-bottom: env(safe-area-inset-bottom, 0px); background-color: #09090b;">
       <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/95 to-transparent pointer-events-none"></div>
-      <div class="absolute inset-x-0 bottom-0 h-[env(safe-area-inset-bottom)] bg-zinc-950 pointer-events-none"></div>
       <div class="relative p-3">
         <a
           href={getLocalizedPath('/', lang) + '#checkout'}
