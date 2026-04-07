@@ -142,11 +142,42 @@ const currentPathWithoutLang = Astro.url.pathname
 
     <CartDrawer client:load lang={lang} />
 
+    <!-- Sticky mobile CTA -->
+    <div id="sticky-cta" class="fixed bottom-0 inset-x-0 z-50 transition-transform duration-300" style="display:none">
+      <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/95 to-transparent pointer-events-none"></div>
+      <div class="relative p-3">
+        <a
+          href={getLocalizedPath('/', lang) + '#checkout'}
+          class="flex items-center justify-center w-full rounded-full bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold h-12 text-base shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all active:scale-95"
+        >
+          {t.nav.orderNow}
+        </a>
+      </div>
+    </div>
+
     <script is:inline>
       document.addEventListener('click', (e) => {
         const d = document.getElementById('lang-switcher');
         if (d && !d.contains(e.target)) d.removeAttribute('open');
       });
+
+      (function() {
+        var cta = document.getElementById('sticky-cta');
+        if (!cta) return;
+        var mq = window.matchMedia('(min-width: 640px)');
+        function update() {
+          var checkout = document.getElementById('checkout');
+          var atCheckout = checkout && checkout.getBoundingClientRect().top < window.innerHeight;
+          if (mq.matches || window.scrollY <= window.innerHeight || atCheckout) {
+            cta.style.display = 'none';
+          } else {
+            cta.style.display = '';
+          }
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        mq.addEventListener('change', update);
+        update();
+      })();
     </script>
   </body>
 </html>
