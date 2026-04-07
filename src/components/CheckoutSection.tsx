@@ -8,6 +8,7 @@ import {
   type Product,
 } from '../config/products'
 import { addToCart } from '../stores/cart'
+import { track } from '../lib/analytics'
 
 const categoryOrder: ProductCategory[] = ['wristband', 'holder', 'accessory']
 
@@ -34,6 +35,12 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
 
   const handleAdd = (slug: string, priceId: string) => {
     const qty = quantities[slug] || 1
+    const product = products.find((p) => p.slug === slug)
+    track('add-to-cart', {
+      product: slug,
+      quantity: qty,
+      price: product ? product.priceCHF * qty : 0,
+    })
     for (let i = 0; i < qty; i++) {
       addToCart(priceId)
     }
@@ -174,12 +181,16 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
                               {variants.map((v) => (
                                 <button
                                   key={v.slug}
-                                  onClick={() =>
+                                  onClick={() => {
+                                    track('select-size', {
+                                      product: groupKey,
+                                      size: v.size || v.slug,
+                                    })
                                     setSelectedSize((prev) => ({
                                       ...prev,
                                       [groupKey]: v.slug,
                                     }))
-                                  }
+                                  }}
                                   className={`h-10 w-12 rounded-lg text-sm font-bold transition-all ${
                                     selected === v.slug
                                       ? 'bg-emerald-500 text-zinc-950'

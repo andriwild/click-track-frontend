@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Hand, Watch, Trophy } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
+import { track } from '../lib/analytics'
 
 const modeKeys = ['swipe', 'oneBeacon', 'twoBeacons', 'tournament'] as const
 type ModeKey = (typeof modeKeys)[number]
@@ -75,6 +76,7 @@ export function GameModes({ lang = 'de' }: { lang?: Locale }) {
   }, [activeMode])
 
   function switchMode(key: ModeKey) {
+    track('gamemode-switch', { mode: key })
     setActiveMode(key)
     setActiveStep(0)
     // Scroll back to the top of the section

@@ -1,6 +1,7 @@
 import { ArrowRight, Trophy, Target } from 'lucide-react'
 import { Button } from './ui/button'
 import { getTranslations, type Locale } from '../i18n'
+import { track } from '../lib/analytics'
 
 export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).hero
@@ -43,11 +44,12 @@ export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
               <Button
                 size="lg"
                 className="h-14 px-8 text-lg font-bold bg-emerald-500 hover:bg-emerald-600 text-zinc-950 rounded-full transition-transform hover:scale-105"
-                onClick={() =>
+                onClick={() => {
+                  track('hero-cta-order')
                   document
                     .getElementById('checkout')
                     ?.scrollIntoView({ behavior: 'smooth' })
-                }
+                }}
               >
                 {t.ctaPrimary}
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -56,11 +58,12 @@ export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
                 size="lg"
                 variant="outline"
                 className="h-14 px-8 text-lg font-bold rounded-full border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800 hover:text-zinc-50"
-                onClick={() =>
+                onClick={() => {
+                  track('hero-cta-learn-more')
                   document
                     .getElementById('features')
                     ?.scrollIntoView({ behavior: 'smooth' })
-                }
+                }}
               >
                 {t.ctaSecondary}
               </Button>

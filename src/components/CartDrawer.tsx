@@ -11,6 +11,7 @@ import { formatPrice } from '../config/products'
 import { getTranslations, type Locale } from '../i18n'
 import { initiateCheckout } from '../lib/checkout'
 import { useState } from 'react'
+import { track } from '../lib/analytics'
 
 export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
   const isOpen = useStore($cartOpen)
@@ -23,6 +24,10 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
   if (!isOpen) return null
 
   const handleCheckout = async () => {
+    track('checkout-start', {
+      items: items.length,
+      total,
+    })
     setLoading(true)
     try {
       await initiateCheckout(lang)
@@ -97,9 +102,17 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
 
                     <div className="flex items-center gap-2 mt-2">
                       <button
-                        onClick={() =>
+                        onClick={() => {
+                          if (quantity === 1) {
+                            track('cart-remove-item', { product: product.slug })
+                          } else {
+                            track('cart-decrease-qty', {
+                              product: product.slug,
+                              quantity: quantity - 1,
+                            })
+                          }
                           updateQuantity(product.stripePriceId, quantity - 1)
-                        }
+                        }}
                         className="p-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 transition-colors"
                       >
                         {quantity === 1 ? (
@@ -112,9 +125,13 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
                         {quantity}
                       </span>
                       <button
-                        onClick={() =>
+                        onClick={() => {
+                          track('cart-increase-qty', {
+                            product: product.slug,
+                            quantity: quantity + 1,
+                          })
                           updateQuantity(product.stripePriceId, quantity + 1)
-                        }
+                        }}
                         className="p-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 transition-colors"
                       >
                         <Plus className="h-3.5 w-3.5" />

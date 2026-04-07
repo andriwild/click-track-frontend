@@ -1,13 +1,17 @@
 import { useStore } from '@nanostores/react'
 import { ShoppingBag } from 'lucide-react'
 import { $cartCount, $cartOpen } from '../stores/cart'
+import { track } from '../lib/analytics'
 
 export function CartIcon() {
   const count = useStore($cartCount)
 
   return (
     <button
-      onClick={() => $cartOpen.set(true)}
+      onClick={() => {
+        track('cart-open')
+        $cartOpen.set(true)
+      }}
       className="relative flex items-center justify-center w-9 h-9 rounded-full bg-zinc-900/60 border border-zinc-800 text-zinc-400 hover:text-zinc-200 transition-colors"
       aria-label="Cart"
     >

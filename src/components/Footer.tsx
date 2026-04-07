@@ -4,6 +4,7 @@ import { AGB } from './AGB'
 import { Privacy } from './Privacy'
 import { Refunds } from './Refunds'
 import { getTranslations, type Locale } from '../i18n'
+import { track } from '../lib/analytics'
 
 export function Footer({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).footer
@@ -32,25 +33,37 @@ export function Footer({ lang = 'de' }: { lang?: Locale }) {
           </div>
           <div className="mt-6 sm:mt-0 flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-2">
             <button
-              onClick={() => setShowAGB(true)}
+              onClick={() => {
+                track('footer-open-agb')
+                setShowAGB(true)
+              }}
               className="hover:text-emerald-400 transition-colors"
             >
               {t.agb}
             </button>
             <button
-              onClick={() => setShowPrivacy(true)}
+              onClick={() => {
+                track('footer-open-privacy')
+                setShowPrivacy(true)
+              }}
               className="hover:text-emerald-400 transition-colors"
             >
               {t.privacy}
             </button>
             <button
-              onClick={() => setShowRefunds(true)}
+              onClick={() => {
+                track('footer-open-refunds')
+                setShowRefunds(true)
+              }}
               className="hover:text-emerald-400 transition-colors"
             >
               {t.refunds}
             </button>
             <button
-              onClick={() => setShowImprint(true)}
+              onClick={() => {
+                track('footer-open-imprint')
+                setShowImprint(true)
+              }}
               className="hover:text-emerald-400 transition-colors"
             >
               {t.imprint}

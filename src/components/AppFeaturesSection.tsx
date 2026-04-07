@@ -9,6 +9,7 @@ import {
   Mail,
 } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
+import { track } from '../lib/analytics'
 
 function BetaSignup({
   t,
@@ -27,6 +28,7 @@ function BetaSignup({
       const body = encodeURIComponent(
         `Bitte ladet mich zur Klikkr Beta ein.\n\nE-Mail: ${email}`
       )
+      track('beta-signup')
       window.location.href = `mailto:support@klikkr.ch?subject=${subject}&body=${body}`
       setStatus('success')
       setEmail('')

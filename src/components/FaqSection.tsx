@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ChevronDown, Mail, MessageSquare, Send } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
+import { track } from '../lib/analytics'
 
 function FAQAccordionItem({
   question,
@@ -20,7 +21,10 @@ function FAQAccordionItem({
       }`}
     >
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          if (!isOpen) track('faq-open', { question })
+          setIsOpen(!isOpen)
+        }}
         className="w-full flex items-center justify-between p-6 text-left"
       >
         <span className="text-lg font-bold text-zinc-100 pr-4">{question}</span>
@@ -54,6 +58,7 @@ function ContactForm({ t }: { t: ReturnType<typeof getTranslations>['faq'] }) {
 
     const subject = encodeURIComponent('Klikkr Frage')
     const body = encodeURIComponent(`${message}\n\n---\nVon: ${email}`)
+    track('contact-form-submit')
     window.location.href = `mailto:support@klikkr.ch?subject=${subject}&body=${body}`
     setStatus('success')
     setEmail('')

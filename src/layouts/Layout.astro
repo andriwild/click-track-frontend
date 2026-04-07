@@ -162,6 +162,38 @@ const currentPathWithoutLang = Astro.url.pathname
         if (d && !d.contains(e.target)) d.removeAttribute('open');
       });
 
+      // Track language switch
+      document.querySelectorAll('#lang-switcher a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          var lang = a.getAttribute('href').match(/^\/(en|fr|it)(\/|$)/);
+          var target = lang ? lang[1] : 'de';
+          if (window.umami) window.umami.track('language-switch', { language: target });
+        });
+      });
+
+      // Track sticky CTA click
+      var stickyCta = document.querySelector('#sticky-cta a');
+      if (stickyCta) {
+        stickyCta.addEventListener('click', function() {
+          if (window.umami) window.umami.track('sticky-cta-order');
+        });
+      }
+
+      // Track nav tab clicks
+      document.querySelectorAll('nav a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          if (window.umami) window.umami.track('nav-click', { page: a.textContent.trim() });
+        });
+      });
+
+      // Track header "Order Now" button
+      var headerCta = document.querySelector('header a[href*="#checkout"]');
+      if (headerCta) {
+        headerCta.addEventListener('click', function() {
+          if (window.umami) window.umami.track('header-cta-order');
+        });
+      }
+
       (function() {
         var cta = document.getElementById('sticky-cta');
         if (!cta) return;

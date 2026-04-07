@@ -94,6 +94,7 @@ import Layout from '../layouts/Layout.astro';
       Object.keys(localStorage).forEach(function(key) {
         if (key.startsWith('cart:')) localStorage.removeItem(key);
       });
+      if (window.umami) window.umami.track('purchase-complete');
     } catch (e) {}
   </script>
 </Layout>
