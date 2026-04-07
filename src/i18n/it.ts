@@ -313,54 +313,29 @@ export const it: Translations = {
     contactSuccess: 'Il tuo client mail si sta aprendo — basta inviare!',
     items: [
       {
-        question: 'Cosa include Klikkr?',
+        question: "Perché non riesco a collegare il braccialetto all'app?",
         answer:
-          "Ogni braccialetto Klikkr viene consegnato completamente carico. Basta aprire, scaricare l'app e iniziare a giocare. Ordina quanti braccialetti ti servono.",
+          "L'app Klikkr richiede il permesso Bluetooth (BLE) per rilevare il braccialetto. Assicurati che il Bluetooth sia attivato sul tuo smartphone e di aver concesso all'app le autorizzazioni necessarie. Su Android, vai su Impostazioni → App → Klikkr → Autorizzazioni. Su iOS, ti verrà chiesto automaticamente al primo avvio.",
       },
       {
-        question: 'Quali sport sono supportati?',
+        question: 'Premo sul braccialetto ma non succede nulla – cosa faccio?',
         answer:
-          "Klikkr supporta attualmente Padel, Tennis, Squash e Calcio. Altri sport sono in programma e verranno aggiunti tramite aggiornamenti dell'app.",
+          "Il braccialetto deve prima essere acceso. Tieni premuto il pulsante per circa 3 secondi finché il braccialetto si attiva. Solo allora risponderà ai clic brevi e potrà comunicare con l'app.",
       },
       {
         question: 'Quanto dura la batteria?',
         answer:
-          'La batteria dura fino a 2 anni con uso normale. Si tratta di una pila a bottone facilmente sostituibile.',
+          'La batteria dura circa 2 anni con un uso normale. Se spegni il braccialetto dopo aver giocato (tieni premuto il pulsante per circa 6 secondi), la durata della batteria si prolunga ulteriormente.',
       },
       {
-        question: 'Il braccialetto è impermeabile?',
+        question: 'Come sostituisco la batteria?',
         answer:
-          'Sì! Klikkr è resistente ad acqua e sudore e sopporta anche i match più intensi. È realizzato in silicone robusto e antiurto.',
+          'Rimuovi prima con cautela il beacon BLE dal braccialetto in silicone. Poi apri il coperchio del beacon con un oggetto piatto (ad esempio una moneta o un piccolo cacciavite). Sostituisci la pila a bottone e rimetti il coperchio.',
       },
       {
-        question: "Come collego il braccialetto all'app?",
+        question: 'Il beacon BLE è impermeabile?',
         answer:
-          "Basta scansionare il codice QR sul braccialetto con l'app Klikkr – la connessione Bluetooth viene stabilita automaticamente. Nessun accoppiamento manuale necessario.",
-      },
-      {
-        question: 'Ho bisogno di entrambi i braccialetti per giocare?',
-        answer:
-          "No, puoi giocare anche con un solo braccialetto. L'app supporta la modalità single-beacon. Con due braccialetti, entrambi i giocatori possono tracciare i propri punti.",
-      },
-      {
-        question: "Su quali dispositivi è disponibile l'app?",
-        answer:
-          "L'app Klikkr è disponibile per Android & iOS in beta. Iscriviti sul nostro sito e ti invitiamo alla beta.",
-      },
-      {
-        question: 'Posso personalizzare le regole di gioco?',
-        answer:
-          'Sì! Puoi attivare "Win by Two", impostare il numero di punti per set e scegliere diverse modalità di visualizzazione (Tabella, Verticale, Orizzontale).',
-      },
-      {
-        question: 'Come funzionano i resi?',
-        answer:
-          'Hai un diritto di recesso di 14 giorni. Se non sei soddisfatto, contattaci via email a support@klikkr.ch e ci occuperemo di tutto.',
-      },
-      {
-        question: "C'è una garanzia?",
-        answer:
-          'Sì, Klikkr viene fornito con una garanzia del produttore di 1 anno. Per difetti o problemi, contatta il nostro team di supporto.',
+          "No, il beacon BLE non è impermeabile e non deve essere utilizzato sott'acqua. Il braccialetto in silicone è resistente agli schizzi e al sudore, ma il componente elettronico non deve entrare in contatto con l'acqua.",
       },
     ],
   },

@@ -313,54 +313,30 @@ export const fr: Translations = {
     contactSuccess: "Ton client mail s'ouvre — il suffit d'envoyer !",
     items: [
       {
-        question: 'Que comprend Klikkr ?',
+        question: "Pourquoi je n'arrive pas à connecter le bracelet à l'app ?",
         answer:
-          "Chaque bracelet Klikkr est livré entièrement chargé. Il suffit de déballer, télécharger l'app et commencer à jouer. Commandez autant de bracelets que nécessaire.",
+          "L'app Klikkr nécessite l'autorisation Bluetooth (BLE) pour détecter le bracelet. Assurez-vous que le Bluetooth est activé sur votre smartphone et que vous avez accordé les permissions nécessaires à l'app. Sur Android, allez dans Paramètres → Applications → Klikkr → Autorisations. Sur iOS, vous serez invité automatiquement au premier lancement.",
       },
       {
-        question: 'Quels sports sont supportés ?',
+        question:
+          "J'appuie sur le bracelet mais rien ne se passe – que faire ?",
         answer:
-          "Klikkr supporte actuellement le Padel, le Tennis, le Squash et le Football. D'autres sports sont prévus et seront ajoutés via les mises à jour de l'app.",
+          "Le bracelet doit d'abord être allumé. Maintenez le bouton enfoncé pendant environ 3 secondes jusqu'à ce que le bracelet s'active. Ce n'est qu'ensuite qu'il répondra aux clics courts et pourra communiquer avec l'app.",
       },
       {
         question: "Quelle est l'autonomie de la batterie ?",
         answer:
-          "La batterie dure jusqu'à 2 ans en utilisation normale. C'est une pile bouton facilement remplaçable.",
+          "La batterie dure environ 2 ans en utilisation normale. Si vous éteignez le bracelet après chaque partie (maintenez le bouton enfoncé pendant environ 6 secondes), l'autonomie sera encore prolongée.",
       },
       {
-        question: 'Le bracelet est-il étanche ?',
+        question: 'Comment remplacer la batterie ?',
         answer:
-          "Oui ! Klikkr est résistant à l'eau et à la transpiration, et supporte même les matchs les plus intenses. Il est fabriqué en silicone robuste et antichoc.",
+          "Retirez d'abord délicatement le beacon BLE du bracelet en silicone. Ouvrez ensuite le couvercle du boîtier du beacon avec un objet plat (par exemple une pièce de monnaie ou un petit tournevis). Remplacez la pile bouton et remettez le couvercle en place.",
       },
       {
-        question: "Comment connecter le bracelet à l'app ?",
+        question: 'Le beacon BLE est-il étanche ?',
         answer:
-          "Scannez simplement le QR code du bracelet avec l'app Klikkr – la connexion Bluetooth est établie automatiquement. Aucun appairage manuel nécessaire.",
-      },
-      {
-        question: 'Ai-je besoin des deux bracelets pour jouer ?',
-        answer:
-          "Non, vous pouvez jouer avec un seul bracelet. L'app supporte le mode single-beacon. Avec deux bracelets, les deux joueurs peuvent compter leurs propres points.",
-      },
-      {
-        question: "Sur quels appareils l'app est-elle disponible ?",
-        answer:
-          "L'app Klikkr est disponible pour Android & iOS en bêta. Inscris-toi sur notre site et on t'invite à la bêta.",
-      },
-      {
-        question: 'Puis-je personnaliser les règles du jeu ?',
-        answer:
-          'Oui ! Vous pouvez activer "Win by Two", définir le nombre de points par set et choisir différents modes d\'affichage (Tableau, Portrait, Paysage).',
-      },
-      {
-        question: 'Comment fonctionnent les retours ?',
-        answer:
-          "Vous disposez d'un droit de rétractation de 14 jours. Si vous n'êtes pas satisfait, contactez-nous par email à support@klikkr.ch et nous nous occuperons de tout.",
-      },
-      {
-        question: 'Y a-t-il une garantie ?',
-        answer:
-          "Oui, Klikkr est livré avec une garantie fabricant d'1 an. En cas de défauts ou de problèmes, contactez notre équipe support.",
+          "Non, le beacon BLE n'est pas étanche et ne doit pas être utilisé sous l'eau. Le bracelet en silicone est résistant aux éclaboussures et à la transpiration, mais le composant électronique ne doit pas entrer en contact avec l'eau.",
       },
     ],
   },

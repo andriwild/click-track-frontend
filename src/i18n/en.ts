@@ -312,54 +312,30 @@ export const en: Translations = {
     contactSuccess: 'Your mail client is opening — just hit send!',
     items: [
       {
-        question: "What's included with Klikkr?",
+        question: "Why can't I connect the wristband to the app?",
         answer:
-          'Each Klikkr wristband comes fully charged. Just unbox, download the app, and start playing. Order as many wristbands as you need.',
+          'The Klikkr app requires Bluetooth permission (BLE) to detect the wristband. Make sure Bluetooth is enabled on your smartphone and that you have granted the app the necessary permissions. On Android, you can find these under Settings → Apps → Klikkr → Permissions. On iOS, you will be prompted automatically on first launch.',
       },
       {
-        question: 'Which sports are supported?',
+        question:
+          'I press the wristband but nothing happens – what should I do?',
         answer:
-          'Klikkr currently supports Padel, Tennis, Squash, and Football. More sports are planned and will be added via app updates.',
+          'The wristband needs to be turned on first. Press and hold the button for about 3 seconds until the wristband activates. Only then will it respond to short clicks and communicate with the app.',
       },
       {
         question: 'How long does the battery last?',
         answer:
-          'The battery lasts up to 2 years with normal use. It uses a coin cell that can be easily replaced.',
+          'The battery lasts about 2 years with normal use. If you turn off the wristband after playing (press and hold the button for about 6 seconds), the battery life will be extended even further.',
       },
       {
-        question: 'Is the wristband waterproof?',
+        question: 'How do I replace the battery?',
         answer:
-          "Yes! Klikkr is water and sweat resistant and can handle even intense matches. It's made of robust, shockproof silicone.",
+          'First, carefully remove the BLE beacon from the silicone wristband. Then open the beacon housing cover with a flat object (e.g. a coin or small screwdriver). Replace the coin cell battery and put the cover back on.',
       },
       {
-        question: 'How do I connect the wristband to the app?',
+        question: 'Is the BLE beacon waterproof?',
         answer:
-          'Just scan the QR code on the wristband with the Klikkr app – the Bluetooth connection is established automatically. No manual pairing needed.',
-      },
-      {
-        question: 'Do I need both wristbands to play?',
-        answer:
-          'No, you can play with just one wristband. The app supports single-beacon mode. With two wristbands, both players can track their own points.',
-      },
-      {
-        question: 'Which devices is the app available on?',
-        answer:
-          "The Klikkr app is available for Android & iOS in beta. Sign up on our website and we'll invite you to the beta.",
-      },
-      {
-        question: 'Can I customize the game rules?',
-        answer:
-          'Yes! You can enable "Win by Two", set the number of points per set, and choose different display modes (Table, Portrait, Landscape).',
-      },
-      {
-        question: 'How do returns work?',
-        answer:
-          "You have a 14-day right of withdrawal. If you're not satisfied, just contact us via email at support@klikkr.ch and we'll take care of everything.",
-      },
-      {
-        question: 'Is there a warranty?',
-        answer:
-          'Yes, Klikkr comes with a 1-year manufacturer warranty. For defects or issues, contact our support team.',
+          'No, the BLE beacon itself is not waterproof and must not be used underwater. While the silicone wristband is splash-proof and sweat-resistant, the electronic beacon should not come into contact with water.',
       },
     ],
   },

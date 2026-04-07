@@ -314,54 +314,29 @@ export const de: Translations = {
     contactSuccess: 'Dein Mail-Client öffnet sich gleich — einfach absenden!',
     items: [
       {
-        question: 'Was ist bei Klikkr enthalten?',
+        question: 'Warum kann ich das Armband nicht mit der App verbinden?',
         answer:
-          'Jedes Klikkr Armband wird vollständig geladen geliefert. Einfach auspacken, App herunterladen und losspielen. Bestelle so viele Armbänder wie du brauchst.',
+          'Die Klikkr App benötigt Bluetooth-Berechtigung (BLE), um das Armband zu erkennen. Stelle sicher, dass Bluetooth auf deinem Smartphone aktiviert ist und du der App die nötige Berechtigung erteilt hast. Auf Android findest du diese unter Einstellungen → Apps → Klikkr → Berechtigungen. Auf iOS wirst du beim ersten Start automatisch gefragt.',
       },
       {
-        question: 'Welche Sportarten werden unterstützt?',
+        question: 'Ich drücke auf das Armband, aber nichts passiert – was tun?',
         answer:
-          'Klikkr unterstützt aktuell Padel, Tennis, Squash und Fussball. Weitere Sportarten sind in Planung und werden über App-Updates hinzugefügt.',
+          'Das Armband muss zuerst eingeschaltet werden. Halte den Knopf ca. 3 Sekunden lang gedrückt, bis das Armband aktiviert ist. Erst danach reagiert es auf kurze Klicks und kann mit der App kommunizieren.',
       },
       {
         question: 'Wie lange hält die Batterie?',
         answer:
-          'Die Batterie hält bei normaler Nutzung bis zu 2 Jahre. Es handelt sich um eine Knopfzelle, die einfach ausgetauscht werden kann.',
+          'Die Batterie hält bei normaler Nutzung rund 2 Jahre. Wenn du das Armband nach dem Spielen jeweils ausschaltest (Knopf ca. 6 Sekunden gedrückt halten), verlängert sich die Lebensdauer zusätzlich.',
       },
       {
-        question: 'Ist das Wristband wasserfest?',
+        question: 'Wie wechsle ich die Batterie?',
         answer:
-          'Ja! Klikkr ist wasser- und schweissresistent und übersteht auch intensive Matches problemlos. Es besteht aus robustem, stossfestem Silikon.',
+          'Entferne zunächst den BLE Beacon vorsichtig aus dem Silikonarmband. Löse dann den Gehäusedeckel des Beacons mit einem flachen Gegenstand (z.B. einer Münze oder einem kleinen Schraubenzieher). Ersetze die Knopfzelle und setze den Deckel wieder auf.',
       },
       {
-        question: 'Wie verbinde ich das Wristband mit der App?',
+        question: 'Ist der BLE Beacon wasserdicht?',
         answer:
-          'Einfach den QR-Code auf dem Wristband mit der Klikkr App scannen – die Bluetooth-Verbindung wird automatisch hergestellt. Kein manuelles Pairing nötig.',
-      },
-      {
-        question: 'Brauche ich beide Wristbands zum Spielen?',
-        answer:
-          'Nein, du kannst auch mit nur einem Wristband spielen. Die App unterstützt einen Single-Beacon-Modus. Mit zwei Wristbands können jedoch beide Spieler ihre Punkte selbst tracken.',
-      },
-      {
-        question: 'Auf welchen Geräten läuft die App?',
-        answer:
-          'Die Klikkr App ist für Android & iOS im Beta-Test verfügbar. Melde dich auf unserer Website an und wir laden dich zur Beta ein.',
-      },
-      {
-        question: 'Kann ich die Spielregeln anpassen?',
-        answer:
-          'Ja! Du kannst z.B. "Win by Two" aktivieren, die Punktzahl pro Satz festlegen und verschiedene Display-Modi wählen (Tabelle, Portrait, Landscape).',
-      },
-      {
-        question: 'Wie funktioniert die Rückgabe?',
-        answer:
-          'Du hast ein 14-tägiges Widerrufsrecht. Wenn du nicht zufrieden bist, kontaktiere uns einfach per E-Mail an support@klikkr.ch und wir kümmern uns um alles.',
-      },
-      {
-        question: 'Gibt es eine Garantie?',
-        answer:
-          'Ja, Klikkr kommt mit einer 1-jährigen Herstellergarantie. Bei Defekten oder Problemen melde dich bei unserem Support-Team.',
+          'Nein, der BLE Beacon selbst ist nicht wasserdicht und darf nicht unter Wasser verwendet werden. Das Silikonarmband ist zwar spritzwassergeschützt und schweissresistent, aber der elektronische Beacon sollte nicht mit Wasser in Berührung kommen.',
       },
     ],
   },
