@@ -363,6 +363,20 @@ export const de: Translations = {
     },
   },
 
+  newsletter: {
+    badge: 'Newsletter',
+    title: 'Bleib auf dem',
+    titleAccent: 'Laufenden',
+    description:
+      'Erhalte Updates zu neuen Features, Tipps und Angeboten — direkt in dein Postfach.',
+    placeholder: 'Deine E-Mail-Adresse',
+    button: 'Abonnieren',
+    success: 'Du bist angemeldet! Danke für dein Interesse.',
+    alreadySubscribed: 'Du bist bereits angemeldet.',
+    error: 'Etwas ist schiefgelaufen. Versuche es erneut.',
+    privacy: 'Wir respektieren deine Privatsphäre. Jederzeit abmeldbar.',
+  },
+
   footer: {
     allRightsReserved: 'Alle Rechte vorbehalten.',
     designBy: 'Design & Code by',

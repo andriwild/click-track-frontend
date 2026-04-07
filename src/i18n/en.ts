@@ -362,6 +362,20 @@ export const en: Translations = {
     },
   },
 
+  newsletter: {
+    badge: 'Newsletter',
+    title: 'Stay in the',
+    titleAccent: 'Loop',
+    description:
+      'Get updates on new features, tips and offers — straight to your inbox.',
+    placeholder: 'Your email address',
+    button: 'Subscribe',
+    success: "You're subscribed! Thanks for your interest.",
+    alreadySubscribed: 'You are already subscribed.',
+    error: 'Something went wrong. Please try again.',
+    privacy: 'We respect your privacy. Unsubscribe anytime.',
+  },
+
   footer: {
     allRightsReserved: 'All rights reserved.',
     designBy: 'Design & Code by',

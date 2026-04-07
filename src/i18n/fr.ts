@@ -363,6 +363,21 @@ export const fr: Translations = {
     },
   },
 
+  newsletter: {
+    badge: 'Newsletter',
+    title: 'Reste au',
+    titleAccent: 'courant',
+    description:
+      'Reçois des mises à jour sur les nouvelles fonctionnalités, astuces et offres — directement dans ta boîte mail.',
+    placeholder: 'Ton adresse e-mail',
+    button: "S'abonner",
+    success: 'Tu es inscrit(e) ! Merci pour ton intérêt.',
+    alreadySubscribed: 'Tu es déjà inscrit(e).',
+    error: "Quelque chose s'est mal passé. Réessaie.",
+    privacy:
+      'Nous respectons ta vie privée. Désabonnement possible à tout moment.',
+  },
+
   footer: {
     allRightsReserved: 'Tous droits réservés.',
     designBy: 'Design & Code par',

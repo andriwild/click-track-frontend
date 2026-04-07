@@ -362,6 +362,21 @@ export const it: Translations = {
     },
   },
 
+  newsletter: {
+    badge: 'Newsletter',
+    title: 'Resta',
+    titleAccent: 'aggiornato',
+    description:
+      'Ricevi aggiornamenti su nuove funzionalità, consigli e offerte — direttamente nella tua casella di posta.',
+    placeholder: 'Il tuo indirizzo e-mail',
+    button: 'Iscriviti',
+    success: 'Sei iscritto/a! Grazie per il tuo interesse.',
+    alreadySubscribed: 'Sei già iscritto/a.',
+    error: 'Qualcosa è andato storto. Riprova.',
+    privacy:
+      'Rispettiamo la tua privacy. Cancellazione possibile in qualsiasi momento.',
+  },
+
   footer: {
     allRightsReserved: 'Tutti i diritti riservati.',
     designBy: 'Design & Code di',
