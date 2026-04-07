@@ -18,21 +18,6 @@ function StarRating({ rating }: { rating: number }) {
   )
 }
 
-function SportBadge({ sport }: { sport: string }) {
-  const colors: Record<string, string> = {
-    Padel: 'text-emerald-400 bg-emerald-400/10 border-emerald-500/20',
-    Squash: 'text-blue-400 bg-blue-400/10 border-blue-500/20',
-    Tennis: 'text-purple-400 bg-purple-400/10 border-purple-500/20',
-  }
-  return (
-    <span
-      className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full border ${colors[sport] ?? 'text-zinc-400 bg-zinc-800 border-zinc-700'}`}
-    >
-      {sport}
-    </span>
-  )
-}
-
 export function ReviewsSection({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).reviews
   const reviews = t.items
@@ -94,12 +79,9 @@ export function ReviewsSection({ lang = 'de' }: { lang?: Locale }) {
 
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-bold text-zinc-100">
-                      {review.name}
-                    </h3>
-                    <SportBadge sport={review.sport} />
-                  </div>
+                  <h3 className="text-lg font-bold text-zinc-100">
+                    {review.name}
+                  </h3>
                   <StarRating rating={review.rating} />
                 </div>
 

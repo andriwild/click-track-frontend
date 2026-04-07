@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { ComingSoon } from '../components/ComingSoon.tsx';
+import { ReviewsSection } from '../components/ReviewsSection.tsx';
 import { Footer } from '../components/Footer.tsx';
 ---
 
 <Layout title="Bewertungen | Klikkr" currentPage="reviews" lang="de">
-  <ComingSoon client:load lang="de" />
+  <ReviewsSection client:load lang="de" />
   <Footer client:visible slot="footer" lang="de" />
 </Layout>
