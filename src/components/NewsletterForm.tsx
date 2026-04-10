@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Mail, Send, Loader2 } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
 import { track } from '../lib/analytics'
@@ -12,19 +12,73 @@ const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY as
 
 type Status = 'idle' | 'loading' | 'success' | 'already_subscribed' | 'error'
 
+interface TurnstileRenderOptions {
+  sitekey: string
+  theme?: 'light' | 'dark' | 'auto'
+  size?: 'normal' | 'flexible' | 'compact'
+  callback?: (token: string) => void
+  'expired-callback'?: () => void
+  'error-callback'?: () => void
+}
+
 declare global {
   interface Window {
     turnstile?: {
+      render: (
+        element: HTMLElement,
+        options: TurnstileRenderOptions
+      ) => string | undefined
       reset: (widget?: string | HTMLElement) => void
+      remove: (widget: string) => void
     }
   }
+}
+
+function waitForTurnstile(): Promise<NonNullable<Window['turnstile']>> {
+  return new Promise((resolve) => {
+    if (window.turnstile) return resolve(window.turnstile)
+    const interval = setInterval(() => {
+      if (window.turnstile) {
+        clearInterval(interval)
+        resolve(window.turnstile)
+      }
+    }, 100)
+  })
 }
 
 function NewsletterFormFields({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).newsletter
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
+  const [turnstileToken, setTurnstileToken] = useState('')
   const formRef = useRef<HTMLFormElement>(null)
+  const widgetContainerRef = useRef<HTMLDivElement>(null)
+  const widgetIdRef = useRef<string | undefined>(undefined)
+
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY || !widgetContainerRef.current) return
+
+    let cancelled = false
+    waitForTurnstile().then((turnstile) => {
+      if (cancelled || !widgetContainerRef.current) return
+      widgetIdRef.current = turnstile.render(widgetContainerRef.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        theme: 'dark',
+        size: 'flexible',
+        callback: (token) => setTurnstileToken(token),
+        'expired-callback': () => setTurnstileToken(''),
+        'error-callback': () => setTurnstileToken(''),
+      })
+    })
+
+    return () => {
+      cancelled = true
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current)
+        widgetIdRef.current = undefined
+      }
+    }
+  }, [])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -32,8 +86,6 @@ function NewsletterFormFields({ lang = 'de' }: { lang?: Locale }) {
 
     const formData = new FormData(e.currentTarget)
     const honeypot = (formData.get('website') as string | null) ?? ''
-    const turnstileToken =
-      (formData.get('cf-turnstile-response') as string | null) ?? ''
 
     if (honeypot) {
       setStatus('success')
@@ -71,10 +123,8 @@ function NewsletterFormFields({ lang = 'de' }: { lang?: Locale }) {
     } catch {
       setStatus('error')
     } finally {
-      window.turnstile?.reset(
-        formRef.current?.querySelector<HTMLElement>('.cf-turnstile') ??
-          undefined
-      )
+      setTurnstileToken('')
+      if (widgetIdRef.current) window.turnstile?.reset(widgetIdRef.current)
     }
   }
 
@@ -124,14 +174,7 @@ function NewsletterFormFields({ lang = 'de' }: { lang?: Locale }) {
           pointerEvents: 'none',
         }}
       />
-      {TURNSTILE_SITE_KEY && (
-        <div
-          className="cf-turnstile mt-3"
-          data-sitekey={TURNSTILE_SITE_KEY}
-          data-theme="dark"
-          data-size="flexible"
-        />
-      )}
+      {TURNSTILE_SITE_KEY && <div ref={widgetContainerRef} className="mt-3" />}
       {status === 'success' && (
         <p className="text-emerald-400 text-sm mt-3">{t.success}</p>
       )}
