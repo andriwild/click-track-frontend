@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Mail, Send, Loader2 } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
 import { track } from '../lib/analytics'
@@ -6,23 +6,56 @@ import { track } from '../lib/analytics'
 const NEWSLETTER_FUNCTION_URL =
   'https://xhhticogilsokkpypzwe.supabase.co/functions/v1/newsletter-signup'
 
+const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY as
+  | string
+  | undefined
+
 type Status = 'idle' | 'loading' | 'success' | 'already_subscribed' | 'error'
+
+declare global {
+  interface Window {
+    turnstile?: {
+      reset: (widget?: string | HTMLElement) => void
+    }
+  }
+}
 
 function NewsletterFormFields({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).newsletter
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
+  const formRef = useRef<HTMLFormElement>(null)
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (!email) return
+
+    const formData = new FormData(e.currentTarget)
+    const honeypot = (formData.get('website') as string | null) ?? ''
+    const turnstileToken =
+      (formData.get('cf-turnstile-response') as string | null) ?? ''
+
+    if (honeypot) {
+      setStatus('success')
+      setEmail('')
+      return
+    }
+
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      setStatus('error')
+      return
+    }
 
     setStatus('loading')
     try {
       const res = await fetch(NEWSLETTER_FUNCTION_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email,
+          website: honeypot,
+          turnstileToken,
+        }),
       })
 
       if (res.status === 409) {
@@ -37,16 +70,22 @@ function NewsletterFormFields({ lang = 'de' }: { lang?: Locale }) {
       setEmail('')
     } catch {
       setStatus('error')
+    } finally {
+      window.turnstile?.reset(
+        formRef.current?.querySelector<HTMLElement>('.cf-turnstile') ??
+          undefined
+      )
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full">
+    <form ref={formRef} onSubmit={handleSubmit} className="w-full">
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
           <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
           <input
             type="email"
+            name="email"
             required
             value={email}
             onChange={(e) => {
@@ -70,6 +109,29 @@ function NewsletterFormFields({ lang = 'de' }: { lang?: Locale }) {
           {t.button}
         </button>
       </div>
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          left: '-9999px',
+          width: '1px',
+          height: '1px',
+          opacity: 0,
+          pointerEvents: 'none',
+        }}
+      />
+      {TURNSTILE_SITE_KEY && (
+        <div
+          className="cf-turnstile mt-3"
+          data-sitekey={TURNSTILE_SITE_KEY}
+          data-theme="dark"
+          data-size="flexible"
+        />
+      )}
       {status === 'success' && (
         <p className="text-emerald-400 text-sm mt-3">{t.success}</p>
       )}
