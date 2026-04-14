@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Outfit"', 'sans-serif'],
+        sans: ['"Outfit Variable"', '"Outfit"', 'sans-serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',
