@@ -193,7 +193,7 @@ export function NewsletterSection({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).newsletter
 
   return (
-    <section className="relative w-full py-24 md:py-32 bg-zinc-950">
+    <section className="relative w-full py-24 md:py-32 bg-zinc-950 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px] opacity-60 -translate-x-1/2 -translate-y-1/2" />
       </div>
