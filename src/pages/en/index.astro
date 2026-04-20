@@ -2,9 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import App from '../../App.tsx';
 import { Footer } from '../../components/Footer.tsx';
+import ProductSchema from '../../components/ProductSchema.astro';
 ---
 
-<Layout title="Klikkr | Wearable Score Tracker for Padel, Tennis & Squash" currentPage="home" lang="en">
+<Layout pageKey="home" currentPage="home" lang="en">
+  <ProductSchema slot="head-extra" lang="en" />
   <App client:load lang="en" />
   <Footer client:visible slot="footer" lang="en" showNewsletter={false} />
 </Layout>

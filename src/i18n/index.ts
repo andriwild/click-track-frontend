@@ -16,6 +16,34 @@ export const localeLabels: Record<Locale, string> = {
   it: '🇮🇹 IT',
 }
 
+export const hreflangMap: Record<Locale, string> = {
+  de: 'de-CH',
+  en: 'en',
+  fr: 'fr-CH',
+  it: 'it-CH',
+}
+
+export const SITE_URL = 'https://klikkr.ch'
+
+export type PageKey =
+  | 'home'
+  | 'howItWorks'
+  | 'reviews'
+  | 'faq'
+  | 'appPrivacy'
+  | 'imprint'
+  | 'thanks'
+
+export const pageAvailableLocales: Record<PageKey, Locale[]> = {
+  home: ['de', 'en', 'fr', 'it'],
+  howItWorks: ['de', 'en', 'fr', 'it'],
+  reviews: ['de', 'en', 'fr', 'it'],
+  faq: ['de', 'en', 'fr', 'it'],
+  appPrivacy: ['de', 'en', 'fr', 'it'],
+  imprint: ['de'],
+  thanks: ['de'],
+}
+
 const translations: Record<Locale, Translations> = { de, en, fr, it }
 
 export function getTranslations(locale: Locale): Translations {
@@ -35,4 +63,8 @@ export function getLocalizedPath(path: string, locale: Locale): string {
   const cleanPath = path.replace(/^\/(en|fr|it)(\/|$)/, '/')
   if (locale === 'de') return cleanPath || '/'
   return `/${locale}${cleanPath === '/' ? '' : cleanPath}`
+}
+
+export function getCanonicalUrl(path: string, locale: Locale): string {
+  return `${SITE_URL}${getLocalizedPath(path, locale)}`
 }

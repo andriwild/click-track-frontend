@@ -1,6 +1,45 @@
 import type { Translations } from './index'
 
 export const it: Translations = {
+  seo: {
+    defaultOgImage: '/product.png',
+    home: {
+      title: 'Klikkr – Braccialetto Contapunti per Padel, Tennis & Squash',
+      description:
+        'Il contapunti Bluetooth al polso. Conta i punti a padel, tennis o squash con un clic. Impermeabile, 2 anni di batteria. Preordina ora.',
+    },
+    howItWorks: {
+      title: 'Come funziona Klikkr – Guida al braccialetto contapunti',
+      description:
+        "Scopri come funziona Klikkr in pochi passaggi: accendi il braccialetto, collega l'app, conta i punti con un clic. Padel, tennis e squash.",
+    },
+    reviews: {
+      title:
+        'Recensioni Klikkr – Cosa dicono i giocatori di padel, tennis & squash',
+      description:
+        'Recensioni reali di giocatori di padel, tennis e squash che già usano Klikkr. Scopri perché gli atleti scelgono questo contapunti Bluetooth.',
+    },
+    faq: {
+      title: 'FAQ – Domande frequenti sul braccialetto Klikkr',
+      description:
+        'Risposte alle domande frequenti su Klikkr: accoppiamento Bluetooth, autonomia e compatibilità con padel, tennis e squash.',
+    },
+    appPrivacy: {
+      title: "Informativa sulla privacy dell'app Klikkr | Klikkr",
+      description:
+        "Informativa sulla privacy dell'app Klikkr. Scopri quali dati raccoglie l'app e come proteggiamo la tua privacy.",
+    },
+    imprint: {
+      title: 'Note legali | Klikkr',
+      description: 'Note legali e informazioni aziendali di Klikkr.',
+    },
+    thanks: {
+      title: 'Grazie per il tuo ordine | Klikkr',
+      description:
+        'Grazie per il tuo ordine Klikkr. Riceverai a breve una email di conferma con tutti i dettagli.',
+    },
+  },
+
   nav: {
     home: 'Home',
     howItWorks: 'Come funziona',
@@ -17,13 +56,13 @@ export const it: Translations = {
     titleAccent2: 'Gioco.',
     slogan: 'Focus on your Game!',
     description:
-      "Il tracker di punteggio Bluetooth indossabile definitivo per Padel, Tennis e Squash. Tieni gli occhi sulla palla, segna i punti con un solo clic e lascia che l'app faccia il resto.",
+      "Il tracker di punteggio Bluetooth indossabile definitivo per Padel, Squash e Badminton. Tieni gli occhi sulla palla, segna i punti con un solo clic e lascia che l'app faccia il resto.",
     ctaPrimary: 'Ordina ora',
     ctaSecondary: 'Scopri di più',
     sportSquash: 'Squash',
     sportPadel: 'Padel',
-    sportTennis: 'Tennis',
-    productAlt: 'Concetto Braccialetto Klikkr',
+    sportBadminton: 'Badminton',
+    productAlt: 'Braccialetto contapunti Klikkr indossato al polso',
     symbolImage: '* Immagine simbolica',
   },
 
@@ -35,19 +74,23 @@ export const it: Translations = {
       "Klikkr è invisibile quando non ti serve e perfettamente affidabile quando ne hai bisogno. Resistente all'acqua, al sudore e agli urti.",
     items: [
       {
-        title: 'Squash',
-        description:
-          'Tieni il conto di ogni scambio intenso. Un clic e sei pronto per il prossimo servizio.',
-      },
-      {
         title: 'Padel',
+        imageAlt: 'Giocatore di padel che usa il tracker Klikkr al polso',
         description:
           'Non perdere il conto durante i duelli lunghi. Concentrati sul tuo smash, noi teniamo il punteggio.',
       },
       {
-        title: 'Calcio',
+        title: 'Squash',
+        imageAlt: 'Braccialetto Klikkr in azione durante una partita di squash',
         description:
-          'Perfetto per arbitri o partite amichevoli. Tieni il punteggio senza fatica.',
+          'Tieni il conto di ogni scambio intenso. Un clic e sei pronto per il prossimo servizio.',
+      },
+      {
+        title: 'Badminton',
+        imageAlt:
+          "Braccialetto Klikkr indossato durante l'allenamento di badminton",
+        description:
+          'Tieni traccia di ogni scambio veloce. Un clic e il punto è registrato.',
       },
     ],
   },
@@ -413,7 +456,7 @@ export const it: Translations = {
           {
             title: 'Scegli lo sport',
             description:
-              'Seleziona il tuo sport — Tennis, Squash, Padel o Calcio sono pronti.',
+              'Seleziona il tuo sport — Tennis, Squash, Padel o Badminton sono pronti.',
           },
           {
             title: 'Imposta le regole',

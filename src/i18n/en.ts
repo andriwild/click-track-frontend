@@ -1,6 +1,44 @@
 import type { Translations } from './index'
 
 export const en: Translations = {
+  seo: {
+    defaultOgImage: '/product.png',
+    home: {
+      title: 'Klikkr – Score Counter Wristband for Padel, Tennis & Squash',
+      description:
+        'The Bluetooth score counter on your wrist. Track points in padel, tennis or squash with one click. Waterproof, 2-year battery. Pre-order now.',
+    },
+    howItWorks: {
+      title: 'How Klikkr Works – Score Counter Wristband Guide',
+      description:
+        'Learn how Klikkr works in a few simple steps: turn on the wristband, connect the app, track points with one click. For padel, tennis and squash.',
+    },
+    reviews: {
+      title: 'Klikkr Reviews – What Padel, Tennis & Squash Players Say',
+      description:
+        'Real reviews from padel, tennis and squash players already using Klikkr. Discover why athletes rely on the Bluetooth score counter.',
+    },
+    faq: {
+      title: 'FAQ – Common Questions About the Klikkr Wristband',
+      description:
+        'Answers to the most common questions about Klikkr: Bluetooth pairing, battery life and compatibility with padel, tennis and squash.',
+    },
+    appPrivacy: {
+      title: 'Klikkr App Privacy Policy | Klikkr',
+      description:
+        'Privacy policy for the Klikkr app. Learn what data the app collects and how we protect your privacy.',
+    },
+    imprint: {
+      title: 'Imprint | Klikkr',
+      description: 'Imprint and legal information for Klikkr.',
+    },
+    thanks: {
+      title: 'Thank you for your order | Klikkr',
+      description:
+        'Thank you for your Klikkr order. You will receive a confirmation email with the details shortly.',
+    },
+  },
+
   nav: {
     home: 'Home',
     howItWorks: 'How It Works',
@@ -17,13 +55,13 @@ export const en: Translations = {
     titleAccent2: 'Game.',
     slogan: 'Focus on your Game!',
     description:
-      'The ultimate wearable Bluetooth score tracker for Padel, Tennis, and Squash. Keep your eyes on the ball, track points with a single click, and let the app handle the rest.',
+      'The ultimate wearable Bluetooth score tracker for Padel, Squash, and Badminton. Keep your eyes on the ball, track points with a single click, and let the app handle the rest.',
     ctaPrimary: 'Order Now',
     ctaSecondary: 'Learn more',
     sportSquash: 'Squash',
     sportPadel: 'Padel',
-    sportTennis: 'Tennis',
-    productAlt: 'Klikkr Wristband Concept',
+    sportBadminton: 'Badminton',
+    productAlt: 'Klikkr score counter wristband worn on the wrist',
     symbolImage: '* Concept image',
   },
 
@@ -35,19 +73,22 @@ export const en: Translations = {
       "Klikkr is designed to be invisible when you don't need it, and perfectly reliable when you do. Water resistant, sweat proof, and built to survive impacts.",
     items: [
       {
-        title: 'Squash',
-        description:
-          "Keep track of every brutal rally. One click and you're ready for the next serve.",
-      },
-      {
         title: 'Padel',
+        imageAlt: 'Padel player using the Klikkr score tracker on the wrist',
         description:
           "Don't lose count during those long duels. Focus on your smash, we track the score.",
       },
       {
-        title: 'Football',
+        title: 'Squash',
+        imageAlt: 'Klikkr wristband in action during a squash match',
         description:
-          'Perfect for refs or casual matches. Keep the score straight without breaking a sweat.',
+          "Keep track of every brutal rally. One click and you're ready for the next serve.",
+      },
+      {
+        title: 'Badminton',
+        imageAlt: 'Klikkr wristband worn during badminton training',
+        description:
+          'Keep track of every fast-paced rally. One click and the point is recorded.',
       },
     ],
   },
@@ -412,7 +453,7 @@ export const en: Translations = {
           {
             title: 'Choose your sport',
             description:
-              'Select your sport — Tennis, Squash, Padel or Football are ready to go.',
+              'Select your sport — Tennis, Squash, Padel or Badminton are ready to go.',
           },
           {
             title: 'Set the rules',

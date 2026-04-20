@@ -1,6 +1,45 @@
 import type { Translations } from './index'
 
 export const de: Translations = {
+  seo: {
+    defaultOgImage: '/product.png',
+    home: {
+      title:
+        'Klikkr – Punktezähler Armband für Padel, Tennis & Squash | Schweiz',
+      description:
+        'Der Bluetooth-Punktezähler fürs Handgelenk. Tracke Punkte beim Padel, Tennis oder Squash mit einem Klick. Wasserfest, 2 Jahre Akku. Jetzt vorbestellen.',
+    },
+    howItWorks: {
+      title: 'So funktioniert Klikkr – Punktezähler Armband | Anleitung',
+      description:
+        'Erfahre in wenigen Schritten, wie Klikkr funktioniert: Armband einschalten, App verbinden, Punkte per Klick tracken. Für Padel, Tennis und Squash.',
+    },
+    reviews: {
+      title: 'Klikkr Bewertungen – Was Padel-, Tennis- & Squash-Spieler sagen',
+      description:
+        'Echte Bewertungen von Padel-, Tennis- und Squash-Spielern, die Klikkr bereits nutzen. Lies, warum Sportler auf den Bluetooth-Punktezähler setzen.',
+    },
+    faq: {
+      title: 'FAQ – Häufige Fragen zum Klikkr Punktezähler Armband',
+      description:
+        'Antworten auf die häufigsten Fragen zu Klikkr: Bluetooth-Verbindung, Akkulaufzeit, Kompatibilität mit Padel, Tennis und Squash.',
+    },
+    appPrivacy: {
+      title: 'Datenschutz der Klikkr App | Klikkr',
+      description:
+        'Datenschutzerklärung der Klikkr App. Erfahre, welche Daten die App erfasst und wie wir deine Privatsphäre schützen.',
+    },
+    imprint: {
+      title: 'Impressum | Klikkr',
+      description: 'Impressum und rechtliche Angaben zu Klikkr.',
+    },
+    thanks: {
+      title: 'Vielen Dank für deine Bestellung | Klikkr',
+      description:
+        'Vielen Dank für deine Klikkr-Bestellung. Du erhältst in Kürze eine Bestätigungsmail mit den Details.',
+    },
+  },
+
   nav: {
     home: 'Home',
     howItWorks: 'So funktionierts',
@@ -17,13 +56,13 @@ export const de: Translations = {
     titleAccent2: 'Spiel.',
     slogan: 'Focus on your Game!',
     description:
-      'Der ultimative tragbare Bluetooth Score-Tracker für Padel, Tennis und Squash. Behalte den Ball im Auge, tracke Punkte mit einem Klick und lass die App den Rest erledigen.',
+      'Der ultimative tragbare Bluetooth Score-Tracker für Padel, Squash und Badminton. Behalte den Ball im Auge, tracke Punkte mit einem Klick und lass die App den Rest erledigen.',
     ctaPrimary: 'Jetzt bestellen',
     ctaSecondary: 'Mehr erfahren',
     sportSquash: 'Squash',
     sportPadel: 'Padel',
-    sportTennis: 'Tennis',
-    productAlt: 'Klikkr Armband Konzept',
+    sportBadminton: 'Badminton',
+    productAlt: 'Klikkr Punktezähler Armband am Handgelenk',
     symbolImage: '* Symbolbild',
   },
 
@@ -35,19 +74,22 @@ export const de: Translations = {
       'Klikkr ist unsichtbar wenn du es nicht brauchst, und absolut zuverlässig wenn es drauf ankommt. Wasserresistent, schweissfest und stosssicher gebaut.',
     items: [
       {
-        title: 'Squash',
-        description:
-          'Behalte den Überblick über jedes intensive Rally. Ein Klick und du bist bereit für den nächsten Aufschlag.',
-      },
-      {
         title: 'Padel',
+        imageAlt: 'Padel-Spieler nutzt Klikkr Score-Tracker am Handgelenk',
         description:
           'Verliere bei langen Duellen nicht den Überblick. Konzentrier dich auf deinen Smash, wir zählen den Score.',
       },
       {
-        title: 'Fussball',
+        title: 'Squash',
+        imageAlt: 'Klikkr Armband beim Squash-Spiel im Einsatz',
         description:
-          'Perfekt für Schiedsrichter oder lockere Matches. Behalte den Spielstand im Griff – ganz entspannt.',
+          'Behalte den Überblick über jedes intensive Rally. Ein Klick und du bist bereit für den nächsten Aufschlag.',
+      },
+      {
+        title: 'Badminton',
+        imageAlt: 'Klikkr Armband beim Badminton-Spiel im Einsatz',
+        description:
+          'Behalte den Überblick bei jedem schnellen Ballwechsel. Ein Klick und der Punkt ist gezählt.',
       },
     ],
   },
@@ -413,7 +455,7 @@ export const de: Translations = {
           {
             title: 'Sportart wählen',
             description:
-              'Wähle deine Sportart aus — Tennis, Squash, Padel oder Fussball stehen bereit.',
+              'Wähle deine Sportart aus — Tennis, Squash, Padel oder Badminton stehen bereit.',
           },
           {
             title: 'Regeln einstellen',

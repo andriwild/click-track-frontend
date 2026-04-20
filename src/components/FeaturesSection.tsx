@@ -2,7 +2,7 @@ import { Trophy, Target, Activity } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
 
 const icons = [Trophy, Target, Activity]
-const images = ['/squash.png', '/padel.png', '/football.png']
+const images = ['/padel.png', '/squash.png', '/badminton.png']
 const colors = [
   'from-blue-500/20 to-blue-900/20',
   'from-emerald-500/20 to-emerald-900/20',
@@ -49,7 +49,7 @@ export function FeaturesSection({ lang = 'de' }: { lang?: Locale }) {
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={images[index]}
-                    alt={feature.title}
+                    alt={feature.imageAlt}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1 grayscale-[50%] group-hover:grayscale-0"
                   />
                 </div>

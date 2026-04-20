@@ -71,6 +71,12 @@ export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
 
             <div className="flex items-center justify-center lg:justify-start space-x-8 pt-4 text-zinc-500">
               <div className="flex items-center">
+                <Target className="mr-2 h-5 w-5 text-zinc-400" />
+                <span className="text-sm font-semibold uppercase tracking-wider">
+                  {t.sportPadel}
+                </span>
+              </div>
+              <div className="flex items-center">
                 <Trophy className="mr-2 h-5 w-5 text-zinc-400" />
                 <span className="text-sm font-semibold uppercase tracking-wider">
                   {t.sportSquash}
@@ -79,13 +85,7 @@ export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
               <div className="flex items-center">
                 <Target className="mr-2 h-5 w-5 text-zinc-400" />
                 <span className="text-sm font-semibold uppercase tracking-wider">
-                  {t.sportPadel}
-                </span>
-              </div>
-              <div className="flex items-center">
-                <Target className="mr-2 h-5 w-5 text-zinc-400" />
-                <span className="text-sm font-semibold uppercase tracking-wider">
-                  {t.sportTennis}
+                  {t.sportBadminton}
                 </span>
               </div>
             </div>
