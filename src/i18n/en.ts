@@ -98,14 +98,8 @@ export const en: Translations = {
     title: 'The Ultimate Companion App.',
     description:
       'The free Klikkr app turns your Bluetooth wristbands into a powerful, intelligent smart scoreboard. Perfectly designed for fast-paced racket sports like Padel, Tennis, and Squash.',
-    betaBadge: 'Beta',
-    betaTitle: 'Join the Beta',
-    betaDescription:
-      "The Klikkr app is in beta for Android & iOS. Sign up and we'll invite you.",
-    betaPlaceholder: 'Your email address',
-    betaButton: 'Sign up',
-    betaSuccess: "Thanks! We'll be in touch.",
-    betaError: 'Something went wrong. Please try again.',
+    downloadAppStore: 'Download on the App Store',
+    downloadGooglePlay: 'Get it on Google Play',
     appPreviewAlt: 'Klikkr App Preview Interface',
     items: [
       {

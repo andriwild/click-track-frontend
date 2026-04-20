@@ -100,14 +100,8 @@ export const it: Translations = {
     title: "L'app compagna definitiva.",
     description:
       "L'app gratuita Klikkr trasforma i tuoi braccialetti Bluetooth in un tabellone segnapunti intelligente e potente. Perfettamente progettata per sport di racchetta veloci.",
-    betaBadge: 'Beta',
-    betaTitle: 'Unisciti alla beta',
-    betaDescription:
-      "L'app Klikkr è in beta per Android & iOS. Iscriviti e ti invitiamo.",
-    betaPlaceholder: 'Il tuo indirizzo email',
-    betaButton: 'Iscriviti',
-    betaSuccess: 'Grazie! Ti ricontattiamo presto.',
-    betaError: 'Qualcosa è andato storto. Riprova.',
+    downloadAppStore: "Scarica su l'App Store",
+    downloadGooglePlay: 'Disponibile su Google Play',
     appPreviewAlt: 'Anteprima interfaccia app Klikkr',
     items: [
       {

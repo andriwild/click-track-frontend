@@ -99,14 +99,8 @@ export const fr: Translations = {
     title: "L'application compagnon ultime.",
     description:
       "L'application gratuite Klikkr transforme vos bracelets Bluetooth en un tableau de score intelligent et puissant. Parfaitement conçue pour les sports de raquette rapides.",
-    betaBadge: 'Bêta',
-    betaTitle: 'Rejoins la bêta',
-    betaDescription:
-      "L'app Klikkr est en bêta pour Android & iOS. Inscris-toi et on t'invite.",
-    betaPlaceholder: 'Ton adresse e-mail',
-    betaButton: "S'inscrire",
-    betaSuccess: 'Merci ! On te recontacte bientôt.',
-    betaError: "Quelque chose s'est mal passé. Réessaie.",
+    downloadAppStore: "Télécharger dans l'App Store",
+    downloadGooglePlay: 'Disponible sur Google Play',
     appPreviewAlt: "Aperçu de l'interface Klikkr",
     items: [
       {
