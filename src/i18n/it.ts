@@ -102,6 +102,8 @@ export const it: Translations = {
       "L'app gratuita Klikkr trasforma i tuoi braccialetti Bluetooth in un tabellone segnapunti intelligente e potente. Perfettamente progettata per sport di racchetta veloci.",
     downloadAppStore: "Scarica su l'App Store",
     downloadGooglePlay: 'Disponibile su Google Play',
+    scanQrLabel: 'Scansiona con lo smartphone',
+    scanQrAlt: "Codice QR per l'app Klikkr",
     appPreviewAlt: 'Anteprima interfaccia app Klikkr',
     items: [
       {

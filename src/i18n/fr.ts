@@ -101,6 +101,8 @@ export const fr: Translations = {
       "L'application gratuite Klikkr transforme vos bracelets Bluetooth en un tableau de score intelligent et puissant. Parfaitement conçue pour les sports de raquette rapides.",
     downloadAppStore: "Télécharger dans l'App Store",
     downloadGooglePlay: 'Disponible sur Google Play',
+    scanQrLabel: 'Scanner avec votre smartphone',
+    scanQrAlt: "Code QR vers l'application Klikkr",
     appPreviewAlt: "Aperçu de l'interface Klikkr",
     items: [
       {

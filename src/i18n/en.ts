@@ -100,6 +100,8 @@ export const en: Translations = {
       'The free Klikkr app turns your Bluetooth wristbands into a powerful, intelligent smart scoreboard. Perfectly designed for fast-paced racket sports like Padel, Tennis, and Squash.',
     downloadAppStore: 'Download on the App Store',
     downloadGooglePlay: 'Get it on Google Play',
+    scanQrLabel: 'Scan with your phone',
+    scanQrAlt: 'QR code to the Klikkr App',
     appPreviewAlt: 'Klikkr App Preview Interface',
     items: [
       {

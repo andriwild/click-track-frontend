@@ -1,0 +1,103 @@
+---
+import '../index.css';
+import { SITE_URL } from '../i18n';
+
+const APP_STORE_URL = 'https://apps.apple.com/ch/app/klikkr/id6761069158';
+const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=ch.wild.klikkr';
+const canonicalUrl = `${SITE_URL}/app`;
+---
+
+<!doctype html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Klikkr App herunterladen</title>
+    <meta name="description" content="Lade die Klikkr App im App Store oder bei Google Play herunter." />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <script is:inline define:vars={{ APP_STORE_URL, GOOGLE_PLAY_URL }}>
+      (function () {
+        try {
+          var ua = navigator.userAgent || '';
+          var isIOS =
+            /iPad|iPhone|iPod/.test(ua) ||
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+          var isAndroid = /Android/i.test(ua);
+          if (isIOS) {
+            window.location.replace(APP_STORE_URL);
+          } else if (isAndroid) {
+            window.location.replace(GOOGLE_PLAY_URL);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <script defer src="https://analytics.klikkr.ch/script.js" data-website-id="1bcb778e-5503-4a71-ab57-1d64d7bde4a6" data-domains="klikkr.ch"></script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-zinc-950 text-zinc-50 font-sans">
+    <main class="flex-1 flex flex-col items-center justify-center p-6 text-center">
+      <a href="/" class="mb-8 inline-flex items-center gap-2">
+        <img src="/logo_white.png" alt="Klikkr Logo" class="h-8 object-contain" />
+      </a>
+
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">
+        Klikkr App herunterladen
+      </h1>
+      <p class="text-zinc-400 max-w-md mb-10">
+        Wähle deinen Store — oder scanne den QR-Code mit deinem Smartphone, um direkt zur richtigen Seite zu gelangen.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href={APP_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60 rounded-lg"
+          aria-label="Im App Store laden"
+          data-store="ios"
+        >
+          <img
+            src="/badges/app-store-badge.svg"
+            alt="Im App Store laden"
+            class="h-12 w-auto"
+            width="160"
+            height="48"
+          />
+        </a>
+        <a
+          href={GOOGLE_PLAY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60 rounded-lg"
+          aria-label="Jetzt bei Google Play"
+          data-store="android"
+        >
+          <img
+            src="/badges/google-play-badge.png"
+            alt="Jetzt bei Google Play"
+            class="h-[72px] w-auto -my-3"
+            width="186"
+            height="72"
+          />
+        </a>
+      </div>
+
+      <a href="/" class="mt-12 text-sm text-zinc-500 hover:text-emerald-400 transition-colors">
+        ← Zurück zur Startseite
+      </a>
+    </main>
+
+    <script is:inline>
+      document.querySelectorAll('a[data-store]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          var store = a.getAttribute('data-store');
+          if (window.umami) window.umami.track('store-click-' + store, { source: 'app-redirect' });
+        });
+      });
+    </script>
+  </body>
+</html>

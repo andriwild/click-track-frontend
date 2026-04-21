@@ -101,6 +101,8 @@ export const de: Translations = {
       'Die kostenlose Klikkr App verwandelt deine Bluetooth-Armbänder in ein leistungsstarkes, intelligentes Scoreboard. Perfekt konzipiert für schnelle Racketsportarten wie Padel, Tennis und Squash.',
     downloadAppStore: 'Im App Store laden',
     downloadGooglePlay: 'Jetzt bei Google Play',
+    scanQrLabel: 'Mit dem Smartphone scannen',
+    scanQrAlt: 'QR-Code zur Klikkr App',
     appPreviewAlt: 'Klikkr App Vorschau',
     items: [
       {
