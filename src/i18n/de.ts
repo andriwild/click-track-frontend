@@ -63,7 +63,6 @@ export const de: Translations = {
     sportPadel: 'Padel',
     sportBadminton: 'Badminton',
     productAlt: 'Klikkr Punktezähler Armband am Handgelenk',
-    symbolImage: '* Symbolbild',
   },
 
   features: {

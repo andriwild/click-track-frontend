@@ -63,7 +63,6 @@ export const fr: Translations = {
     sportPadel: 'Padel',
     sportBadminton: 'Badminton',
     productAlt: 'Bracelet compteur de points Klikkr porté au poignet',
-    symbolImage: '* Image symbolique',
   },
 
   features: {

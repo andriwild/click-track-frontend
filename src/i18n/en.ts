@@ -62,7 +62,6 @@ export const en: Translations = {
     sportPadel: 'Padel',
     sportBadminton: 'Badminton',
     productAlt: 'Klikkr score counter wristband worn on the wrist',
-    symbolImage: '* Concept image',
   },
 
   features: {

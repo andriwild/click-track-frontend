@@ -63,7 +63,6 @@ export const it: Translations = {
     sportPadel: 'Padel',
     sportBadminton: 'Badminton',
     productAlt: 'Braccialetto contapunti Klikkr indossato al polso',
-    symbolImage: '* Immagine simbolica',
   },
 
   features: {
