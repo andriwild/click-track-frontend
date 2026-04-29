@@ -367,6 +367,11 @@ export const de: Translations = {
     addedToCart: 'Hinzugefügt',
     continueShopping: 'Weiter einkaufen',
     close: 'Schliessen',
+    shippingTo: 'Lieferung in',
+    countryCH: 'Schweiz',
+    countryAbroad: 'Anderes Land',
+    abroadNotice:
+      'Bei Bestellungen ins Ausland können je nach Landesrecht Zoll- und Einfuhrgebühren anfallen, die vom Empfänger zu tragen sind. Für den Export wird auf der nächsten Seite eine Telefonnummer benötigt.',
   },
 
   products: {

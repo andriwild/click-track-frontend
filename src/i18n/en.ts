@@ -365,6 +365,11 @@ export const en: Translations = {
     addedToCart: 'Added',
     continueShopping: 'Continue shopping',
     close: 'Close',
+    shippingTo: 'Shipping to',
+    countryCH: 'Switzerland',
+    countryAbroad: 'Other country',
+    abroadNotice:
+      'For international orders, customs duties and import fees may apply according to local law and must be paid by the recipient. A phone number is required on the next page for export documentation.',
   },
 
   products: {

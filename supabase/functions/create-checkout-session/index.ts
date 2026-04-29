@@ -86,7 +86,7 @@ Deno.serve(async (req) => {
         { shipping_rate: Deno.env.get('SHIPPING_RATE_ID') as string },
       ],
       shipping_address_collection: {
-        allowed_countries: ['CH', 'DE', 'AT', 'FR', 'IT'],
+        allowed_countries: ['CH'],
       },
       allow_promotion_codes: true,
       success_url: successUrl,

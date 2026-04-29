@@ -367,6 +367,11 @@ export const it: Translations = {
     addedToCart: 'Aggiunto',
     continueShopping: 'Continua lo shopping',
     close: 'Chiudi',
+    shippingTo: 'Spedizione in',
+    countryCH: 'Svizzera',
+    countryAbroad: 'Altro paese',
+    abroadNotice:
+      "Per gli ordini all'estero possono essere applicati dazi e tasse di importazione secondo la legge locale, a carico del destinatario. Nella pagina successiva è richiesto un numero di telefono per l'esportazione.",
   },
 
   products: {

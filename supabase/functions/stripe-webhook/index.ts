@@ -47,6 +47,7 @@ Deno.serve(async (req) => {
         session.collected_information?.shipping_details?.name ||
         'Unknown'
       const customerEmail = session.customer_details?.email || 'Unknown'
+      const customerPhone = session.customer_details?.phone || null
 
       // Helper to format Stripe addresses consistently
       const formatAddress = (addr: Stripe.Address | null | undefined) => {
@@ -70,6 +71,7 @@ Deno.serve(async (req) => {
           stripe_session_id: session.id,
           customer_email: customerEmail,
           customer_name: customerName,
+          customer_phone: customerPhone,
           billing_address: billingAddress,
           shipping_address: shippingAddress,
           amount_total: session.amount_total,
@@ -137,10 +139,11 @@ Deno.serve(async (req) => {
       console.log(`Order Items saved for Session ${session.id}`)
 
       // Newsletter opt-in: add customer to Brevo list
-      if (
-        session.metadata?.newsletter === 'true' &&
-        customerEmail !== 'Unknown'
-      ) {
+      // Source: metadata.newsletter (CH flow) or client_reference_id (international payment link)
+      const newsletterOptIn =
+        session.metadata?.newsletter === 'true' ||
+        session.client_reference_id === 'newsletter_yes'
+      if (newsletterOptIn && customerEmail !== 'Unknown') {
         const brevoApiKey = Deno.env.get('BREVO_API_KEY')
         if (brevoApiKey) {
           try {

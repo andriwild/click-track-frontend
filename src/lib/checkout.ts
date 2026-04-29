@@ -4,6 +4,9 @@ import type { Locale } from '../i18n'
 const CHECKOUT_FUNCTION_URL =
   'https://xhhticogilsokkpypzwe.supabase.co/functions/v1/create-checkout-session'
 
+const INTERNATIONAL_PAYMENT_LINK =
+  'https://buy.stripe.com/7sY8wObaRbaJ6nK62J1ZS05'
+
 export async function initiateCheckout(lang: Locale, newsletter = false) {
   const items = getCartItems().map(({ product, quantity }) => ({
     priceId: product.stripePriceId,
@@ -25,4 +28,12 @@ export async function initiateCheckout(lang: Locale, newsletter = false) {
   const { url } = await res.json()
   clearCart()
   window.location.href = url
+}
+
+export function redirectToInternationalCheckout(newsletter = false) {
+  const url = new URL(INTERNATIONAL_PAYMENT_LINK)
+  if (newsletter) {
+    url.searchParams.set('client_reference_id', 'newsletter_yes')
+  }
+  window.location.href = url.toString()
 }

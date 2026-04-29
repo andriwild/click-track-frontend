@@ -9,7 +9,10 @@ import {
 } from '../stores/cart'
 import { formatPrice } from '../config/products'
 import { getTranslations, type Locale } from '../i18n'
-import { initiateCheckout } from '../lib/checkout'
+import {
+  initiateCheckout,
+  redirectToInternationalCheckout,
+} from '../lib/checkout'
 import { useState } from 'react'
 import { track } from '../lib/analytics'
 
@@ -21,6 +24,7 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
   const items = getCartItems()
   const [loading, setLoading] = useState(false)
   const [newsletter, setNewsletter] = useState(false)
+  const [shipTo, setShipTo] = useState<'CH' | 'ABROAD'>('CH')
 
   if (!isOpen) return null
 
@@ -28,9 +32,14 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
     track('checkout-start', {
       items: items.length,
       total,
+      shipTo,
     })
     setLoading(true)
     try {
+      if (shipTo === 'ABROAD') {
+        redirectToInternationalCheckout(newsletter)
+        return
+      }
       await initiateCheckout(lang, newsletter)
     } catch {
       setLoading(false)
@@ -160,6 +169,42 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
                 {formatPrice(total)}
               </span>
             </div>
+
+            <div className="space-y-2">
+              <p className="text-xs font-medium text-zinc-400">
+                {t.cart.shippingTo}
+              </p>
+              <div className="grid grid-cols-2 gap-2 p-1 rounded-full bg-zinc-900 border border-zinc-800">
+                <button
+                  type="button"
+                  onClick={() => setShipTo('CH')}
+                  className={`h-9 rounded-full text-sm font-semibold transition-colors ${
+                    shipTo === 'CH'
+                      ? 'bg-emerald-500 text-zinc-950'
+                      : 'text-zinc-400 hover:text-zinc-200'
+                  }`}
+                >
+                  {t.cart.countryCH}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShipTo('ABROAD')}
+                  className={`h-9 rounded-full text-sm font-semibold transition-colors ${
+                    shipTo === 'ABROAD'
+                      ? 'bg-emerald-500 text-zinc-950'
+                      : 'text-zinc-400 hover:text-zinc-200'
+                  }`}
+                >
+                  {t.cart.countryAbroad}
+                </button>
+              </div>
+              {shipTo === 'ABROAD' && (
+                <p className="text-xs text-amber-400/90 leading-relaxed">
+                  {t.cart.abroadNotice}
+                </p>
+              )}
+            </div>
+
             <label className="flex items-start gap-3 cursor-pointer group">
               <input
                 type="checkbox"
