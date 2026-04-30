@@ -97,7 +97,7 @@ export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
               <img
                 src="/product.png"
                 alt={t.productAlt}
-                className="relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl border border-zinc-800/50 transition-all duration-700"
+                className="relative z-10 w-[90%] h-[90%] object-contain transition-all duration-700"
               />
             </div>
           </div>
