@@ -386,3 +386,15 @@ s3_region = "env(S3_REGION)"
 s3_access_key = "env(S3_ACCESS_KEY)"
 # Configures AWS_SECRET_ACCESS_KEY for S3 bucket
 s3_secret_key = "env(S3_SECRET_KEY)"
+
+# Both functions are public endpoints invoked WITHOUT a Supabase JWT:
+# - create-checkout-session is called from the browser (no auth header);
+#   it protects itself via an Origin allowlist + a server-side Price-ID allowlist.
+# - stripe-webhook is called by Stripe and verified via the Stripe signature.
+# Without this, `supabase functions deploy` defaults verify_jwt = true and the
+# API gateway rejects every request with 401 before the function runs.
+[functions.create-checkout-session]
+verify_jwt = false
+
+[functions.stripe-webhook]
+verify_jwt = false
