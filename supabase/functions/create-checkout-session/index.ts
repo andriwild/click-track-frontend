@@ -20,7 +20,8 @@ const ALLOWED_ORIGINS = [
 ]
 
 // Shipping destinations, grouped by region. The cart lets the customer choose
-// CH or international (EU + UK); we collect the address only for that region.
+// CH or international (EU + Norway + Ukraine); we collect the address only for
+// that region.
 const EU_COUNTRIES = [
   'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR',
   'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK',
@@ -29,7 +30,7 @@ const EU_COUNTRIES = [
 
 const REGION_COUNTRIES: Record<string, string[]> = {
   CH: ['CH'],
-  INTL: [...EU_COUNTRIES, 'GB'], // EU + United Kingdom
+  INTL: [...EU_COUNTRIES, 'NO', 'UA'], // EU + Norway + Ukraine
 }
 
 function shippingRateId(region: string): string {
