@@ -9,10 +9,7 @@ import {
 } from '../stores/cart'
 import { formatPrice } from '../config/products'
 import { getTranslations, type Locale } from '../i18n'
-import {
-  initiateCheckout,
-  redirectToInternationalCheckout,
-} from '../lib/checkout'
+import { initiateCheckout } from '../lib/checkout'
 import { useState } from 'react'
 import { track } from '../lib/analytics'
 
@@ -36,11 +33,11 @@ export function CartDrawer({ lang = 'de' }: { lang?: Locale }) {
     })
     setLoading(true)
     try {
-      if (shipTo === 'ABROAD') {
-        redirectToInternationalCheckout(newsletter)
-        return
-      }
-      await initiateCheckout(lang, newsletter)
+      await initiateCheckout(
+        lang,
+        newsletter,
+        shipTo === 'ABROAD' ? 'INTL' : 'CH'
+      )
     } catch {
       setLoading(false)
     }
