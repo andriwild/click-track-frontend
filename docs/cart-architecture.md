@@ -199,4 +199,6 @@ Ob 1 Item (Payment Link) oder 5 Items (Checkout Session API) — Stripe normalis
 | Stripe Price IDs      | `src/config/products.ts` + `create-checkout-session/index.ts` |
 | `PUBLIC_SUPABASE_URL` | `.env` (z.B. `https://xyz.supabase.co`)                       |
 | `STRIPE_SECRET_KEY`   | Supabase Edge Function Secrets                                |
+| `SHIPPING_RATE_ID`    | Supabase Edge Function Secrets — Versandrate für CH           |
+| `SHIPPING_RATE_ID_INTL` | Supabase Edge Function Secrets — Versandrate für EU + UK (optional; fällt sonst auf `SHIPPING_RATE_ID` zurück) |
 | Edge Function Deploy  | `supabase functions deploy create-checkout-session`           |

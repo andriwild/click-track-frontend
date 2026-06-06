@@ -19,6 +19,26 @@ const ALLOWED_ORIGINS = [
   'http://localhost:4321', // Astro dev server
 ]
 
+// Shipping destinations, grouped by region. The cart lets the customer choose
+// CH or international (EU + UK); we collect the address only for that region.
+const EU_COUNTRIES = [
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR',
+  'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK',
+  'SI', 'ES', 'SE',
+] as const
+
+const REGION_COUNTRIES: Record<string, string[]> = {
+  CH: ['CH'],
+  INTL: [...EU_COUNTRIES, 'GB'], // EU + United Kingdom
+}
+
+function shippingRateId(region: string): string {
+  // Falls back to the domestic rate if no dedicated international rate is set.
+  const intl = Deno.env.get('SHIPPING_RATE_ID_INTL')
+  const domestic = Deno.env.get('SHIPPING_RATE_ID') as string
+  return region === 'INTL' && intl ? intl : domestic
+}
+
 function corsHeaders(origin: string | null) {
   const allowedOrigin =
     ALLOWED_ORIGINS.find((o) => o === origin) || ALLOWED_ORIGINS[0]
@@ -45,7 +65,15 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { items, lang = 'de', newsletter = false } = await req.json()
+    const {
+      items,
+      lang = 'de',
+      newsletter = false,
+      region: rawRegion = 'CH',
+    } = await req.json()
+
+    // Normalize region; anything other than the known regions falls back to CH.
+    const region = rawRegion === 'INTL' ? 'INTL' : 'CH'
 
     if (!Array.isArray(items) || items.length === 0) {
       return new Response(JSON.stringify({ error: 'No items provided' }), {
@@ -82,11 +110,10 @@ Deno.serve(async (req) => {
       mode: 'payment',
       metadata: { newsletter: newsletter ? 'true' : 'false' },
       line_items: lineItems,
-      shipping_options: [
-        { shipping_rate: Deno.env.get('SHIPPING_RATE_ID') as string },
-      ],
+      shipping_options: [{ shipping_rate: shippingRateId(region) }],
       shipping_address_collection: {
-        allowed_countries: ['CH'],
+        allowed_countries:
+          REGION_COUNTRIES[region] as Stripe.Checkout.SessionCreateParams.ShippingAddressCollection.AllowedCountry[],
       },
       allow_promotion_codes: true,
       success_url: successUrl,
