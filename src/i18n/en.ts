@@ -369,7 +369,7 @@ export const en: Translations = {
     countryCH: 'Switzerland',
     countryAbroad: 'Other country',
     abroadNotice:
-      'For international orders, customs duties and import fees may apply according to local law and must be paid by the recipient. A phone number is required on the next page for export documentation.',
+      'For international orders, customs duties and import fees may apply according to local law and must be paid by the recipient.',
   },
 
   products: {

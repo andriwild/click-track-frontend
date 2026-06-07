@@ -371,7 +371,7 @@ export const de: Translations = {
     countryCH: 'Schweiz',
     countryAbroad: 'Anderes Land',
     abroadNotice:
-      'Bei Bestellungen ins Ausland können je nach Landesrecht Zoll- und Einfuhrgebühren anfallen, die vom Empfänger zu tragen sind. Für den Export wird auf der nächsten Seite eine Telefonnummer benötigt.',
+      'Bei Bestellungen ins Ausland können je nach Landesrecht Zoll- und Einfuhrgebühren anfallen, die vom Empfänger zu tragen sind.',
   },
 
   products: {
