@@ -371,7 +371,7 @@ export const fr: Translations = {
     countryCH: 'Suisse',
     countryAbroad: 'Autre pays',
     abroadNotice:
-      "Pour les commandes à l'étranger, des droits de douane et taxes d'importation peuvent s'appliquer selon la législation locale et sont à la charge du destinataire. Un numéro de téléphone sera demandé sur la page suivante pour l'export.",
+      "Pour les commandes à l'étranger, des droits de douane et taxes d'importation peuvent s'appliquer selon la législation locale et sont à la charge du destinataire.",
   },
 
   products: {
