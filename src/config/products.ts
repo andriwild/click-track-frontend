@@ -17,7 +17,7 @@ export const products: Product[] = [
     slug: 'wristband',
     stripePriceId: 'price_1TEvAVApnOf6m4doqtBC7OJX',
     priceCHF: 2900,
-    image: '/product_single.png',
+    image: '/product_new.png',
     category: 'wristband',
   },
   {
