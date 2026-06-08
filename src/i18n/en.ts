@@ -51,25 +51,54 @@ export const en: Translations = {
     badge: 'Now available for pre-order',
     titleLine1: 'Track Every',
     titleAccent1: 'Point.',
-    titleLine2: 'Own the',
+    titleLine2: 'Focus on Your',
     titleAccent2: 'Game.',
     slogan: 'Focus on your Game!',
     description:
-      'The ultimate wearable Bluetooth score tracker for Padel, Squash, and Badminton. Keep your eyes on the ball, track points with a single click, and let the app handle the rest.',
+      'The ultimate wearable Bluetooth score tracker for every racket sport. Keep your eyes on the ball, track points with a single click, and let the app handle the rest.',
     ctaPrimary: 'Order Now',
     ctaSecondary: 'Learn more',
     sportSquash: 'Squash',
     sportPadel: 'Padel',
     sportBadminton: 'Badminton',
+    sportTennis: 'Tennis',
+    sportTableTennis: 'Table Tennis',
+    sportPickleball: 'Pickleball',
     productAlt: 'Klikkr score counter wristband worn on the wrist',
   },
 
+  system: {
+    title: 'Wristband, app,',
+    titleAccent: 'scoreboard.',
+    description:
+      'Three parts, one seamless experience — ready in seconds.',
+    imageAlt:
+      'Player controlling the Klikkr scoreboard from the app, wristband on her wrist',
+    steps: [
+      {
+        title: 'Put on the wristband',
+        description: 'Wear the Klikkr wristbands on your wrist.',
+      },
+      {
+        title: 'Connect via Bluetooth',
+        description:
+          'Pair the wristbands with the free Klikkr app in a single tap.',
+      },
+      {
+        title: 'Start the match',
+        description: 'Pick your sport, set the rules — and play.',
+      },
+    ],
+  },
+
   features: {
-    badge: 'Engineered for Athletes',
+    badge: 'For everyone who plays',
     title: 'Built for Your',
     titleAccent: 'Sport',
     description:
-      "Klikkr is designed to be invisible when you don't need it, and perfectly reliable when you do. Water resistant, sweat proof, and built to survive impacts.",
+      'Keep the score in view without counting along. One click per point — the app handles the rest.',
+    moreSports:
+      'Works with every racket sport — including Tennis, Table Tennis & Pickleball.',
     items: [
       {
         title: 'Padel',

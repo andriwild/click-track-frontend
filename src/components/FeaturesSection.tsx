@@ -1,8 +1,8 @@
-import { Trophy, Target, Activity } from 'lucide-react'
+import { Trophy, Target, Activity, Check } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
 
 const icons = [Trophy, Target, Activity]
-const images = ['/padel.png', '/squash.png', '/badminton.png']
+const images = ['/sports/padel.png', '/sports/squash.png', '/sports/badminton.png']
 const colors = [
   'from-blue-500/20 to-blue-900/20',
   'from-emerald-500/20 to-emerald-900/20',
@@ -16,7 +16,7 @@ export function FeaturesSection({ lang = 'de' }: { lang?: Locale }) {
   return (
     <section
       id="features"
-      className="w-full py-24 bg-zinc-950 text-zinc-50 border-t border-zinc-900"
+      className="w-full py-24 bg-zinc-900 text-zinc-50 border-t border-zinc-800"
     >
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
@@ -40,7 +40,7 @@ export function FeaturesSection({ lang = 'de' }: { lang?: Locale }) {
             return (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/50 transition-all hover:bg-zinc-800/80 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/10"
+                className="group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/50 transition-all hover:bg-zinc-800/80 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/10"
               >
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${colors[index]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
@@ -72,6 +72,13 @@ export function FeaturesSection({ lang = 'de' }: { lang?: Locale }) {
               </div>
             )
           })}
+        </div>
+
+        <div className="mt-10 flex items-center justify-center gap-2.5 text-center">
+          <Check className="h-5 w-5 shrink-0 text-emerald-400" />
+          <span className="text-sm md:text-base font-medium text-zinc-300">
+            {t.moreSports}
+          </span>
         </div>
       </div>
     </section>
