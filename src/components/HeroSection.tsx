@@ -24,6 +24,11 @@ const slides = [
     position: 'object-[60%_center]',
     shift: PERSON_SHIFT,
   },
+  {
+    src: '/shooting/Andri-Wild-193.jpg',
+    position: 'object-[center_62%]',
+    shift: PRODUCT_SHIFT,
+  },
 ]
 
 const SLIDE_INTERVAL_MS = 6000
