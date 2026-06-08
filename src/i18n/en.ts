@@ -313,6 +313,17 @@ export const en: Translations = {
     reviewsCount: 'Reviews',
     bottomCta: 'Join the community of happy players – get your Klikkr today.',
     happyPlayers: 'happy players',
+    form: {
+      title: 'Share your experience',
+      description: 'Already playing with Klikkr? Tell us how it’s going.',
+      namePlaceholder: 'Your name',
+      ratingLabel: 'Your rating',
+      textPlaceholder: 'Tell us about your experience with Klikkr …',
+      submit: 'Send review',
+      ratingRequired: 'Please select a star rating.',
+      success: 'Your mail client is about to open — just hit send!',
+      mailSubject: 'New Klikkr review',
+    },
     items: [
       {
         name: 'Sandro L.',

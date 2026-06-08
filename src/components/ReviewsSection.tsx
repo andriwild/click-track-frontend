@@ -1,5 +1,7 @@
-import { Star, Quote } from 'lucide-react'
+import { useState } from 'react'
+import { Star, Quote, User, MessageSquare, Send } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
+import { track } from '../lib/analytics'
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -14,6 +16,146 @@ function StarRating({ rating }: { rating: number }) {
           }`}
         />
       ))}
+    </div>
+  )
+}
+
+function ReviewForm({
+  t,
+}: {
+  t: ReturnType<typeof getTranslations>['reviews']['form']
+}) {
+  const [name, setName] = useState('')
+  const [rating, setRating] = useState(0)
+  const [hovered, setHovered] = useState(0)
+  const [text, setText] = useState('')
+  const [status, setStatus] = useState<'idle' | 'error' | 'success'>('idle')
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!name || !text) return
+    if (rating === 0) {
+      setStatus('error')
+      return
+    }
+
+    const subject = encodeURIComponent(t.mailSubject)
+    const body = encodeURIComponent(
+      `Name: ${name}\nRating: ${rating}/5\n\n${text}`
+    )
+    track('review-form-submit', { rating })
+    window.location.href = `mailto:support@klikkr.ch?subject=${subject}&body=${body}`
+    setStatus('success')
+    setName('')
+    setRating(0)
+    setText('')
+  }
+
+  return (
+    <div className="w-full max-w-xl mx-auto mt-20">
+      <div className="text-center mb-6">
+        <h3 className="text-2xl font-bold text-zinc-100 mb-2">{t.title}</h3>
+        <p className="text-zinc-400">{t.description}</p>
+      </div>
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-3 rounded-2xl border border-zinc-800 bg-zinc-950 p-5"
+      >
+        <div className="relative">
+          <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
+          <input
+            type="text"
+            required
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value)
+              if (status !== 'idle') setStatus('idle')
+            }}
+            placeholder={t.namePlaceholder}
+            className="w-full pl-10 pr-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-100 text-sm placeholder:text-zinc-500 focus:outline-none focus:border-yellow-400/50 focus:ring-1 focus:ring-yellow-400/25 transition-all"
+          />
+        </div>
+
+        <div className="flex items-center gap-3 px-1 py-1">
+          <span className="text-sm text-zinc-400 font-medium">
+            {t.ratingLabel}
+          </span>
+          <div
+            className="flex items-center gap-1"
+            onMouseLeave={() => setHovered(0)}
+          >
+            {Array.from({ length: 5 }).map((_, i) => {
+              const value = i + 1
+              const previewing = hovered > 0
+              const filled = previewing ? value <= hovered : value <= rating
+              const committed = value <= rating
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => {
+                    setRating(value)
+                    if (status !== 'idle') setStatus('idle')
+                  }}
+                  onMouseEnter={() => setHovered(value)}
+                  aria-label={`${value}`}
+                  aria-pressed={committed}
+                  className="p-0.5 transition-transform hover:scale-110 cursor-pointer"
+                >
+                  <Star
+                    className={`h-7 w-7 transition-all ${
+                      filled
+                        ? committed
+                          ? 'fill-yellow-400 text-yellow-400'
+                          : 'fill-yellow-400/40 text-yellow-400/40'
+                        : 'fill-zinc-700 text-zinc-700'
+                    }`}
+                  />
+                </button>
+              )
+            })}
+            {rating > 0 && (
+              <span className="ml-2 text-sm font-bold text-yellow-400">
+                {rating}/5
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className="relative">
+          <MessageSquare className="absolute left-3 top-3.5 w-4 h-4 text-zinc-500" />
+          <textarea
+            required
+            value={text}
+            onChange={(e) => {
+              setText(e.target.value)
+              if (status !== 'idle') setStatus('idle')
+            }}
+            placeholder={t.textPlaceholder}
+            rows={4}
+            className="w-full pl-10 pr-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-100 text-sm placeholder:text-zinc-500 focus:outline-none focus:border-yellow-400/50 focus:ring-1 focus:ring-yellow-400/25 transition-all resize-none"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-zinc-950 font-semibold text-sm transition-all cursor-pointer"
+        >
+          <Send className="w-4 h-4" />
+          {t.submit}
+        </button>
+
+        {status === 'error' && (
+          <p className="text-yellow-400 text-sm text-center mt-2">
+            {t.ratingRequired}
+          </p>
+        )}
+        {status === 'success' && (
+          <p className="text-emerald-400 text-sm text-center mt-2">
+            {t.success}
+          </p>
+        )}
+      </form>
     </div>
   )
 }
@@ -100,6 +242,8 @@ export function ReviewsSection({ lang = 'de' }: { lang?: Locale }) {
         <div className="flex flex-col items-center text-center mt-16 space-y-3">
           <p className="text-zinc-500 text-lg font-medium">{t.bottomCta}</p>
         </div>
+
+        <ReviewForm t={t.form} />
       </div>
     </section>
   )
