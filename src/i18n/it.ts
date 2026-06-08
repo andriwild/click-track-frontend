@@ -316,6 +316,17 @@ export const it: Translations = {
     bottomCta:
       'Unisciti alla community di giocatori soddisfatti – prendi il tuo Klikkr oggi.',
     happyPlayers: 'giocatori soddisfatti',
+    form: {
+      title: 'Condividi la tua esperienza',
+      description: 'Giochi già con Klikkr? Raccontaci com’è andata.',
+      namePlaceholder: 'Il tuo nome',
+      ratingLabel: 'La tua valutazione',
+      textPlaceholder: 'Raccontaci la tua esperienza con Klikkr …',
+      submit: 'Invia recensione',
+      ratingRequired: 'Seleziona una valutazione a stelle.',
+      success: 'Il tuo client di posta sta per aprirsi — basta inviare!',
+      mailSubject: 'Nuova recensione Klikkr',
+    },
     items: [
       {
         name: 'Sandro L.',
