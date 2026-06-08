@@ -1,105 +1,167 @@
-import { ArrowRight, Trophy, Target } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowRight } from 'lucide-react'
 import { Button } from './ui/button'
+import LightRays from './LightRays'
 import { getTranslations, type Locale } from '../i18n'
 import { track } from '../lib/analytics'
 
+const PERSON_SHIFT = 'translate-x-[8%] sm:translate-x-[12%] lg:translate-x-[16%]'
+const PRODUCT_SHIFT = 'translate-x-[4%] sm:translate-x-[6%] lg:translate-x-[8%]'
+
+const slides = [
+  {
+    src: '/shooting/Andri-Wild-271-2_(2).jpg',
+    position: 'object-[65%_center]',
+    shift: PERSON_SHIFT,
+  },
+  {
+    src: '/shooting/Andri-Wild-75.jpg',
+    position: 'object-center',
+    shift: PRODUCT_SHIFT,
+  },
+  {
+    src: '/shooting/Andri-Wild-326.jpg',
+    position: 'object-[60%_center]',
+    shift: PERSON_SHIFT,
+  },
+]
+
+const SLIDE_INTERVAL_MS = 6000
+
 export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).hero
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setIndex((i) => (i + 1) % slides.length),
+      SLIDE_INTERVAL_MS,
+    )
+    return () => clearInterval(id)
+  }, [])
+
+  const sports = [
+    t.sportPadel,
+    t.sportSquash,
+    t.sportBadminton,
+    t.sportTennis,
+    t.sportTableTennis,
+    t.sportPickleball,
+  ]
 
   return (
-    <section className="relative overflow-hidden w-full pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 bg-zinc-950 text-zinc-50">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl opacity-50 mix-blend-screen" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl opacity-50 mix-blend-screen" />
+    <section className="relative w-full overflow-hidden bg-zinc-950 text-zinc-50 min-h-[clamp(580px,_64vw,_880px)]">
+      {slides.map((slide, i) => (
+        <img
+          key={slide.src}
+          src={slide.src}
+          alt={t.productAlt}
+          fetchPriority={i === 0 ? 'high' : 'low'}
+          loading={i === 0 ? 'eager' : 'lazy'}
+          aria-hidden={i === index ? undefined : true}
+          className={`absolute inset-0 h-full w-full transform-gpu object-cover transition-opacity duration-1000 ease-in-out will-change-[opacity] ${slide.position} ${slide.shift} ${
+            i === index ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ))}
+
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-[3] opacity-50 mix-blend-screen"
+      >
+        <LightRays
+          raysOrigin="right"
+          raysColor="#34d399"
+          raysSpeed={0.8}
+          lightSpread={1.1}
+          rayLength={2}
+          followMouse
+          mouseInfluence={0.06}
+          fadeDistance={1.1}
+          saturation={1}
+        />
       </div>
 
-      <div className="container relative z-10 px-4 md:px-6 mx-auto max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
-          <div className="flex flex-col justify-center space-y-8 text-center lg:text-left">
-            <div className="space-y-4">
-              <div className="inline-flex items-center rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1 text-sm text-zinc-400 font-medium backdrop-blur-sm">
-                <span className="flex h-2 w-2 rounded-full bg-emerald-500 mr-2"></span>
-                {t.badge}
-              </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter uppercase leading-tight">
-                {t.titleLine1}{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                  {t.titleAccent1}
-                </span>
-                <br />
-                {t.titleLine2}{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                  {t.titleAccent2}
-                </span>
-              </h1>
-              <p className="text-2xl md:text-3xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400 italic">
-                {t.slogan}
-              </p>
-              <p className="max-w-[600px] text-zinc-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto lg:mx-0 font-medium">
-                {t.description}
-              </p>
-            </div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-[2] bg-gradient-to-r from-zinc-950 via-zinc-950/70 to-transparent md:via-zinc-950/55 lg:via-zinc-950/30"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 z-[2] h-40 bg-gradient-to-t from-zinc-950 to-transparent"
+      />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="h-14 px-8 text-lg font-bold bg-emerald-500 hover:bg-emerald-600 text-zinc-950 rounded-full transition-transform hover:scale-105"
-                onClick={() => {
-                  track('hero-cta-order')
-                  document
-                    .getElementById('checkout')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                }}
-              >
-                {t.ctaPrimary}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="h-14 px-8 text-lg font-bold rounded-full border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800 hover:text-zinc-50"
-                onClick={() => {
-                  track('hero-cta-learn-more')
-                  document
-                    .getElementById('features')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                }}
-              >
-                {t.ctaSecondary}
-              </Button>
-            </div>
+      <div className="container relative z-10 mx-auto flex min-h-[clamp(580px,_64vw,_880px)] max-w-7xl transform-gpu flex-col justify-end px-4 pt-24 pb-12 md:px-6 md:pb-16 lg:pb-24">
+        <div className="max-w-2xl space-y-6">
+          <h1 className="text-4xl font-extrabold uppercase leading-[0.95] tracking-tighter text-white [text-shadow:0_4px_24px_rgba(0,0,0,0.55)] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
+            {t.titleLine1}{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
+              {t.titleAccent1}
+            </span>
+            <br />
+            {t.titleLine2}{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
+              {t.titleAccent2}
+            </span>
+          </h1>
 
-            <div className="flex items-center justify-center lg:justify-start space-x-8 pt-4 text-zinc-500">
-              <div className="flex items-center">
-                <Target className="mr-2 h-5 w-5 text-zinc-400" />
-                <span className="text-sm font-semibold uppercase tracking-wider">
-                  {t.sportPadel}
-                </span>
-              </div>
-              <div className="flex items-center">
-                <Trophy className="mr-2 h-5 w-5 text-zinc-400" />
-                <span className="text-sm font-semibold uppercase tracking-wider">
-                  {t.sportSquash}
-                </span>
-              </div>
-              <div className="flex items-center">
-                <Target className="mr-2 h-5 w-5 text-zinc-400" />
-                <span className="text-sm font-semibold uppercase tracking-wider">
-                  {t.sportBadminton}
-                </span>
-              </div>
-            </div>
+          <p className="max-w-xl text-base font-medium text-zinc-200 [text-shadow:0_1px_10px_rgba(0,0,0,0.7)] md:text-lg">
+            {t.description}
+          </p>
+
+          <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:gap-4">
+            <Button
+              size="lg"
+              className="h-14 rounded-full bg-emerald-500 px-8 text-base font-bold uppercase tracking-wide text-zinc-950 transition-transform hover:scale-[1.03] hover:bg-emerald-400"
+              onClick={() => {
+                track('hero-cta-order')
+                document
+                  .getElementById('checkout')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }}
+            >
+              {t.ctaPrimary}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <button
+              onClick={() => {
+                track('hero-cta-learn-more')
+                document
+                  .getElementById('features')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="group inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-white/90 transition hover:text-emerald-400 sm:ml-2"
+            >
+              {t.ctaSecondary}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
 
-          <div className="relative mx-auto flex w-full max-w-[500px] items-center justify-center lg:max-w-none">
-            <div className="relative w-full aspect-square rounded-full flex items-center justify-center p-8">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-emerald-500/20 rounded-full blur-2xl animate-pulse" />
-              <img
-                src="/product.png"
-                alt={t.productAlt}
-                className="relative z-10 w-[90%] h-[90%] object-contain transition-all duration-700"
+          <div className="flex flex-wrap items-center gap-y-2 pt-4 text-xs font-bold uppercase tracking-[0.22em] text-zinc-300/90">
+            {sports.map((sport, i) => (
+              <span key={sport} className="flex items-center">
+                {sport}
+                {i < sports.length - 1 && (
+                  <span className="mx-3 h-1 w-1 rounded-full bg-zinc-500" />
+                )}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2 pt-2" role="tablist" aria-label="Hero slides">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                role="tab"
+                aria-selected={i === index}
+                aria-label={`Slide ${i + 1}`}
+                onClick={() => setIndex(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === index ? 'w-8 bg-emerald-400' : 'w-4 bg-white/30 hover:bg-white/60'
+                }`}
               />
-            </div>
+            ))}
           </div>
         </div>
       </div>

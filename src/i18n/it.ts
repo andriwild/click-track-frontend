@@ -50,27 +50,56 @@ export const it: Translations = {
 
   hero: {
     badge: 'Disponibile in preordine',
-    titleLine1: 'Traccia ogni',
-    titleAccent1: 'Punto.',
-    titleLine2: 'Domina il',
-    titleAccent2: 'Gioco.',
+    titleLine1: 'Track Every',
+    titleAccent1: 'Point.',
+    titleLine2: 'Focus on Your',
+    titleAccent2: 'Game.',
     slogan: 'Focus on your Game!',
     description:
-      "Il tracker di punteggio Bluetooth indossabile definitivo per Padel, Squash e Badminton. Tieni gli occhi sulla palla, segna i punti con un solo clic e lascia che l'app faccia il resto.",
+      "Il tracker di punteggio Bluetooth indossabile definitivo per ogni sport di racchetta. Tieni gli occhi sulla palla, segna i punti con un solo clic e lascia che l'app faccia il resto.",
     ctaPrimary: 'Ordina ora',
     ctaSecondary: 'Scopri di più',
     sportSquash: 'Squash',
     sportPadel: 'Padel',
     sportBadminton: 'Badminton',
+    sportTennis: 'Tennis',
+    sportTableTennis: 'Tennistavolo',
+    sportPickleball: 'Pickleball',
     productAlt: 'Braccialetto contapunti Klikkr indossato al polso',
   },
 
+  system: {
+    title: 'Braccialetto, app,',
+    titleAccent: 'tabellone.',
+    description:
+      'Tre elementi, un\'esperienza fluida — pronto in pochi secondi.',
+    imageAlt:
+      "Giocatrice che controlla il tabellone Klikkr dall'app, braccialetto al polso",
+    steps: [
+      {
+        title: 'Indossa il braccialetto',
+        description: 'Indossa i braccialetti Klikkr al polso.',
+      },
+      {
+        title: 'Connetti via Bluetooth',
+        description:
+          "Abbina i braccialetti all'app gratuita Klikkr con un tap.",
+      },
+      {
+        title: 'Avvia la partita',
+        description: 'Scegli lo sport, imposta le regole — e gioca.',
+      },
+    ],
+  },
+
   features: {
-    badge: 'Progettato per atleti',
+    badge: 'Per tutti quelli che giocano',
     title: 'Fatto per il tuo',
     titleAccent: 'Sport',
     description:
-      "Klikkr è invisibile quando non ti serve e perfettamente affidabile quando ne hai bisogno. Resistente all'acqua, al sudore e agli urti.",
+      "Tieni il punteggio sott'occhio senza contare. Un clic per punto — al resto pensa l'app.",
+    moreSports:
+      'Funziona con ogni sport di racchetta — anche Tennis, Tennistavolo & Pickleball.',
     items: [
       {
         title: 'Padel',

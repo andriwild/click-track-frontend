@@ -1,8 +1,8 @@
 import { HeroSection } from './components/HeroSection'
+import { SystemSection } from './components/SystemSection'
 import { FeaturesSection } from './components/FeaturesSection'
 import { CheckoutSection } from './components/CheckoutSection'
 import { AppFeaturesSection } from './components/AppFeaturesSection'
-import { PhoneHolderSection } from './components/PhoneHolderSection'
 import { NewsletterSection } from './components/NewsletterForm'
 import type { Locale } from './i18n'
 
@@ -11,8 +11,8 @@ function App({ lang = 'de' }: { lang?: Locale }) {
     <>
       <HeroSection lang={lang} />
       <FeaturesSection lang={lang} />
+      <SystemSection lang={lang} />
       <AppFeaturesSection lang={lang} />
-      <PhoneHolderSection lang={lang} />
       <CheckoutSection lang={lang} />
       <NewsletterSection lang={lang} />
     </>
