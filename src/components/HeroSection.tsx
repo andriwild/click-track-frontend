@@ -5,27 +5,32 @@ import LightRays from './LightRays'
 import { getTranslations, type Locale } from '../i18n'
 import { track } from '../lib/analytics'
 
-const PERSON_SHIFT = 'translate-x-[8%] sm:translate-x-[12%] lg:translate-x-[16%]'
+const PERSON_SHIFT =
+  'translate-x-[8%] sm:translate-x-[12%] lg:translate-x-[16%]'
 const PRODUCT_SHIFT = 'translate-x-[4%] sm:translate-x-[6%] lg:translate-x-[8%]'
+
+const APP_STORE_URL = 'https://apps.apple.com/ch/app/klikkr/id6761069158'
+const GOOGLE_PLAY_URL =
+  'https://play.google.com/store/apps/details?id=ch.wild.klikkr'
 
 const slides = [
   {
-    src: '/shooting/Andri-Wild-271-2_(2).jpg',
-    position: 'object-[65%_center]',
-    shift: PERSON_SHIFT,
-  },
-  {
-    src: '/shooting/Andri-Wild-75.jpg',
-    position: 'object-center',
-    shift: PRODUCT_SHIFT,
-  },
-  {
-    src: '/shooting/Andri-Wild-326.jpg',
+    src: '/shooting/hero-1.jpg',
     position: 'object-[60%_center]',
     shift: PERSON_SHIFT,
   },
   {
-    src: '/shooting/Andri-Wild-193.jpg',
+    src: '/shooting/hero-2.jpg',
+    position: 'object-[65%_center]',
+    shift: PERSON_SHIFT,
+  },
+  {
+    src: '/shooting/hero-3.jpg',
+    position: 'object-center',
+    shift: PRODUCT_SHIFT,
+  },
+  {
+    src: '/shooting/hero-4.jpg',
     position: 'object-[center_62%]',
     shift: PRODUCT_SHIFT,
   },
@@ -35,12 +40,13 @@ const SLIDE_INTERVAL_MS = 6000
 
 export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).hero
+  const tApp = getTranslations(lang).appFeatures
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
     const id = setInterval(
       () => setIndex((i) => (i + 1) % slides.length),
-      SLIDE_INTERVAL_MS,
+      SLIDE_INTERVAL_MS
     )
     return () => clearInterval(id)
   }, [])
@@ -142,6 +148,43 @@ export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
             </button>
           </div>
 
+          <div className="flex items-center gap-3 pt-1">
+            <a
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track('hero-store-ios')}
+              className="transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60 rounded-lg"
+              aria-label={tApp.downloadAppStore}
+            >
+              <img
+                src="/badges/app-store-badge.svg"
+                alt={tApp.downloadAppStore}
+                className="h-11 w-auto"
+                width={147}
+                height={44}
+                loading="lazy"
+              />
+            </a>
+            <a
+              href={GOOGLE_PLAY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track('hero-store-android')}
+              className="transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60 rounded-lg"
+              aria-label={tApp.downloadGooglePlay}
+            >
+              <img
+                src="/badges/google-play-badge.png"
+                alt={tApp.downloadGooglePlay}
+                className="h-[66px] w-auto -my-3"
+                width={171}
+                height={66}
+                loading="lazy"
+              />
+            </a>
+          </div>
+
           <div className="flex flex-wrap items-center gap-y-2 pt-4 text-xs font-bold uppercase tracking-[0.22em] text-zinc-300/90">
             {sports.map((sport, i) => (
               <span key={sport} className="flex items-center">
@@ -153,7 +196,11 @@ export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
             ))}
           </div>
 
-          <div className="flex items-center gap-2 pt-2" role="tablist" aria-label="Hero slides">
+          <div
+            className="flex items-center gap-2 pt-2"
+            role="tablist"
+            aria-label="Hero slides"
+          >
             {slides.map((_, i) => (
               <button
                 key={i}
@@ -163,7 +210,9 @@ export function HeroSection({ lang = 'de' }: { lang?: Locale }) {
                 aria-label={`Slide ${i + 1}`}
                 onClick={() => setIndex(i)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === index ? 'w-8 bg-emerald-400' : 'w-4 bg-white/30 hover:bg-white/60'
+                  i === index
+                    ? 'w-8 bg-emerald-400'
+                    : 'w-4 bg-white/30 hover:bg-white/60'
                 }`}
               />
             ))}
