@@ -128,6 +128,11 @@ Deno.serve(async (req) => {
       mode: 'payment',
       metadata: { newsletter: newsletter ? 'true' : 'false' },
       line_items: lineItems,
+      // 3DS bei jeder Kartenzahlung erzwingen: verschiebt die Haftung für
+      // Fraud-Disputes zum Kartenherausgeber (Liability Shift).
+      payment_method_options: {
+        card: { request_three_d_secure: 'any' },
+      },
       phone_number_collection: { enabled: true },
       shipping_options: [{ shipping_rate: shippingRateId(region) }],
       shipping_address_collection: {
