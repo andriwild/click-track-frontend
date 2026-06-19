@@ -20,17 +20,34 @@ const ALLOWED_ORIGINS = [
 ]
 
 // Shipping destinations, grouped by region. The cart lets the customer choose
-// CH or international (EU + Norway + Ukraine); we collect the address only for
-// that region.
+// CH or international (EU + Norway), we collect the address only for that
+// region. Countries flagged as elevated corruption risk (Transparency
+// International CPI 2024) are intentionally excluded:
+// BG, CY, GR, HR, HU, MT, PL, RO, SK and Ukraine.
 const EU_COUNTRIES = [
-  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR',
-  'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK',
-  'SI', 'ES', 'SE',
+  'AT',
+  'BE',
+  'CZ',
+  'DK',
+  'EE',
+  'FI',
+  'FR',
+  'DE',
+  'IE',
+  'IT',
+  'LV',
+  'LT',
+  'LU',
+  'NL',
+  'PT',
+  'SI',
+  'ES',
+  'SE',
 ] as const
 
 const REGION_COUNTRIES: Record<string, string[]> = {
   CH: ['CH'],
-  INTL: [...EU_COUNTRIES, 'NO', 'UA'], // EU + Norway + Ukraine
+  INTL: [...EU_COUNTRIES, 'NO'], // EU + Norway
 }
 
 function shippingRateId(region: string): string {
@@ -114,8 +131,9 @@ Deno.serve(async (req) => {
       phone_number_collection: { enabled: true },
       shipping_options: [{ shipping_rate: shippingRateId(region) }],
       shipping_address_collection: {
-        allowed_countries:
-          REGION_COUNTRIES[region] as Stripe.Checkout.SessionCreateParams.ShippingAddressCollection.AllowedCountry[],
+        allowed_countries: REGION_COUNTRIES[
+          region
+        ] as Stripe.Checkout.SessionCreateParams.ShippingAddressCollection.AllowedCountry[],
       },
       allow_promotion_codes: true,
       success_url: successUrl,
