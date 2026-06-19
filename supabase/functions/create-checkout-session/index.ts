@@ -133,6 +133,9 @@ Deno.serve(async (req) => {
       payment_method_options: {
         card: { request_three_d_secure: 'any' },
       },
+      // Rechnungsadresse erzwingen, damit Stripe die AVS-Prüfung (Abgleich
+      // der Adresse mit der Bank) als zusätzliches Fraud-Signal ausführt.
+      billing_address_collection: 'required',
       phone_number_collection: { enabled: true },
       shipping_options: [{ shipping_rate: shippingRateId(region) }],
       shipping_address_collection: {
