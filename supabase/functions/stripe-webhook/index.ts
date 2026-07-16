@@ -84,6 +84,7 @@ async function handleCheckoutSession(
       billing_address: billingAddress,
       shipping_address: shippingAddress,
       amount_total: session.amount_total,
+      shipping_amount_cents: session.shipping_cost?.amount_total ?? null,
       currency: session.currency,
       payment_status: session.payment_status,
       risk_level: riskLevel,
