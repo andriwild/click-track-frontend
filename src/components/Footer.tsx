@@ -80,10 +80,16 @@ export function Footer({
         </div>
       </footer>
 
-      {showAGB && <AGB onClose={() => setShowAGB(false)} />}
-      {showPrivacy && <Privacy onClose={() => setShowPrivacy(false)} />}
-      {showRefunds && <Refunds onClose={() => setShowRefunds(false)} />}
-      {showImprint && <Imprint onClose={() => setShowImprint(false)} />}
+      {showAGB && <AGB lang={lang} onClose={() => setShowAGB(false)} />}
+      {showPrivacy && (
+        <Privacy lang={lang} onClose={() => setShowPrivacy(false)} />
+      )}
+      {showRefunds && (
+        <Refunds lang={lang} onClose={() => setShowRefunds(false)} />
+      )}
+      {showImprint && (
+        <Imprint lang={lang} onClose={() => setShowImprint(false)} />
+      )}
     </>
   )
 }
