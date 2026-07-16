@@ -398,3 +398,8 @@ verify_jwt = false
 
 [functions.stripe-webhook]
 verify_jwt = false
+
+# newsletter-signup wird ebenfalls ohne JWT aus dem Browser aufgerufen;
+# schützt sich über Turnstile-Verifikation + Honeypot.
+[functions.newsletter-signup]
+verify_jwt = false

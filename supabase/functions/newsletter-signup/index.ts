@@ -4,6 +4,17 @@ const ALLOWED_ORIGINS = [
   'http://localhost:4321',
 ]
 
+// Brevo double opt-in: Kontakt landet erst nach Klick auf den
+// Bestätigungslink (Template unten) in der Newsletter-Liste.
+const BREVO_DOI_TEMPLATE_ID = 1
+const NEWSLETTER_LIST_ID = 5
+
+function confirmationRedirectUrl(lang: unknown): string {
+  return lang === 'de' || typeof lang !== 'string'
+    ? 'https://klikkr.ch/newsletter-bestaetigt'
+    : 'https://klikkr.ch/en/newsletter-confirmed'
+}
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
 function corsHeaders(origin: string | null) {
@@ -59,7 +70,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { email, website, turnstileToken } = await req.json()
+    const { email, website, turnstileToken, lang } = await req.json()
 
     if (typeof website === 'string' && website.length > 0) {
       return new Response(JSON.stringify({ success: true }), {
@@ -109,19 +120,23 @@ Deno.serve(async (req) => {
       )
     }
 
-    const res = await fetch('https://api.brevo.com/v3/contacts', {
-      method: 'POST',
-      headers: {
-        'api-key': brevoApiKey,
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        listIds: [5],
-        updateEnabled: false,
-      }),
-    })
+    const res = await fetch(
+      'https://api.brevo.com/v3/contacts/doubleOptinConfirmation',
+      {
+        method: 'POST',
+        headers: {
+          'api-key': brevoApiKey,
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          includeListIds: [NEWSLETTER_LIST_ID],
+          templateId: BREVO_DOI_TEMPLATE_ID,
+          redirectionUrl: confirmationRedirectUrl(lang),
+        }),
+      }
+    )
 
     if (!res.ok) {
       const body = await res.text()

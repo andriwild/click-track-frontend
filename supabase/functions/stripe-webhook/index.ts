@@ -150,7 +150,8 @@ async function handleCheckoutSession(
 
   console.log(`Order Items saved for Session ${session.id}`)
 
-  // Newsletter opt-in: add customer to Brevo list
+  // Newsletter opt-in: send Brevo double opt-in confirmation email.
+  // The contact only joins the list after clicking the confirmation link.
   // Source: metadata.newsletter (CH flow) or client_reference_id (international payment link)
   const newsletterOptIn =
     session.metadata?.newsletter === 'true' ||
@@ -159,19 +160,27 @@ async function handleCheckoutSession(
     const brevoApiKey = Deno.env.get('BREVO_API_KEY')
     if (brevoApiKey) {
       try {
-        const brevoRes = await fetch('https://api.brevo.com/v3/contacts', {
-          method: 'POST',
-          headers: {
-            'api-key': brevoApiKey,
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          body: JSON.stringify({
-            email: customerEmail,
-            listIds: [5],
-            updateEnabled: false,
-          }),
-        })
+        const redirectionUrl =
+          session.locale && session.locale !== 'de'
+            ? 'https://klikkr.ch/en/newsletter-confirmed'
+            : 'https://klikkr.ch/newsletter-bestaetigt'
+        const brevoRes = await fetch(
+          'https://api.brevo.com/v3/contacts/doubleOptinConfirmation',
+          {
+            method: 'POST',
+            headers: {
+              'api-key': brevoApiKey,
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify({
+              email: customerEmail,
+              includeListIds: [5],
+              templateId: 1,
+              redirectionUrl,
+            }),
+          }
+        )
         if (brevoRes.ok) {
           console.log(`Newsletter signup for ${customerEmail}`)
         } else {

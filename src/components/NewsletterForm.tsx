@@ -107,6 +107,7 @@ function NewsletterFormFields({ lang = 'de' }: { lang?: Locale }) {
           email,
           website: honeypot,
           turnstileToken,
+          lang,
         }),
       })
 
