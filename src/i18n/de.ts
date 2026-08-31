@@ -71,8 +71,7 @@ export const de: Translations = {
   system: {
     title: 'Armband, App,',
     titleAccent: 'Scoreboard.',
-    description:
-      'Drei Teile, ein nahtloses Erlebnis — in Sekunden startklar.',
+    description: 'Drei Teile, ein nahtloses Erlebnis — in Sekunden startklar.',
     imageAlt:
       'Spielerin steuert das Klikkr-Scoreboard per App, Armband am Handgelenk',
     steps: [
@@ -87,7 +86,7 @@ export const de: Translations = {
       },
       {
         title: 'Spiel starten',
-        description: 'Sportart wählen, Regeln einstellen — und los geht\'s.',
+        description: "Sportart wählen, Regeln einstellen — und los geht's.",
       },
     ],
   },
@@ -131,39 +130,74 @@ export const de: Translations = {
     downloadGooglePlay: 'Jetzt bei Google Play',
     scanQrLabel: 'Mit dem Smartphone scannen',
     scanQrAlt: 'QR-Code zur Klikkr App',
-    appPreviewAlt: 'Klikkr App Vorschau',
-    items: [
-      {
-        title: 'Intelligente Punktzählung',
-        description:
-          'Automatische Gewinn-Erkennung und optionale "Win by Two"-Regeln für absolute Sicherheit.',
+  },
+
+  appStory: {
+    badge: 'Was die App kann',
+    title: 'Klikkr zählt,',
+    titleAccent: 'du spielst.',
+    description:
+      'Sechs Dinge, die die App übernimmt, damit du dich nicht darum kümmern musst.',
+    sections: {
+      modes: {
+        kicker: 'Kein Modus-Menü',
+        title: 'Die Armbänder entscheiden, wie du spielst',
+        body: 'Null, eins, zwei oder drei Bänder. Die App zählt, was verbunden ist, und stellt sich darauf ein. Du bestätigst nur noch.',
+        proof: [
+          'Ohne Band: wischen',
+          'Zwei Bänder: jeder für sich',
+          'Ab drei: Turnier',
+        ],
+        imageAlt: 'Klikkr Scoreboard mit Armband am Handgelenk',
       },
-      {
-        title: 'Nahtlose Verbindung',
-        description:
-          'Sofortiges BLE-Pairing, QR-Code-Scanner und Single-Beacon-Support für einzelne Geräte.',
+      gestures: {
+        kicker: 'Vier Gesten',
+        title: 'Einmal drücken, der Punkt sitzt',
+        body: 'Einmal drücken zählt den Punkt. Zweimal nimmt ihn zurück, mit nur einem Band zählt es für den anderen Spieler. Langes Drücken pausiert. Nach dem Match startet dreimal das nächste.',
+        proof: [
+          '1× Punkt',
+          '2× zurück',
+          'Halten pausiert',
+          'Das Band erkennt die Geste selbst',
+        ],
+        imageAlt: 'Daumen drückt auf das Klikkr Armband',
       },
-      {
-        title: 'Flexible Anzeigen',
-        description:
-          'Tabelle/Gespiegelt, Hochformat und Querformat. Perfekt lesbar aus jedem Winkel.',
+      rules: {
+        kicker: 'Sechs Sportarten',
+        title: 'Echte Regeln, nicht nur ein Zähler',
+        body: 'Tennis, Padel, Squash, Tischtennis, Badminton und Pickleball. Jede mit ihrem eigenen Regelwerk hinterlegt. Wer will, stellt alles um, die Voreinstellung deckt den Normalfall.',
+        proof: [
+          'Vorteil oder Golden Point',
+          'Tiebreak',
+          'Side-out',
+          'Satzlänge',
+          'Aufschlagrotation',
+        ],
+        imageAlt: 'Regeln-Einstellungen der Klikkr App',
       },
-      {
-        title: 'Intuitive Bedienung',
-        description:
-          'Einfache Vollbild-Swipe-Gesten zum Punkten direkt auf deinem Display.',
+      mirror: {
+        kicker: 'Display-Sync',
+        title: 'Das zweite Handy wird zur Anzeigetafel',
+        body: 'QR-Code scannen, fertig. Der Spielstand läuft live auf dem zweiten Gerät, an der Scheibe oder am Netzpfosten, während du auf deinem weiterzählst.',
+        proof: ['Ohne Internet', 'Direkt per Bluetooth', 'Auch im Querformat'],
+        imageAlt:
+          'Zwei Smartphones, eines zeigt den QR-Code, das andere den gespiegelten Spielstand',
       },
-      {
-        title: 'Schnelles QR-Pairing',
-        description:
-          'Überspringe die Bluetooth-Einstellungen. Scanne den Barcode am Armband und los gehts.',
+      stats: {
+        kicker: 'Nach dem Match',
+        title: 'Was übrig bleibt',
+        body: 'Jedes Match landet im Verlauf, mit Satzergebnissen, Dauer und Aufschlagquote. Der Momentum-Chart zeigt Punkt für Punkt, wo das Match gekippt ist.',
+        proof: ['Direkte Bilanz', 'Momentum-Kurve', 'Export als Datei'],
+        imageAlt: 'Statistik und Momentum-Chart der Klikkr App',
       },
-      {
-        title: 'Verbindungserkennung',
-        description:
-          'Verliert ein Beacon die Verbindung, wirst du sofort benachrichtigt — kein Punkt geht verloren.',
+      summary: {
+        kicker: 'Vom Aufschlag bis zur Bilanz',
+        title: 'Ein Weg, vier Bildschirme',
+        body: 'Sportart wählen, Spieler zuweisen, spielen, Ergebnis. Danach steht das Match in der Statistik, ohne dass du etwas eintippst.',
+        proof: ['Kein Konto', 'Läuft offline', 'Vier Sprachen'],
+        imageAlt: 'Der Ablauf eines Matches in der Klikkr App',
       },
-    ],
+    },
   },
 
   checkout: {
@@ -251,7 +285,7 @@ export const de: Translations = {
       {
         title: 'Sportart wählen',
         description:
-          'Wähle deine Sportart und konfiguriere die Spielregeln. Padel, Tennis oder Squash — alles ist vorbereitet.',
+          'Wähle deine Sportart und stell die Regeln ein. Tennis, Padel, Squash, Tischtennis, Badminton und Pickleball sind vorbereitet.',
       },
       {
         title: 'Spieleinstellungen',
@@ -265,12 +299,12 @@ export const de: Translations = {
       },
     ],
     images: [
-      '/smartphone/1.png',
+      '/app/de/screens/home.webp',
       '/wristband_click.png',
-      '/smartphone/2.png',
-      '/smartphone/3.png',
-      '/smartphone/4.png',
-      '/smartphone/5.png',
+      '/app/de/screens/setup.webp',
+      '/app/de/screens/rules.webp',
+      '/app/de/screens/scoreboard.webp',
+      '/app/de/screens/stats.webp',
     ],
   },
 
@@ -495,7 +529,7 @@ export const de: Translations = {
           {
             title: 'Sportart wählen',
             description:
-              'Wähle deine Sportart aus — Tennis, Squash, Padel oder Badminton stehen bereit.',
+              'Wähle deine Sportart aus — Tennis, Padel, Squash, Tischtennis, Badminton und Pickleball stehen bereit.',
           },
           {
             title: 'Regeln einstellen',
@@ -505,7 +539,7 @@ export const de: Translations = {
           {
             title: 'Swipe & Score',
             description:
-              'Swipe nach oben oder unten über die Zahl, um den Spielstand zu verändern. Swipe nach unten, um den Service zu wechseln.',
+              'Wisch nach oben über deinen eigenen Score, das zählt den Punkt. Zurücknehmen läuft über das Menü.',
           },
         ],
         images: [
@@ -537,7 +571,7 @@ export const de: Translations = {
           {
             title: 'Klick & Score',
             description:
-              '1x Klick = Punkt für Spieler 1. 2x Klick = Punkt für Spieler 2. Swipe nach unten, um den Service zu wechseln.',
+              '1x Klick = Punkt für dich. 2x Klick = Punkt für den anderen Spieler. 3x Klick nimmt den letzten Punkt zurück, langes Drücken pausiert.',
           },
         ],
         images: [
@@ -569,7 +603,7 @@ export const de: Translations = {
           {
             title: 'Klick & Score',
             description:
-              '1x Klick = Punkt hochzählen. 2x Klick = Punkt runterzählen. Doppelklick um den Service zu wechseln.',
+              '1x Klick = dein eigener Punkt. 2x Klick nimmt den letzten Punkt zurück, beim Stand 0:0 wechselt es stattdessen den Aufschlag. Langes Drücken pausiert.',
           },
         ],
         images: [
@@ -604,7 +638,7 @@ export const de: Translations = {
           {
             title: 'Match spielen',
             description:
-              'Doppelklick startet das Match. 1x Klick = Punkt hoch, 2x Klick = Punkt runter.',
+              'Beide Spieler klicken einmal, um das Match zu starten. Danach 1x Klick = eigener Punkt, 2x Klick nimmt zurück. Nach dem Match startet ein Klick das nächste.',
           },
           {
             title: 'Turnier-Auswertung',

@@ -72,7 +72,7 @@ export const it: Translations = {
     title: 'Braccialetto, app,',
     titleAccent: 'tabellone.',
     description:
-      'Tre elementi, un\'esperienza fluida — pronto in pochi secondi.',
+      "Tre elementi, un'esperienza fluida — pronto in pochi secondi.",
     imageAlt:
       "Giocatrice che controlla il tabellone Klikkr dall'app, braccialetto al polso",
     steps: [
@@ -132,39 +132,81 @@ export const it: Translations = {
     downloadGooglePlay: 'Disponibile su Google Play',
     scanQrLabel: 'Scansiona con lo smartphone',
     scanQrAlt: "Codice QR per l'app Klikkr",
-    appPreviewAlt: 'Anteprima interfaccia app Klikkr',
-    items: [
-      {
-        title: 'Punteggio intelligente',
-        description:
-          'Rilevamento automatico della vittoria e regole opzionali "Win by Two" per una tranquillità totale.',
+  },
+
+  appStory: {
+    badge: 'Cosa fa l’app',
+    title: 'Klikkr conta,',
+    titleAccent: 'tu giochi.',
+    description: 'Sei cose di cui si occupa l’app, così tu non devi pensarci.',
+    sections: {
+      modes: {
+        kicker: 'Nessun menu di modalità',
+        title: 'Sono i braccialetti a decidere come giochi',
+        body: 'Zero, uno, due o tre braccialetti. L’app conta quelli collegati e si adatta. A te resta solo confermare.',
+        proof: [
+          'Senza braccialetto: swipe',
+          'Due braccialetti: ognuno per sé',
+          'Da tre in su: torneo',
+        ],
+        imageAlt: 'Tabellone Klikkr con il braccialetto al polso',
       },
-      {
-        title: 'Connettività fluida',
-        description:
-          'Accoppiamento BLE istantaneo, scanner QR e supporto single-beacon per dispositivi singoli.',
+      gestures: {
+        kicker: 'Quattro gesti',
+        title: 'Premi una volta e il punto è tuo',
+        body: 'Una pressione segna il punto. Due lo tolgono, oppure segnano per l’altro giocatore se hai un solo braccialetto. La pressione lunga mette in pausa. A fine partita tre pressioni avviano la successiva.',
+        proof: [
+          '1× punto',
+          '2× indietro',
+          'Tieni premuto: pausa',
+          'È il braccialetto a riconoscere il gesto',
+        ],
+        imageAlt: 'Un pollice preme il braccialetto Klikkr',
       },
-      {
-        title: 'Display flessibili',
-        description:
-          'Modalità Tabella/Specchiata, Verticale e Orizzontale. Perfettamente leggibile da qualsiasi angolazione.',
+      rules: {
+        kicker: 'Sei sport',
+        title: 'Regole vere, non solo un contatore',
+        body: 'Tennis, padel, squash, tennistavolo, badminton e pickleball, ognuno con il proprio regolamento già integrato. Puoi cambiare tutto, le impostazioni predefinite coprono il caso normale.',
+        proof: [
+          'Vantaggio o punto d’oro',
+          'Tie break',
+          'Side out',
+          'Lunghezza dei set',
+          'Rotazione del servizio',
+        ],
+        imageAlt: 'Impostazioni delle regole nell’app Klikkr',
       },
-      {
-        title: 'Controllo intuitivo',
-        description:
-          'Gesti swipe a schermo intero per segnare direttamente sul display del tuo dispositivo.',
+      mirror: {
+        kicker: 'Display sync',
+        title: 'Il secondo telefono diventa il tabellone',
+        body: 'Scansiona il codice e parte. Il punteggio va in diretta sul secondo dispositivo, dietro il vetro o sul palo della rete, mentre tu continui a contare sul tuo.',
+        proof: [
+          'Senza internet',
+          'Direttamente via Bluetooth',
+          'Anche in orizzontale',
+        ],
+        imageAlt:
+          'Due telefoni, uno mostra il codice, l’altro il punteggio rispecchiato',
       },
-      {
-        title: 'Accoppiamento QR rapido',
-        description:
-          'Salta le impostazioni Bluetooth. Scansiona il codice a barre sul braccialetto e sei pronto.',
+      stats: {
+        kicker: 'Dopo la partita',
+        title: 'Quello che resta',
+        body: 'Ogni partita finisce nello storico con i punteggi dei set, la durata e le statistiche di servizio. Il grafico del momentum mostra punto per punto dove la partita è girata.',
+        proof: [
+          'Bilancio diretto',
+          'Curva del momentum',
+          'Esportazione su file',
+        ],
+        imageAlt: 'Statistiche e grafico del momentum nell’app Klikkr',
       },
-      {
-        title: 'Rilevamento connessione',
-        description:
-          'Se un beacon perde la connessione, vieni avvisato immediatamente — nessun punto va perso.',
+      summary: {
+        kicker: 'Dal primo servizio al bilancio',
+        title: 'Un percorso, quattro schermate',
+        body: 'Scegli lo sport, assegna i giocatori, gioca, guarda il risultato. Poi la partita è nelle statistiche senza che tu digiti nulla.',
+        proof: ['Nessun account', 'Funziona offline', 'Quattro lingue'],
+        imageAlt: 'Il percorso di una partita nell’app Klikkr',
       },
-    ],
+    },
   },
 
   checkout: {
@@ -251,7 +293,7 @@ export const it: Translations = {
       {
         title: 'Scegli lo sport',
         description:
-          'Seleziona il tuo sport e configura le regole di gioco. Padel, Tennis o Squash — tutto è pronto.',
+          'Seleziona il tuo sport e imposta le regole. Tennis, padel, squash, tennistavolo, badminton e pickleball sono pronti.',
       },
       {
         title: 'Impostazioni di gioco',
@@ -265,12 +307,12 @@ export const it: Translations = {
       },
     ],
     images: [
-      '/smartphone/1.png',
+      '/app/it/screens/home.webp',
       '/wristband_click.png',
-      '/smartphone/2.png',
-      '/smartphone/3.png',
-      '/smartphone/4.png',
-      '/smartphone/5.png',
+      '/app/it/screens/setup.webp',
+      '/app/it/screens/rules.webp',
+      '/app/it/screens/scoreboard.webp',
+      '/app/it/screens/stats.webp',
     ],
   },
 
@@ -496,7 +538,7 @@ export const it: Translations = {
           {
             title: 'Scegli lo sport',
             description:
-              'Seleziona il tuo sport — Tennis, Squash, Padel o Badminton sono pronti.',
+              'Seleziona il tuo sport — tennis, padel, squash, tennistavolo, badminton e pickleball sono pronti.',
           },
           {
             title: 'Imposta le regole',
@@ -506,7 +548,7 @@ export const it: Translations = {
           {
             title: 'Swipe & Score',
             description:
-              "Fai swipe verso l'alto o il basso sul numero per cambiare il punteggio. Swipe verso il basso per cambiare il servizio.",
+              "Fai swipe verso l'alto sul tuo punteggio, così conti il punto. Per togliere un punto si passa dal menu.",
           },
         ],
         images: [
@@ -539,7 +581,7 @@ export const it: Translations = {
           {
             title: 'Clic & Score',
             description:
-              '1 clic = punto per Giocatore 1. 2 clic = punto per Giocatore 2. Swipe verso il basso per cambiare il servizio.',
+              '1 clic = un punto per te. 2 clic = un punto per l’altro giocatore. 3 clic tolgono l’ultimo punto, la pressione lunga mette in pausa.',
           },
         ],
         images: [
@@ -571,7 +613,7 @@ export const it: Translations = {
           {
             title: 'Clic & Score',
             description:
-              '1 clic = punteggio +1. 2 clic = punteggio -1. Doppio clic per cambiare il servizio.',
+              '1 clic = il tuo punto. 2 clic tolgono l’ultimo punto, e sullo 0:0 cambiano invece il servizio. La pressione lunga mette in pausa.',
           },
         ],
         images: [
@@ -606,7 +648,7 @@ export const it: Translations = {
           {
             title: 'Gioca il match',
             description:
-              'Doppio clic per avviare. 1 clic = punteggio +1, 2 clic = punteggio -1.',
+              'Entrambi i giocatori fanno un clic per avviare il match. Poi 1 clic = il tuo punto, 2 clic lo tolgono. A fine partita un clic avvia la successiva.',
           },
           {
             title: 'Risultati del torneo',

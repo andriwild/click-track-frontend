@@ -1,36 +1,89 @@
 # Klikkr App – Funktionen & Features
 
-Die App ist ein digitaler Spielstandzähler (insbesondere für Sportarten wie Squash), der sowohl über physische Bluetooth-Buttons als auch über das Display bedient werden kann.
+Digitaler Punktezähler für Racketsport. Bedienbar per Wischgeste auf
+dem Display oder freihändig über Klikkr Armbänder (Bluetooth LE).
 
-## 🎮 Kernfunktionen & Spielablauf
+> Stand: App-Version 2.2.0. Quelle der Wahrheit ist das App-Repo,
+> insbesondere `CLAUDE.md` und `docs/bedienungsanleitung.md`. Wenn eine
+> Aussage hier von der App abweicht, gilt die App.
 
-- **Spielstand-Zählung:** Zählt die Punkte für zwei Spieler/Teams.
-- **Sieg-Erkennung:** Das Spiel erkennt automatisch, wenn ein Spieler die Zielpunktzahl erreicht hat.
-- **"Win by Two" (Zwei Punkte Vorsprung):** Unterstützung der Regel, dass ein Spiel erst mit zwei Punkten Abstand gewonnen werden kann (optional aktivierbar).
-- **Spielsteuerung:** Das Spiel kann jederzeit gestartet, gestoppt und neu gestartet (Score auf 0:0 zurückgesetzt) werden.
+## 🎾 Sportarten
 
-## 🔗 Konnektivität & Hardware
+Sechs, jede mit ihrem eigenen Regelwerk: **Tennis, Padel, Squash,
+Tischtennis, Badminton, Pickleball**.
 
-- **Bluetooth LE (BLE) Beacons:** Spieler können Bluetooth-Buttons (Armbänder) tragen. Ein Knopfdruck erhöht den Spielstand des jeweiligen Spielers.
-- **Single-Beacon Modus:** Es ist auch möglich, nur mit einem einzigen Beacon zu spielen. Dabei gibt ein einfacher Klick einen Punkt für Team 1 und ein Doppelklick einen Punkt für Team 2.
-- **QR-Code Scanner:** Die App integriert einen Kamera-Scanner, um die Bluetooth-Geräte (MAC-Adressen) schnell via QR-Code zu koppeln und sich das mühsame Suchen in der Bluetooth-Liste zu ersparen.
-- **Hardware-Tasten:** Die App reagiert auch auf den "Enter"-Key (bspw. durch Kameraauslöser oder Bluetooth-Presenter), was für Testzwecke auch den Punktestand von Spieler 1 erhöht.
+Pro Sportart einstellbar: Zielpunktzahl, Vorteil / Golden Point /
+Star-Point, Tiebreak und Tiebreak-Ziel, Anzahl Sätze, Spiele pro Satz,
+Aufschlagregel (jeder Punkt, alle zwei, Side-out, pro Spiel), Aufschläge
+pro Spieler, Punkte-Deckel, Match-Zeit. Die Voreinstellungen decken den
+Normalfall, das Regeln-Sheet ist einen Tap vom Match-Setup entfernt.
 
-## ⚙️ Einstellungen & Anpassung (Game Settings)
+**Einzel / Doppel** ist ein eigener Schalter und unabhängig von der Zahl
+der Armbänder.
 
-- **Zielpunktzahl (Max Score):** Frei definierbar (Standard ist z. B. 11).
-- **Display-Modi:** Der Spielstand kann je nach Einsatzort unterschiedlich dargestellt werden:
-  - **Table (Tisch-Modus):** Gespiegelt (1-zu-1), sodass beide Seiten am Tisch ihre Zahl richtig herum lesen können.
-  - **Portrait:** Beide Zahlen stehen im Hochformat untereinander und sind von einer Richtung aus lesbar.
-  - **Landscape:** Querformat, Zahlen stehen nebeneinander.
-- **Farbanpassung:** Die Hintergrundfarben für Spieler 1 (z. B. Rot) und Spieler 2 (z. B. Blau) lassen sich individuell einstellen.
-- **Seitenwechsel (Swap Teams):** Die Zuordnung der Knöpfe zum Display links/rechts kann vertauscht werden, ohne sich neu verbinden zu müssen.
+## 🖐 Eingabe: der Modus folgt den Armbändern
 
-## 🔊 Audio-Feedback
+Der Spielmodus wird **aus der Anzahl gekoppelter Armbänder abgeleitet**,
+nicht vom Nutzer gewählt. Die App zeigt ihn als bestätigbaren Vorschlag.
 
-- **Punkt-Sound:** Ertönt bei jedem erzielten Punkt (über integrierte Audio-Dateien, als Fallback gibt es einen System-Beep).
-- **Sieg-Sound:** Eine spezielle Audio-Benachrichtigung, wenn ein Spieler das Spiel gewonnen hat.
+| Armbänder | Modus    | Bedienung                              |
+| --------- | -------- | -------------------------------------- |
+| 0         | Swipe    | Wisch nach oben über den eigenen Score |
+| 1         | 1-Klikkr | Ein Band steuert beide Seiten          |
+| 2         | Duell    | Jeder zählt für sich                   |
+| 3+        | Turnier  | Turnierablauf, jedes Match 1v1         |
 
-## 📱 Manuelle Bedienung
+## 👆 Gesten-Vokabular
 
-- Neben den Bluetooth-Knöpfen lässt sich der Spielstand auch über Wischgesten (Swipe) auf dem jeweiligen Team-Bereich auf dem Bildschirm manuell korrigieren (hoch- oder herunterzählen).
+Die **Hardware** erkennt vier Gesten und sendet jede als eigenes
+Ereignis. Die App parst kein Timing.
+
+| Geste    | 1-Klikkr                       | Duell                      | Turnier-Match              |
+| -------- | ------------------------------ | -------------------------- | -------------------------- |
+| 1 Klick  | +1 für den eigenen Spieler     | +1 für den eigenen Spieler | +1 für den eigenen Spieler |
+| 2 Klicks | +1 für den **anderen** Spieler | Punkt zurücknehmen         | Punkt zurücknehmen         |
+| 3 Klicks | Punkt zurücknehmen             | (im Spiel ohne Funktion)   | (im Spiel ohne Funktion)   |
+| Halten   | Pause / Weiter                 | Pause / Weiter             | Pause / Weiter             |
+
+**Ausnahme:** Steht es 0:0, wechselt die Zurücknehmen-Geste stattdessen
+den Startaufschläger (Tennis, Padel-Duell, PAR).
+
+**Nach dem Match** sind die Zwischenbildschirme vollständig
+armbandgesteuert: 1 oder 3 Klicks starten das nächste Match.
+
+**Touch:** Wisch nach oben zählt. Wisch nach unten hat **keine**
+Funktion mehr, Zurücknehmen läuft über das Menü.
+
+## 📺 Display-Sync
+
+Ein zweites Gerät wird zur Anzeigetafel. Kopplung per QR-Code, Übertragung
+direkt per Bluetooth, ohne Internet. Der Slave zeigt dasselbe Scoreboard
+schreibgeschützt, optional im Querformat, mit eigenem Ton-Schalter.
+
+## 🏆 Turnier
+
+Teilnehmer wählen, Spielplan, Tabelle zwischen den Matches, nächstes
+Match per Klick. Angefangene Turniere lassen sich fortsetzen.
+
+## 📊 Statistik
+
+Verlauf mit Satzergebnissen, Dauer und Aufschlagquote. Momentum-Chart
+Punkt für Punkt. Direkte Bilanz gegen jeden Gegner. Spielerprofile mit
+eigenen Farben. Export und Import als Datei.
+
+## ⚙️ App-Einstellungen
+
+Theme hell / dunkel / System. Vier Sprachen: Deutsch, Englisch,
+Französisch, Italienisch. Sound-Sets „8 Bit", „Minimalistic",
+„Speaker" (Ansage des Spielstands), „Voice", oder aus. Haptisches
+Feedback bei jedem Punkt.
+
+## 🔒 Daten
+
+Läuft offline, kein Konto, keine Anmeldung. Alles bleibt auf dem Gerät.
+
+## 🔗 Kopplung
+
+Armbänder werden über den Präfix `Klikkr_` gefunden, Authentifizierung
+per Challenge-Response. Kopplung per QR-Code am Armband oder aus der
+Bluetooth-Liste.
