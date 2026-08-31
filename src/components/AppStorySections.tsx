@@ -47,8 +47,9 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
           {SECTION_IDS.map((id, i) => {
             const item = t.sections[id]
             // Alternating sides give the eye a rhythm on a long page.
-            // On mobile the image always leads, because a wall of text
-            // before the first picture is where people leave.
+            // Below md the grid collapses and the kicker and headline
+            // always come first, so the reader knows what they are
+            // looking at before the picture arrives.
             const imageFirst = i % 2 === 1
             return (
               <article
