@@ -139,7 +139,7 @@ export const fr: Translations = {
     title: 'Klikkr compte,',
     titleAccent: 'vous jouez.',
     description:
-      'Six choses dont l’application se charge pour que vous n’ayez pas à y penser.',
+      'Cinq choses dont l’application se charge pour que vous n’ayez pas à y penser.',
     sections: {
       modes: {
         tab: 'Modes',
@@ -152,19 +152,6 @@ export const fr: Translations = {
           'Trois ou plus : tournoi',
         ],
         imageAlt: 'Tableau de score Klikkr avec un bracelet au poignet',
-      },
-      gestures: {
-        tab: 'Gestes',
-        kicker: 'Quatre gestes',
-        title: 'Une pression, le point est marqué',
-        body: 'Une pression marque le point. Deux le reprennent, ou marquent pour l’autre joueur si vous n’avez qu’un bracelet. Un appui long met en pause. Après le match, trois pressions lancent le suivant.',
-        proof: [
-          '1× point',
-          '2× retour',
-          'Appui long : pause',
-          'Le bracelet reconnaît le geste',
-        ],
-        imageAlt: 'Un pouce appuie sur le bracelet Klikkr',
       },
       rules: {
         tab: 'Règles',

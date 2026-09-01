@@ -24,14 +24,7 @@ import { getTranslations, type Locale } from '../i18n'
 // setup to record in one picture, which is the fastest way to
 // understand what the app is before reading a single word. Keep this
 // in step with `webSections` in the app repo's config/web.ts.
-const SECTION_IDS = [
-  'summary',
-  'modes',
-  'gestures',
-  'rules',
-  'mirror',
-  'stats',
-] as const
+const SECTION_IDS = ['summary', 'modes', 'rules', 'mirror', 'stats'] as const
 
 type SectionId = (typeof SECTION_IDS)[number]
 

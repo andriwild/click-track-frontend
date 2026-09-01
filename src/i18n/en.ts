@@ -136,7 +136,7 @@ export const en: Translations = {
     title: 'Klikkr keeps score,',
     titleAccent: 'you play.',
     description:
-      'Six things the app takes off your hands so you do not have to think about them.',
+      'Five things the app takes off your hands so you do not have to think about them.',
     sections: {
       modes: {
         tab: 'Modes',
@@ -149,19 +149,6 @@ export const en: Translations = {
           'Three or more: tournament',
         ],
         imageAlt: 'Klikkr scoreboard with a wristband on the wrist',
-      },
-      gestures: {
-        tab: 'Gestures',
-        kicker: 'Four gestures',
-        title: 'One press and the point is in',
-        body: 'One press scores. Two takes it back, or scores for the other player when you only have one band. A long press pauses. After the match, three starts the next one.',
-        proof: [
-          '1× score',
-          '2× undo',
-          'Hold to pause',
-          'The band detects the gesture itself',
-        ],
-        imageAlt: 'A thumb pressing the Klikkr wristband',
       },
       rules: {
         tab: 'Rules',

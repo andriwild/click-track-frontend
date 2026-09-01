@@ -138,7 +138,8 @@ export const it: Translations = {
     badge: 'Cosa fa l’app',
     title: 'Klikkr conta,',
     titleAccent: 'tu giochi.',
-    description: 'Sei cose di cui si occupa l’app, così tu non devi pensarci.',
+    description:
+      'Cinque cose di cui si occupa l’app, così tu non devi pensarci.',
     sections: {
       modes: {
         tab: 'Modalità',
@@ -151,19 +152,6 @@ export const it: Translations = {
           'Da tre in su: torneo',
         ],
         imageAlt: 'Tabellone Klikkr con il braccialetto al polso',
-      },
-      gestures: {
-        tab: 'Gesti',
-        kicker: 'Quattro gesti',
-        title: 'Premi una volta e il punto è tuo',
-        body: 'Una pressione segna il punto. Due lo tolgono, oppure segnano per l’altro giocatore se hai un solo braccialetto. La pressione lunga mette in pausa. A fine partita tre pressioni avviano la successiva.',
-        proof: [
-          '1× punto',
-          '2× indietro',
-          'Tieni premuto: pausa',
-          'È il braccialetto a riconoscere il gesto',
-        ],
-        imageAlt: 'Un pollice preme il braccialetto Klikkr',
       },
       rules: {
         tab: 'Regole',

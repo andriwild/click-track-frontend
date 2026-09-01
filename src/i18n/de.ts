@@ -137,7 +137,7 @@ export const de: Translations = {
     title: 'Klikkr zählt,',
     titleAccent: 'du spielst.',
     description:
-      'Sechs Dinge, die die App übernimmt, damit du dich nicht darum kümmern musst.',
+      'Fünf Dinge, die die App übernimmt, damit du dich nicht darum kümmern musst.',
     sections: {
       modes: {
         tab: 'Modi',
@@ -150,19 +150,6 @@ export const de: Translations = {
           'Ab drei: Turnier',
         ],
         imageAlt: 'Klikkr Scoreboard mit Armband am Handgelenk',
-      },
-      gestures: {
-        tab: 'Gesten',
-        kicker: 'Vier Gesten',
-        title: 'Einmal drücken, der Punkt sitzt',
-        body: 'Einmal drücken zählt den Punkt. Zweimal nimmt ihn zurück, mit nur einem Band zählt es für den anderen Spieler. Langes Drücken pausiert. Nach dem Match startet dreimal das nächste.',
-        proof: [
-          '1× Punkt',
-          '2× zurück',
-          'Halten pausiert',
-          'Das Band erkennt die Geste selbst',
-        ],
-        imageAlt: 'Daumen drückt auf das Klikkr Armband',
       },
       rules: {
         tab: 'Regeln',
