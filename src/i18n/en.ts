@@ -179,7 +179,7 @@ export const en: Translations = {
       stats: {
         tab: 'Statistics',
         kicker: 'After the match',
-        title: 'What stays behind',
+        title: 'Every match analyses itself',
         body: 'Every match lands in your history with set scores, duration and serve stats. The momentum chart shows point by point where the match turned.',
         proof: ['Head to head record', 'Momentum curve', 'Export to a file'],
         imageAlt: 'Statistics and the momentum chart in the Klikkr app',

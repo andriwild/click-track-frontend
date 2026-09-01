@@ -182,7 +182,7 @@ export const fr: Translations = {
       stats: {
         tab: 'Statistiques',
         kicker: 'Après le match',
-        title: 'Ce qui reste',
+        title: 'Chaque match s’analyse tout seul',
         body: 'Chaque match rejoint l’historique avec le détail des sets, la durée et les statistiques de service. Le graphique de momentum montre point par point où le match a basculé.',
         proof: ['Bilan direct', 'Courbe de momentum', 'Export dans un fichier'],
         imageAlt:

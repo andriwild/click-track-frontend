@@ -182,7 +182,7 @@ export const it: Translations = {
       stats: {
         tab: 'Statistiche',
         kicker: 'Dopo la partita',
-        title: 'Quello che resta',
+        title: 'Ogni partita si analizza da sola',
         body: 'Ogni partita finisce nello storico con i punteggi dei set, la durata e le statistiche di servizio. Il grafico del momentum mostra punto per punto dove la partita è girata.',
         proof: [
           'Bilancio diretto',

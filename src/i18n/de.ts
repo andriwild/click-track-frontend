@@ -180,7 +180,7 @@ export const de: Translations = {
       stats: {
         tab: 'Statistik',
         kicker: 'Nach dem Match',
-        title: 'Was übrig bleibt',
+        title: 'Jedes Match analysiert sich selbst',
         body: 'Jedes Match landet im Verlauf, mit Satzergebnissen, Dauer und Aufschlagquote. Der Momentum-Chart zeigt Punkt für Punkt, wo das Match gekippt ist.',
         proof: ['Direkte Bilanz', 'Momentum-Kurve', 'Export als Datei'],
         imageAlt: 'Statistik und Momentum-Chart der Klikkr App',
