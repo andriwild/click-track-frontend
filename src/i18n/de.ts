@@ -480,14 +480,14 @@ export const de: Translations = {
         description: 'Manuell auf dem Handy scoren — ganz ohne Beacon.',
         steps: [
           {
-            title: 'App starten',
-            description:
-              'Starte die App ohne verbundene Beacons. Du brauchst nur dein Smartphone.',
-          },
-          {
             title: 'Sportart wählen',
             description:
-              'Wähle deine Sportart aus — Tennis, Padel, Squash, Tischtennis, Badminton und Pickleball stehen bereit.',
+              'Öffne die App und tippe auf deine Sportart. Sechs stehen bereit, von Tennis bis Pickleball. Ohne verbundenes Armband brauchst du nur dein Handy.',
+          },
+          {
+            title: 'Spieler zuweisen',
+            description:
+              'Tippe die Spieler aus dem Pool auf ihre Plätze. Ohne angelegte Profile geht es auch, dann heissen sie Spieler 1 und 2.',
           },
           {
             title: 'Regeln einstellen',
@@ -502,7 +502,7 @@ export const de: Translations = {
         ],
         images: [
           '/app/de/screens/home.webp',
-          '/app/de/screens/home.webp',
+          '/app/de/screens/setup.webp',
           '/app/de/screens/rules.webp',
           '/app/de/screens/scoreboard.webp',
         ],

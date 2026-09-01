@@ -488,14 +488,14 @@ export const fr: Translations = {
         description: 'Score manuellement sur ton téléphone — sans beacon.',
         steps: [
           {
-            title: "Ouvrir l'app",
-            description:
-              "Lance l'app sans beacon connecté. Ton smartphone suffit.",
-          },
-          {
             title: 'Choisis ton sport',
             description:
-              'Sélectionne ton sport — tennis, padel, squash, tennis de table, badminton et pickleball sont disponibles.',
+              "Ouvre l'app et touche ton sport. Six sont prêts, du tennis au pickleball. Sans bracelet connecté, le téléphone suffit.",
+          },
+          {
+            title: 'Attribue les joueurs',
+            description:
+              'Place les joueurs du pool sur leurs emplacements. Cela marche aussi sans profils, ils deviennent Joueur 1 et Joueur 2.',
           },
           {
             title: 'Configure les règles',
@@ -510,7 +510,7 @@ export const fr: Translations = {
         ],
         images: [
           '/app/fr/screens/home.webp',
-          '/app/fr/screens/home.webp',
+          '/app/fr/screens/setup.webp',
           '/app/fr/screens/rules.webp',
           '/app/fr/screens/scoreboard.webp',
         ],

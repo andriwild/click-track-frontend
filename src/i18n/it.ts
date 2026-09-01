@@ -490,14 +490,14 @@ export const it: Translations = {
         description: 'Segna manualmente sul telefono — senza beacon.',
         steps: [
           {
-            title: "Apri l'app",
-            description:
-              "Avvia l'app senza beacon connessi. Ti basta il tuo smartphone.",
-          },
-          {
             title: 'Scegli lo sport',
             description:
-              'Seleziona il tuo sport — tennis, padel, squash, tennistavolo, badminton e pickleball sono pronti.',
+              "Apri l'app e tocca il tuo sport. Sei sono pronti, dal tennis al pickleball. Senza braccialetto collegato basta il telefono.",
+          },
+          {
+            title: 'Assegna i giocatori',
+            description:
+              'Tocca i giocatori dal pool per metterli negli slot. Funziona anche senza profili, in quel caso sono Giocatore 1 e Giocatore 2.',
           },
           {
             title: 'Imposta le regole',
@@ -512,7 +512,7 @@ export const it: Translations = {
         ],
         images: [
           '/app/it/screens/home.webp',
-          '/app/it/screens/home.webp',
+          '/app/it/screens/setup.webp',
           '/app/it/screens/rules.webp',
           '/app/it/screens/scoreboard.webp',
         ],
