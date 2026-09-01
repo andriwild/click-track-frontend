@@ -15,8 +15,9 @@ import { getTranslations, type Locale } from '../i18n'
  * (`store_assets`, `npm run web && npm run export-web`) and lands in
  * `public/app/<locale>/<id>.webp`. Screenshots are localised, hence the
  * locale in the path — a German visitor must not see a French score
- * sheet. The images carry no background of their own, the stage
- * supplies it, alternating black and grey as you move along the tabs.
+ * sheet. The images carry no background of their own: the stage
+ * supplies one constant lighter grey, so switching tabs changes the
+ * content and nothing else.
  */
 
 const SECTION_IDS = [
@@ -60,9 +61,7 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
   return (
     <section
       id="app-story"
-      className={`w-full border-t border-zinc-800 transition-colors duration-300 ${
-        activeIndex % 2 === 0 ? 'bg-zinc-950' : 'bg-zinc-900'
-      }`}
+      className="w-full border-t border-zinc-800 bg-zinc-900"
     >
       <div className="container px-4 md:px-6 mx-auto py-12 md:py-20">
         <div className="flex flex-col items-center text-center space-y-4">

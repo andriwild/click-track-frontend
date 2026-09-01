@@ -139,23 +139,42 @@ export function GameModes({ lang = 'de' }: { lang?: Locale }) {
       <div className="relative">
         {/* Sticky phone — stays centered behind the text */}
         <div className="sticky top-0 h-screen flex items-center justify-center pointer-events-none z-0">
+          {/* The phone is drawn in CSS, in layers, because one bordered
+              rounded rectangle reads as a rectangle: a metallic bevel
+              catching light from the top left, a matte body, a screen
+              recessed by an inset ring, one hard-edged glass glint and
+              the side buttons. The screenshots inside carry no frame of
+              their own. */}
           <div className="relative w-[260px] sm:w-[280px] md:w-[300px]">
-            <div className="relative rounded-[3rem] border-[6px] border-zinc-700 bg-zinc-900 shadow-2xl shadow-black/50 overflow-hidden">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-zinc-900 rounded-b-2xl z-20" />
-              <div className="relative aspect-[9/19.5] overflow-hidden bg-zinc-900">
-                {images.map((src: string, i: number) => (
-                  <img
-                    key={`${activeMode}-${i}`}
-                    src={src}
-                    alt={steps[i]?.title ?? ''}
-                    className={`absolute inset-0 w-full h-full object-contain transition-all duration-500 ${
-                      i === activeStep
-                        ? 'opacity-100 scale-100'
-                        : 'opacity-0 scale-105'
-                    }`}
-                  />
-                ))}
+            <div className="relative rounded-[2.6rem] p-px bg-[linear-gradient(135deg,#7a7a86_0%,#0a0a0d_62%,#2b2b33_100%)] shadow-[0_1px_2px_rgba(0,0,0,0.18),0_4px_8px_rgba(0,0,0,0.13),0_16px_32px_rgba(0,0,0,0.09),0_32px_64px_16px_rgba(0,0,0,0.07)]">
+              <div className="rounded-[2.55rem] bg-[#17171b] p-[7px]">
+                <div className="relative rounded-[2.15rem] overflow-hidden bg-zinc-900">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#17171b] rounded-b-2xl z-20" />
+                  <div className="relative aspect-[9/16]">
+                    {images.map((src: string, i: number) => (
+                      <img
+                        key={`${activeMode}-${i}`}
+                        src={src}
+                        alt={steps[i]?.title ?? ''}
+                        className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+                          i === activeStep
+                            ? 'opacity-100 scale-100'
+                            : 'opacity-0 scale-105'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  {/* Depth ring: without it the screenshot sits on the
+                      casing like a sticker instead of behind glass. */}
+                  <div className="pointer-events-none absolute inset-0 rounded-[2.15rem] shadow-[inset_0_0_4px_1px_rgba(0,0,0,0.45)] z-10" />
+                </div>
               </div>
+              {/* The glint. The hard stop is the point: glass reflects
+                  an edge, a soft gradient just looks washed out. */}
+              <div className="pointer-events-none absolute inset-px rounded-[2.55rem] bg-[linear-gradient(157deg,rgba(255,255,255,0.13)_0%,rgba(255,255,255,0.13)_31%,rgba(255,255,255,0)_31.3%)] z-30" />
+              <span className="absolute -left-[2px] top-[21%] h-[6%] w-[3px] rounded bg-[linear-gradient(180deg,#8e8e99,#34343c)]" />
+              <span className="absolute -left-[2px] top-[29%] h-[6%] w-[3px] rounded bg-[linear-gradient(180deg,#8e8e99,#34343c)]" />
+              <span className="absolute -right-[2px] top-[25%] h-[9%] w-[3px] rounded bg-[linear-gradient(180deg,#8e8e99,#34343c)]" />
             </div>
             {/* Glow behind phone */}
             <div
