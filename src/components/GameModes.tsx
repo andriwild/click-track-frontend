@@ -15,25 +15,34 @@ const modeIcons: Record<ModeKey, typeof Hand> = {
 
 const modeColors: Record<
   ModeKey,
-  { active: string; glow: string; accent: string }
+  { active: string; card: string; glow: string; accent: string }
 > = {
+  // `active` tints the mode tabs, which sit on the page background and
+  // can afford to be barely there. `card` is for the step card, which
+  // floats over a screenshot: it needs an opaque base or the text
+  // underneath bleeds through and neither layer can be read. The accent
+  // survives as the border and a faint wash.
   swipe: {
     active: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-400',
+    card: 'border-cyan-500/50 bg-zinc-950/90 ring-1 ring-cyan-500/20',
     glow: 'from-cyan-500/10 to-blue-500/10',
     accent: 'bg-cyan-500',
   },
   oneBeacon: {
     active: 'border-blue-500/40 bg-blue-500/10 text-blue-400',
+    card: 'border-blue-500/50 bg-zinc-950/90 ring-1 ring-blue-500/20',
     glow: 'from-blue-500/10 to-indigo-500/10',
     accent: 'bg-blue-500',
   },
   twoBeacons: {
     active: 'border-emerald-500/40 bg-emerald-500/10 text-emerald-400',
+    card: 'border-emerald-500/50 bg-zinc-950/90 ring-1 ring-emerald-500/20',
     glow: 'from-emerald-500/10 to-cyan-500/10',
     accent: 'bg-emerald-500',
   },
   tournament: {
     active: 'border-yellow-500/40 bg-yellow-500/10 text-yellow-400',
+    card: 'border-yellow-500/50 bg-zinc-950/90 ring-1 ring-yellow-500/20',
     glow: 'from-yellow-500/10 to-orange-500/10',
     accent: 'bg-yellow-500',
   },
@@ -211,10 +220,10 @@ export function GameModes({ lang = 'de' }: { lang?: Locale }) {
                 className="min-h-[60vh] flex items-center justify-center px-4"
               >
                 <div
-                  className={`max-w-md w-full p-6 md:p-8 rounded-2xl border backdrop-blur-md transition-all duration-500 ${
+                  className={`max-w-md w-full p-6 md:p-8 rounded-2xl border backdrop-blur-xl transition-all duration-500 ${
                     i === activeStep
-                      ? `${colors.active} shadow-lg`
-                      : 'border-zinc-800/50 bg-zinc-950/60'
+                      ? `${colors.card} shadow-2xl shadow-black/60`
+                      : 'border-zinc-800/50 bg-zinc-950/80'
                   }`}
                 >
                   <div className="flex items-start gap-4">
