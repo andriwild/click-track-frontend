@@ -59,3 +59,15 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+/* Progress line under the self-advancing feature tab. It only runs
+   while the tabs are still rotating on their own; the first click
+   stops them for good. */
+@keyframes storyTab {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

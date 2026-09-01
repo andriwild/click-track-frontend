@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { getTranslations, type Locale } from '../i18n'
 
 /**
@@ -24,7 +24,7 @@ import { getTranslations, type Locale } from '../i18n'
 // setup to record in one picture, which is the fastest way to
 // understand what the app is before reading a single word. Keep this
 // in step with `webSections` in the app repo's config/web.ts.
-const SECTION_IDS = ['summary', 'modes', 'rules', 'mirror', 'stats'] as const
+const SECTION_IDS = ['summary', 'modes', 'rules', 'stats', 'mirror'] as const
 
 type SectionId = (typeof SECTION_IDS)[number]
 
@@ -32,6 +32,45 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).appStory
   const [active, setActive] = useState<SectionId>(SECTION_IDS[0])
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const sectionRef = useRef<HTMLElement | null>(null)
+
+  // The tabs advance on their own until the reader takes over. It is
+  // the honest answer to "does anyone notice these are clickable": one
+  // rotation shows the panel changing and the underline moving, and
+  // from the first click or key press it never moves again.
+  const [autoplay, setAutoplay] = useState(true)
+  const [inView, setInView] = useState(false)
+  const [hovered, setHovered] = useState(false)
+
+  function pick(id: SectionId) {
+    setActive(id)
+    setAutoplay(false)
+  }
+
+  useEffect(() => {
+    const node = sectionRef.current
+    if (!node) return
+    const io = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.4 }
+    )
+    io.observe(node)
+    return () => io.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!autoplay || !inView || hovered) return
+    // Nothing should move for a reader who asked for stillness.
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (still.matches) return
+    const timer = window.setInterval(() => {
+      setActive((current) => {
+        const next = (SECTION_IDS.indexOf(current) + 1) % SECTION_IDS.length
+        return SECTION_IDS[next]
+      })
+    }, 6000)
+    return () => window.clearInterval(timer)
+  }, [autoplay, inView, hovered])
 
   const activeIndex = SECTION_IDS.indexOf(active)
 
@@ -51,13 +90,16 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
     }
     if (next === -1) return
     event.preventDefault()
-    setActive(SECTION_IDS[next])
+    pick(SECTION_IDS[next])
     tabRefs.current[next]?.focus()
   }
 
   return (
     <section
+      ref={sectionRef}
       id="app-story"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       className="w-full border-t border-zinc-800 bg-zinc-900"
     >
       <div className="container px-4 md:px-6 mx-auto py-12 md:py-20">
@@ -96,14 +138,21 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
                 aria-selected={selected}
                 aria-controls={`story-panel-${id}`}
                 tabIndex={selected ? 0 : -1}
-                onClick={() => setActive(id)}
-                className={`shrink-0 whitespace-nowrap pb-3 -mb-px border-b-2 text-base md:text-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60 rounded-sm ${
+                onClick={() => pick(id)}
+                className={`relative shrink-0 whitespace-nowrap pb-3 -mb-px border-b-2 text-base md:text-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60 rounded-sm ${
                   selected
                     ? 'border-emerald-400 text-zinc-50 font-semibold'
                     : 'border-transparent text-zinc-500 hover:text-zinc-300'
                 }`}
               >
                 {t.sections[id].tab}
+                {selected && autoplay && (
+                  <span
+                    key={id}
+                    aria-hidden="true"
+                    className="absolute inset-x-0 -bottom-0.5 h-0.5 origin-left bg-emerald-400 motion-safe:animate-[storyTab_6s_linear] motion-reduce:hidden"
+                  />
+                )}
               </button>
             )
           })}
@@ -121,7 +170,10 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
             >
               {/* min-height keeps the stage from jumping as the reader
                   moves between a short panel and a long one. */}
-              <div className="grid gap-8 md:gap-12 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] items-center pt-10 md:pt-14 md:min-h-[26rem]">
+              <div
+                key={`${id}-${active}`}
+                className="grid gap-8 md:gap-12 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] items-center pt-10 md:pt-14 md:min-h-[26rem] motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-500"
+              >
                 <img
                   src={`/app/${lang}/${id}.webp`}
                   alt={item.imageAlt}
