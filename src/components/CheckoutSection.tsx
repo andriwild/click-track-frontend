@@ -81,9 +81,9 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
   return (
     <section
       id="checkout"
-      className="w-full py-24 bg-zinc-950 text-zinc-50 relative overflow-hidden"
+      className="w-full py-24 bg-zinc-900 text-zinc-50 relative overflow-hidden"
     >
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent" />
 
       <div className="container px-4 md:px-6 mx-auto max-w-5xl">
         <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -140,13 +140,13 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
                       return (
                         <div
                           key={groupKey}
-                          className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-6 backdrop-blur-xl shadow-xl"
+                          className="rounded-2xl border border-zinc-700 bg-zinc-800/60 p-6 backdrop-blur-xl shadow-xl"
                         >
                           <div className="flex gap-4">
                             <img
                               src={activeVariant.image}
                               alt={groupT.name}
-                              className="w-20 h-20 rounded-xl object-cover bg-zinc-800 flex-shrink-0"
+                              className="w-20 h-20 rounded-xl object-cover bg-zinc-700 flex-shrink-0"
                             />
                             <div className="flex-1 min-w-0">
                               <h4 className="text-lg font-bold text-zinc-100">
@@ -194,7 +194,7 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
                                   className={`h-10 w-12 rounded-lg text-sm font-bold transition-all ${
                                     selected === v.slug
                                       ? 'bg-emerald-500 text-zinc-950'
-                                      : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                                      : 'bg-zinc-700 text-zinc-200 hover:bg-zinc-600'
                                   }`}
                                 >
                                   {v.size}
@@ -204,7 +204,7 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
                           </div>
 
                           <div className="flex items-center gap-3 mt-4">
-                            <div className="flex items-center rounded-xl border border-zinc-700 bg-zinc-800/50">
+                            <div className="flex items-center rounded-xl border border-zinc-600 bg-zinc-900/60">
                               <button
                                 onClick={() => setQty(selected, qty - 1)}
                                 disabled={qty <= 1}
@@ -261,13 +261,13 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
                     return (
                       <div
                         key={product.slug}
-                        className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-6 backdrop-blur-xl shadow-xl"
+                        className="rounded-2xl border border-zinc-700 bg-zinc-800/60 p-6 backdrop-blur-xl shadow-xl"
                       >
                         <div className="flex gap-4">
                           <img
                             src={product.image}
                             alt={pt.name}
-                            className="w-20 h-20 rounded-xl object-cover bg-zinc-800 flex-shrink-0"
+                            className="w-20 h-20 rounded-xl object-cover bg-zinc-700 flex-shrink-0"
                           />
                           <div className="flex-1 min-w-0">
                             <h4 className="text-lg font-bold text-zinc-100">
@@ -288,7 +288,7 @@ export function CheckoutSection({ lang = 'de' }: { lang?: Locale }) {
                         </div>
 
                         <div className="flex items-center gap-3 mt-4">
-                          <div className="flex items-center rounded-xl border border-zinc-700 bg-zinc-800/50">
+                          <div className="flex items-center rounded-xl border border-zinc-600 bg-zinc-900/60">
                             <button
                               onClick={() => setQty(product.slug, qty - 1)}
                               disabled={qty <= 1}

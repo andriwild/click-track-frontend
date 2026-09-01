@@ -77,7 +77,7 @@ export function AppFeaturesSection({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).appFeatures
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-zinc-900 border-t border-zinc-800">
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-zinc-950 border-t border-zinc-900">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="inline-block rounded-lg bg-emerald-500/10 px-3 py-1 text-sm text-emerald-400 border border-emerald-500/20">
