@@ -42,6 +42,28 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
   const [inView, setInView] = useState(false)
   const [hovered, setHovered] = useState(false)
 
+  // The pictures are compositions of tilted devices, so letting them
+  // lean towards the pointer keeps that language going. Kept small on
+  // purpose: past a few degrees a flat image stops reading as an object
+  // and starts reading as a tilted photograph.
+  const [lean, setLean] = useState('')
+
+  function onImageMove(event: React.MouseEvent<HTMLDivElement>) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    // Measure the untransformed host, never the image: the image sits
+    // inside the element being tilted, so reading its own rect would
+    // feed the tilt back into its input.
+    const host = event.currentTarget.querySelector('[data-picture]')
+    if (!host) return
+    const box = host.getBoundingClientRect()
+    const x = (event.clientX - box.left) / box.width - 0.5
+    const y = (event.clientY - box.top) / box.height - 0.5
+    setLean(
+      `perspective(1400px) rotateY(${(x * 7).toFixed(2)}deg) ` +
+        `rotateX(${(-y * 5).toFixed(2)}deg) scale(1.025)`
+    )
+  }
+
   function pick(id: SectionId) {
     setActive(id)
     setAutoplay(false)
@@ -142,7 +164,7 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
                 className={`relative shrink-0 whitespace-nowrap pb-3 -mb-px border-b-2 text-base md:text-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60 rounded-sm ${
                   selected
                     ? 'border-emerald-400 text-zinc-50 font-semibold'
-                    : 'border-transparent text-zinc-500 hover:text-zinc-300'
+                    : 'border-transparent text-zinc-500 hover:text-zinc-200 hover:border-zinc-600'
                 }`}
               >
                 {t.sections[id].tab}
@@ -172,17 +194,26 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
                   moves between a short panel and a long one. */}
               <div
                 key={`${id}-${active}`}
+                onMouseMove={onImageMove}
+                onMouseLeave={() => setLean('')}
                 className="grid gap-8 md:gap-12 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] items-center pt-10 md:pt-14 md:min-h-[26rem] motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-500"
               >
-                <img
-                  src={`/app/${lang}/${id}.webp`}
-                  alt={item.imageAlt}
-                  width={2400}
-                  height={1360}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto"
-                />
+                <div data-picture>
+                  <div
+                    style={{ transform: lean || undefined }}
+                    className="transition-transform duration-300 ease-out will-change-transform"
+                  >
+                    <img
+                      src={`/app/${lang}/${id}.webp`}
+                      alt={item.imageAlt}
+                      width={2400}
+                      height={1360}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
 
                 <div className="space-y-4">
                   <p className="text-xs uppercase tracking-[0.18em] text-emerald-400/80 font-medium">
@@ -196,7 +227,7 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
                     {item.proof.map((chip) => (
                       <li
                         key={chip}
-                        className="rounded-full border border-zinc-800 bg-zinc-900/80 px-3 py-1 text-sm text-zinc-300"
+                        className="rounded-full border border-zinc-800 bg-zinc-900/80 px-3 py-1 text-sm text-zinc-300 transition-colors hover:border-zinc-600 hover:text-zinc-100"
                       >
                         {chip}
                       </li>
