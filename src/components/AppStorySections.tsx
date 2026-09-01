@@ -20,20 +20,24 @@ import { getTranslations, type Locale } from '../i18n'
  * content and nothing else.
  */
 
+// Ablauf leads: it is the only tab that shows the whole path from
+// setup to record in one picture, which is the fastest way to
+// understand what the app is before reading a single word. Keep this
+// in step with `webSections` in the app repo's config/web.ts.
 const SECTION_IDS = [
+  'summary',
   'modes',
   'gestures',
   'rules',
   'mirror',
   'stats',
-  'summary',
 ] as const
 
 type SectionId = (typeof SECTION_IDS)[number]
 
 export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).appStory
-  const [active, setActive] = useState<SectionId>('modes')
+  const [active, setActive] = useState<SectionId>(SECTION_IDS[0])
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
 
   const activeIndex = SECTION_IDS.indexOf(active)
