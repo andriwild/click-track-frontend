@@ -275,53 +275,6 @@ export const it: Translations = {
     ctaLine2: 'Pronto a portare il tuo gioco al livello successivo?',
   },
 
-  appWalkthrough: {
-    badge: 'Guida App',
-    title: "L'App",
-    titleAccent: 'passo dopo passo',
-    description: "Come usare l'app Klikkr — dal primo avvio al match point.",
-    steps: [
-      {
-        title: "Avvia l'app",
-        description:
-          "Apri l'app Klikkr. Vedrai subito la schermata principale con tutte le opzioni.",
-      },
-      {
-        title: 'Collega il braccialetto',
-        description:
-          'Tieni premuto il pulsante per 3 secondi per accendere (6 sec per spegnere). Scansiona il QR code o seleziona il dispositivo dalla lista Bluetooth.',
-      },
-      {
-        title: 'Beacon connessi',
-        description:
-          "I tuoi braccialetti sono connessi e pronti. Puoi vedere tutti i dispositivi connessi in un colpo d'occhio.",
-      },
-      {
-        title: 'Scegli lo sport',
-        description:
-          'Seleziona il tuo sport e imposta le regole. Tennis, padel, squash, tennistavolo, badminton e pickleball sono pronti.',
-      },
-      {
-        title: 'Impostazioni di gioco',
-        description:
-          "Imposta i nomi dei giocatori, il numero di set e altre regole — completamente personalizzabile prima dell'inizio della partita.",
-      },
-      {
-        title: 'Segna i punti',
-        description:
-          "Un clic sul braccialetto segna un punto. L'app gestisce set, giochi e mostra il punteggio in tempo reale.",
-      },
-    ],
-    images: [
-      '/app/it/screens/home.webp',
-      '/wristband_click.png',
-      '/app/it/screens/setup.webp',
-      '/app/it/screens/rules.webp',
-      '/app/it/screens/scoreboard.webp',
-      '/app/it/screens/stats.webp',
-    ],
-  },
-
   appCustomization: {
     badge: 'Personalizzabile',
     title: 'Il tuo gioco, il tuo',

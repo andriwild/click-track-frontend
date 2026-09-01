@@ -1,14 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { GameModes } from '../../components/GameModes.tsx';
-import { AppWalkthrough } from '../../components/AppWalkthrough.tsx';
 import { AppCustomization } from '../../components/AppCustomization.tsx';
 import { Footer } from '../../components/Footer.tsx';
 ---
 
 <Layout pageKey="howItWorks" currentPage="how-it-works" lang="fr">
   <GameModes client:visible lang="fr" />
-  <AppWalkthrough client:visible lang="fr" />
   <AppCustomization client:visible lang="fr" />
   <Footer client:visible slot="footer" lang="fr" />
 </Layout>

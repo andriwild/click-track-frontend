@@ -264,54 +264,6 @@ export const en: Translations = {
     ctaLine2: 'Ready to level up your game?',
   },
 
-  appWalkthrough: {
-    badge: 'App Guide',
-    title: 'The App',
-    titleAccent: 'Step by Step',
-    description:
-      'How to use the Klikkr Companion App — from first launch to match point.',
-    steps: [
-      {
-        title: 'Launch the App',
-        description:
-          "Open the Klikkr app. You'll see the home screen with all options right away.",
-      },
-      {
-        title: 'Connect Wristband',
-        description:
-          'Hold the button for 3 seconds to turn on (6 sec to turn off). Scan the QR code or pick your device from the Bluetooth list.',
-      },
-      {
-        title: 'Beacons Connected',
-        description:
-          'Your wristbands are connected and ready. You can see all connected devices at a glance.',
-      },
-      {
-        title: 'Choose Your Sport',
-        description:
-          'Select your sport and set the rules. Tennis, padel, squash, table tennis, badminton and pickleball are ready.',
-      },
-      {
-        title: 'Game Settings',
-        description:
-          'Set player names, number of sets and other rules — fully customisable before the match starts.',
-      },
-      {
-        title: 'Track Points',
-        description:
-          'One click on the wristband scores a point. The app handles sets, games and shows the live score.',
-      },
-    ],
-    images: [
-      '/app/en/screens/home.webp',
-      '/wristband_click.png',
-      '/app/en/screens/setup.webp',
-      '/app/en/screens/rules.webp',
-      '/app/en/screens/scoreboard.webp',
-      '/app/en/screens/stats.webp',
-    ],
-  },
-
   appCustomization: {
     badge: 'Customizable',
     title: 'Your game, your',

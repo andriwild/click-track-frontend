@@ -266,54 +266,6 @@ export const de: Translations = {
     ctaLine2: 'Bereit dein Spiel aufzuleveln?',
   },
 
-  appWalkthrough: {
-    badge: 'App Anleitung',
-    title: 'Die App',
-    titleAccent: 'Schritt für Schritt',
-    description:
-      'So nutzt du die Klikkr Companion App — vom ersten Start bis zum Matchball.',
-    steps: [
-      {
-        title: 'App starten',
-        description:
-          'Öffne die Klikkr App. Du siehst sofort den Startbildschirm mit allen Optionen.',
-      },
-      {
-        title: 'Armband verbinden',
-        description:
-          'Halte den Knopf 3 Sekunden gedrückt zum Einschalten (6 Sek. zum Ausschalten). Scanne den QR-Code oder wähle dein Gerät aus der Bluetooth-Liste.',
-      },
-      {
-        title: 'Beacons verbunden',
-        description:
-          'Deine Armbänder sind verbunden und bereit. Du siehst alle verbundenen Geräte auf einen Blick.',
-      },
-      {
-        title: 'Sportart wählen',
-        description:
-          'Wähle deine Sportart und stell die Regeln ein. Tennis, Padel, Squash, Tischtennis, Badminton und Pickleball sind vorbereitet.',
-      },
-      {
-        title: 'Spieleinstellungen',
-        description:
-          'Lege Spielernamen, Satzanzahl und weitere Regeln fest — alles individuell anpassbar vor dem Start.',
-      },
-      {
-        title: 'Punkte tracken',
-        description:
-          'Ein Klick am Armband zählt den Punkt. Die App übernimmt Sätze, Spiele und zeigt den Live-Score.',
-      },
-    ],
-    images: [
-      '/app/de/screens/home.webp',
-      '/wristband_click.png',
-      '/app/de/screens/setup.webp',
-      '/app/de/screens/rules.webp',
-      '/app/de/screens/scoreboard.webp',
-      '/app/de/screens/stats.webp',
-    ],
-  },
-
   appCustomization: {
     badge: 'Anpassbar',
     title: 'Dein Spiel, dein',
