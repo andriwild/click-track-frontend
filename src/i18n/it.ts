@@ -141,6 +141,7 @@ export const it: Translations = {
     description: 'Sei cose di cui si occupa l’app, così tu non devi pensarci.',
     sections: {
       modes: {
+        tab: 'Modalità',
         kicker: 'Nessun menu di modalità',
         title: 'Sono i braccialetti a decidere come giochi',
         body: 'Zero, uno, due o tre braccialetti. L’app conta quelli collegati e si adatta. A te resta solo confermare.',
@@ -152,6 +153,7 @@ export const it: Translations = {
         imageAlt: 'Tabellone Klikkr con il braccialetto al polso',
       },
       gestures: {
+        tab: 'Gesti',
         kicker: 'Quattro gesti',
         title: 'Premi una volta e il punto è tuo',
         body: 'Una pressione segna il punto. Due lo tolgono, oppure segnano per l’altro giocatore se hai un solo braccialetto. La pressione lunga mette in pausa. A fine partita tre pressioni avviano la successiva.',
@@ -164,6 +166,7 @@ export const it: Translations = {
         imageAlt: 'Un pollice preme il braccialetto Klikkr',
       },
       rules: {
+        tab: 'Regole',
         kicker: 'Sei sport',
         title: 'Regole vere, non solo un contatore',
         body: 'Tennis, padel, squash, tennistavolo, badminton e pickleball, ognuno con il proprio regolamento già integrato. Puoi cambiare tutto, le impostazioni predefinite coprono il caso normale.',
@@ -177,6 +180,7 @@ export const it: Translations = {
         imageAlt: 'Impostazioni delle regole nell’app Klikkr',
       },
       mirror: {
+        tab: 'Secondo schermo',
         kicker: 'Display sync',
         title: 'Il secondo telefono diventa il tabellone',
         body: 'Scansiona il codice e parte. Il punteggio va in diretta sul secondo dispositivo, dietro il vetro o sul palo della rete, mentre tu continui a contare sul tuo.',
@@ -189,6 +193,7 @@ export const it: Translations = {
           'Due telefoni, uno mostra il codice, l’altro il punteggio rispecchiato',
       },
       stats: {
+        tab: 'Statistiche',
         kicker: 'Dopo la partita',
         title: 'Quello che resta',
         body: 'Ogni partita finisce nello storico con i punteggi dei set, la durata e le statistiche di servizio. Il grafico del momentum mostra punto per punto dove la partita è girata.',
@@ -200,6 +205,7 @@ export const it: Translations = {
         imageAlt: 'Statistiche e grafico del momentum nell’app Klikkr',
       },
       summary: {
+        tab: 'Percorso',
         kicker: 'Dal primo servizio al bilancio',
         title: 'Un percorso, quattro schermate',
         body: 'Scegli lo sport, assegna i giocatori, gioca, guarda il risultato. Poi la partita è nelle statistiche senza che tu digiti nulla.',

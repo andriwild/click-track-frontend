@@ -139,6 +139,7 @@ export const en: Translations = {
       'Six things the app takes off your hands so you do not have to think about them.',
     sections: {
       modes: {
+        tab: 'Modes',
         kicker: 'No mode menu',
         title: 'The wristbands decide how you play',
         body: 'None, one, two or three bands. The app counts what is connected and adapts. All you do is confirm.',
@@ -150,6 +151,7 @@ export const en: Translations = {
         imageAlt: 'Klikkr scoreboard with a wristband on the wrist',
       },
       gestures: {
+        tab: 'Gestures',
         kicker: 'Four gestures',
         title: 'One press and the point is in',
         body: 'One press scores. Two takes it back, or scores for the other player when you only have one band. A long press pauses. After the match, three starts the next one.',
@@ -162,6 +164,7 @@ export const en: Translations = {
         imageAlt: 'A thumb pressing the Klikkr wristband',
       },
       rules: {
+        tab: 'Rules',
         kicker: 'Six sports',
         title: 'Real rules, not just a counter',
         body: 'Tennis, padel, squash, table tennis, badminton and pickleball, each with its own rule set built in. Change any of it if you want to, the defaults cover the normal case.',
@@ -175,6 +178,7 @@ export const en: Translations = {
         imageAlt: 'Rule settings in the Klikkr app',
       },
       mirror: {
+        tab: 'Second screen',
         kicker: 'Display sync',
         title: 'A second phone becomes the scoreboard',
         body: 'Scan the code and it runs. The live score appears on the second device, behind the glass or on the net post, while you keep scoring on your own.',
@@ -183,6 +187,7 @@ export const en: Translations = {
           'Two phones, one showing the pairing code, the other the mirrored score',
       },
       stats: {
+        tab: 'Statistics',
         kicker: 'After the match',
         title: 'What stays behind',
         body: 'Every match lands in your history with set scores, duration and serve stats. The momentum chart shows point by point where the match turned.',
@@ -190,6 +195,7 @@ export const en: Translations = {
         imageAlt: 'Statistics and the momentum chart in the Klikkr app',
       },
       summary: {
+        tab: 'Flow',
         kicker: 'From first serve to the record',
         title: 'One path, four screens',
         body: 'Pick a sport, assign the players, play, see the result. The match is in your statistics afterwards without you typing anything.',

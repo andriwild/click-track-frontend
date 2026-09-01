@@ -140,6 +140,7 @@ export const de: Translations = {
       'Sechs Dinge, die die App übernimmt, damit du dich nicht darum kümmern musst.',
     sections: {
       modes: {
+        tab: 'Modi',
         kicker: 'Kein Modus-Menü',
         title: 'Die Armbänder entscheiden, wie du spielst',
         body: 'Null, eins, zwei oder drei Bänder. Die App zählt, was verbunden ist, und stellt sich darauf ein. Du bestätigst nur noch.',
@@ -151,6 +152,7 @@ export const de: Translations = {
         imageAlt: 'Klikkr Scoreboard mit Armband am Handgelenk',
       },
       gestures: {
+        tab: 'Gesten',
         kicker: 'Vier Gesten',
         title: 'Einmal drücken, der Punkt sitzt',
         body: 'Einmal drücken zählt den Punkt. Zweimal nimmt ihn zurück, mit nur einem Band zählt es für den anderen Spieler. Langes Drücken pausiert. Nach dem Match startet dreimal das nächste.',
@@ -163,6 +165,7 @@ export const de: Translations = {
         imageAlt: 'Daumen drückt auf das Klikkr Armband',
       },
       rules: {
+        tab: 'Regeln',
         kicker: 'Sechs Sportarten',
         title: 'Echte Regeln, nicht nur ein Zähler',
         body: 'Tennis, Padel, Squash, Tischtennis, Badminton und Pickleball. Jede mit ihrem eigenen Regelwerk hinterlegt. Wer will, stellt alles um, die Voreinstellung deckt den Normalfall.',
@@ -176,6 +179,7 @@ export const de: Translations = {
         imageAlt: 'Regeln-Einstellungen der Klikkr App',
       },
       mirror: {
+        tab: 'Anzeigetafel',
         kicker: 'Display-Sync',
         title: 'Das zweite Handy wird zur Anzeigetafel',
         body: 'QR-Code scannen, fertig. Der Spielstand läuft live auf dem zweiten Gerät, an der Scheibe oder am Netzpfosten, während du auf deinem weiterzählst.',
@@ -184,6 +188,7 @@ export const de: Translations = {
           'Zwei Smartphones, eines zeigt den QR-Code, das andere den gespiegelten Spielstand',
       },
       stats: {
+        tab: 'Statistik',
         kicker: 'Nach dem Match',
         title: 'Was übrig bleibt',
         body: 'Jedes Match landet im Verlauf, mit Satzergebnissen, Dauer und Aufschlagquote. Der Momentum-Chart zeigt Punkt für Punkt, wo das Match gekippt ist.',
@@ -191,6 +196,7 @@ export const de: Translations = {
         imageAlt: 'Statistik und Momentum-Chart der Klikkr App',
       },
       summary: {
+        tab: 'Ablauf',
         kicker: 'Vom Aufschlag bis zur Bilanz',
         title: 'Ein Weg, vier Bildschirme',
         body: 'Sportart wählen, Spieler zuweisen, spielen, Ergebnis. Danach steht das Match in der Statistik, ohne dass du etwas eintippst.',
