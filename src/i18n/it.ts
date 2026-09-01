@@ -180,17 +180,16 @@ export const it: Translations = {
         imageAlt: 'Impostazioni delle regole nell’app Klikkr',
       },
       mirror: {
-        tab: 'Secondo schermo',
-        kicker: 'Display sync',
-        title: 'Il secondo telefono diventa il tabellone',
-        body: 'Scansiona il codice e parte. Il punteggio va in diretta sul secondo dispositivo, dietro il vetro o sul palo della rete, mentre tu continui a contare sul tuo.',
+        tab: 'Mirror',
+        kicker: 'Display-Sync',
+        title: 'Ogni altro telefono diventa un tabellone',
+        body: 'Scansiona il codice e parte. Il punteggio va in diretta su ogni dispositivo collegato, dietro il vetro, sul palo della rete o dal pubblico, mentre tu continui a contare sul tuo.',
         proof: [
+          'Più dispositivi insieme',
           'Senza internet',
           'Direttamente via Bluetooth',
-          'Anche in orizzontale',
         ],
-        imageAlt:
-          'Due telefoni, uno mostra il codice, l’altro il punteggio rispecchiato',
+        imageAlt: 'Ogni altro telefono diventa un tabellone',
       },
       stats: {
         tab: 'Statistiche',

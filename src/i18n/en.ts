@@ -178,13 +178,16 @@ export const en: Translations = {
         imageAlt: 'Rule settings in the Klikkr app',
       },
       mirror: {
-        tab: 'Second screen',
-        kicker: 'Display sync',
-        title: 'A second phone becomes the scoreboard',
-        body: 'Scan the code and it runs. The live score appears on the second device, behind the glass or on the net post, while you keep scoring on your own.',
-        proof: ['No internet', 'Straight over Bluetooth', 'Landscape too'],
-        imageAlt:
-          'Two phones, one showing the pairing code, the other the mirrored score',
+        tab: 'Mirror',
+        kicker: 'Display-Sync',
+        title: 'Every other phone becomes a scoreboard',
+        body: 'Scan the code and it runs. The live score appears on every connected device, behind the glass, on the net post or with the spectators, while you keep scoring on your own.',
+        proof: [
+          'Several devices at once',
+          'No internet',
+          'Straight over Bluetooth',
+        ],
+        imageAlt: 'Every other phone becomes a scoreboard',
       },
       stats: {
         tab: 'Statistics',

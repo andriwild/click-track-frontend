@@ -181,17 +181,16 @@ export const fr: Translations = {
         imageAlt: 'Réglages des règles dans l’application Klikkr',
       },
       mirror: {
-        tab: 'Second écran',
-        kicker: 'Display sync',
-        title: 'Le deuxième téléphone devient le tableau',
-        body: 'Scannez le code, c’est parti. Le score s’affiche en direct sur le second appareil, derrière la vitre ou au poteau, pendant que vous continuez à compter sur le vôtre.',
+        tab: 'Mirror',
+        kicker: 'Display-Sync',
+        title: 'Chaque autre téléphone devient un tableau',
+        body: 'Scannez le code, c’est parti. Le score s’affiche en direct sur chaque appareil connecté, derrière la vitre, au poteau ou côté public, pendant que vous continuez à compter sur le vôtre.',
         proof: [
+          'Plusieurs appareils à la fois',
           'Sans internet',
           'Directement en Bluetooth',
-          'Aussi en paysage',
         ],
-        imageAlt:
-          'Deux téléphones, l’un affiche le code, l’autre le score reproduit',
+        imageAlt: 'Chaque autre téléphone devient un tableau',
       },
       stats: {
         tab: 'Statistiques',

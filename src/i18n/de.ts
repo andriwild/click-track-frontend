@@ -179,13 +179,16 @@ export const de: Translations = {
         imageAlt: 'Regeln-Einstellungen der Klikkr App',
       },
       mirror: {
-        tab: 'Anzeigetafel',
+        tab: 'Mirror',
         kicker: 'Display-Sync',
-        title: 'Das zweite Handy wird zur Anzeigetafel',
-        body: 'QR-Code scannen, fertig. Der Spielstand läuft live auf dem zweiten Gerät, an der Scheibe oder am Netzpfosten, während du auf deinem weiterzählst.',
-        proof: ['Ohne Internet', 'Direkt per Bluetooth', 'Auch im Querformat'],
-        imageAlt:
-          'Zwei Smartphones, eines zeigt den QR-Code, das andere den gespiegelten Spielstand',
+        title: 'Jedes weitere Handy wird zur Anzeigetafel',
+        body: 'QR-Code scannen, fertig. Der Spielstand läuft live auf jedem verbundenen Gerät, an der Scheibe, am Netzpfosten oder beim Publikum, während du auf deinem weiterzählst.',
+        proof: [
+          'Mehrere Geräte gleichzeitig',
+          'Ohne Internet',
+          'Direkt per Bluetooth',
+        ],
+        imageAlt: 'Jedes weitere Handy wird zur Anzeigetafel',
       },
       stats: {
         tab: 'Statistik',
