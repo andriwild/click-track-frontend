@@ -10,6 +10,12 @@ import { getTranslations, type Locale } from '../i18n'
  * locale in the path — a German visitor must not see a French score
  * sheet.
  *
+ * The images carry no background of their own. The devices and the
+ * cropped cards sit on transparency and the band behind them belongs
+ * to the page, alternating black and grey down the section. That is
+ * why the image element has no border, radius or shadow: there is no
+ * rectangle to frame.
+ *
  * Order and ids have to match `storySections` in the i18n files.
  */
 
@@ -26,36 +32,38 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).appStory
 
   return (
-    <section
-      id="app-story"
-      className="w-full bg-zinc-950 border-t border-zinc-800"
-    >
-      <div className="container px-4 md:px-6 mx-auto py-12 md:py-20">
-        <div className="flex flex-col items-center text-center space-y-4 mb-4 md:mb-10">
-          <div className="inline-block rounded-lg bg-emerald-500/10 px-3 py-1 text-sm text-emerald-400 border border-emerald-500/20">
-            {t.badge}
+    <section id="app-story" className="w-full border-t border-zinc-800">
+      <div className="bg-zinc-950">
+        <div className="container px-4 md:px-6 mx-auto pt-12 pb-6 md:pt-20 md:pb-10">
+          <div className="flex flex-col items-center text-center space-y-4">
+            <div className="inline-block rounded-lg bg-emerald-500/10 px-3 py-1 text-sm text-emerald-400 border border-emerald-500/20">
+              {t.badge}
+            </div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              {t.title}{' '}
+              <span className="text-emerald-400">{t.titleAccent}</span>
+            </h2>
+            <p className="max-w-[42rem] text-zinc-400 md:text-lg">
+              {t.description}
+            </p>
           </div>
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            {t.title} <span className="text-emerald-400">{t.titleAccent}</span>
-          </h2>
-          <p className="max-w-[42rem] text-zinc-400 md:text-lg">
-            {t.description}
-          </p>
         </div>
+      </div>
 
-        <div className="flex flex-col">
-          {SECTION_IDS.map((id, i) => {
-            const item = t.sections[id]
-            // Alternating sides give the eye a rhythm on a long page.
-            // Below md the grid collapses and the kicker and headline
-            // always come first, so the reader knows what they are
-            // looking at before the picture arrives.
-            const imageFirst = i % 2 === 1
-            return (
-              <article
-                key={id}
-                className="grid gap-8 md:gap-12 md:grid-cols-2 items-center py-10 md:py-16 border-t border-zinc-900 first:border-t-0"
-              >
+      {SECTION_IDS.map((id, i) => {
+        const item = t.sections[id]
+        // Alternating sides give the eye a rhythm on a long page.
+        // Below md the grid collapses and the kicker and headline
+        // always come first, so the reader knows what they are
+        // looking at before the picture arrives.
+        const imageFirst = i % 2 === 1
+        return (
+          <div
+            key={id}
+            className={`w-full ${i % 2 === 0 ? 'bg-zinc-950' : 'bg-zinc-900'}`}
+          >
+            <div className="container px-4 md:px-6 mx-auto">
+              <article className="grid gap-8 md:gap-12 md:grid-cols-2 items-center py-12 md:py-20">
                 <div
                   className={
                     imageFirst
@@ -90,14 +98,14 @@ export function AppStorySections({ lang = 'de' }: { lang?: Locale }) {
                     height={1240}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-auto rounded-2xl border border-zinc-800 shadow-2xl"
+                    className="w-full h-auto"
                   />
                 </div>
               </article>
-            )
-          })}
-        </div>
-      </div>
+            </div>
+          </div>
+        )
+      })}
     </section>
   )
 }
