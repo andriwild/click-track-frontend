@@ -3,7 +3,9 @@ import { Hand, Watch, Trophy } from 'lucide-react'
 import { getTranslations, type Locale } from '../i18n'
 import { track } from '../lib/analytics'
 
-const modeKeys = ['swipe', 'oneBeacon', 'twoBeacons', 'tournament'] as const
+// Order matters: the wristband modes are what the product is for,
+// swipe is the fallback for when you have none, so it closes the row.
+const modeKeys = ['oneBeacon', 'twoBeacons', 'tournament', 'swipe'] as const
 type ModeKey = (typeof modeKeys)[number]
 
 const modeIcons: Record<ModeKey, typeof Hand> = {
@@ -15,7 +17,7 @@ const modeIcons: Record<ModeKey, typeof Hand> = {
 
 const modeColors: Record<
   ModeKey,
-  { active: string; card: string; glow: string; accent: string }
+  { active: string; card: string; tab: string; glow: string; accent: string }
 > = {
   // `active` tints the mode tabs, which sit on the page background and
   // can afford to be barely there. `card` is for the step card, which
@@ -25,24 +27,28 @@ const modeColors: Record<
   swipe: {
     active: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-400',
     card: 'border-cyan-500/50 bg-zinc-950/90 ring-1 ring-cyan-500/20',
+    tab: 'border-cyan-400 text-zinc-50',
     glow: 'from-cyan-500/10 to-blue-500/10',
     accent: 'bg-cyan-500',
   },
   oneBeacon: {
     active: 'border-blue-500/40 bg-blue-500/10 text-blue-400',
     card: 'border-blue-500/50 bg-zinc-950/90 ring-1 ring-blue-500/20',
+    tab: 'border-blue-400 text-zinc-50',
     glow: 'from-blue-500/10 to-indigo-500/10',
     accent: 'bg-blue-500',
   },
   twoBeacons: {
     active: 'border-emerald-500/40 bg-emerald-500/10 text-emerald-400',
     card: 'border-emerald-500/50 bg-zinc-950/90 ring-1 ring-emerald-500/20',
+    tab: 'border-emerald-400 text-zinc-50',
     glow: 'from-emerald-500/10 to-cyan-500/10',
     accent: 'bg-emerald-500',
   },
   tournament: {
     active: 'border-yellow-500/40 bg-yellow-500/10 text-yellow-400',
     card: 'border-yellow-500/50 bg-zinc-950/90 ring-1 ring-yellow-500/20',
+    tab: 'border-yellow-400 text-zinc-50',
     glow: 'from-yellow-500/10 to-orange-500/10',
     accent: 'bg-yellow-500',
   },
@@ -50,10 +56,11 @@ const modeColors: Record<
 
 export function GameModes({ lang = 'de' }: { lang?: Locale }) {
   const t = getTranslations(lang).gameModes
-  const [activeMode, setActiveMode] = useState<ModeKey>('swipe')
+  const [activeMode, setActiveMode] = useState<ModeKey>(modeKeys[0])
   const [activeStep, setActiveStep] = useState(0)
   const stepsRef = useRef<(HTMLDivElement | null)[]>([])
   const sectionRef = useRef<HTMLDivElement | null>(null)
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
 
   const mode = t.modes[activeMode]
   const steps = mode.steps
@@ -83,6 +90,26 @@ export function GameModes({ lang = 'de' }: { lang?: Locale }) {
   useEffect(() => {
     stepsRef.current = []
   }, [activeMode])
+
+  // Left and right walk the tabs, Home and End jump to the ends. A
+  // tablist that only answers clicks is a keyboard trap.
+  function onTabKeyDown(event: React.KeyboardEvent) {
+    const current = modeKeys.indexOf(activeMode)
+    const delta =
+      event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0
+    let next = -1
+    if (delta !== 0) {
+      next = (current + delta + modeKeys.length) % modeKeys.length
+    } else if (event.key === 'Home') {
+      next = 0
+    } else if (event.key === 'End') {
+      next = modeKeys.length - 1
+    }
+    if (next === -1) return
+    event.preventDefault()
+    switchMode(modeKeys[next])
+    tabRefs.current[next]?.focus()
+  }
 
   function switchMode(key: ModeKey) {
     track('gamemode-switch', { mode: key })
@@ -115,20 +142,40 @@ export function GameModes({ lang = 'de' }: { lang?: Locale }) {
           </p>
         </div>
 
-        {/* Mode tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mt-8">
-          {modeKeys.map((key) => {
+        {/* Mode tabs.
+            Same underline pattern as the home page, so the site has one
+            tab language instead of two. They were pills before, and the
+            site uses that exact pill for non-clickable chips elsewhere,
+            so the shape signalled nothing. The underline colour follows
+            the mode, which is the identity the card and glow below
+            already use. */}
+        <div
+          role="tablist"
+          aria-label={t.badge}
+          onKeyDown={onTabKeyDown}
+          className="mt-8 flex gap-6 md:gap-10 overflow-x-auto border-b border-zinc-800 -mx-4 px-4 md:mx-0 md:px-0 md:justify-center"
+        >
+          {modeKeys.map((key, i) => {
             const Icon = modeIcons[key]
             const isActive = key === activeMode
             const modeData = t.modes[key]
             return (
               <button
                 key={key}
+                ref={(el) => {
+                  tabRefs.current[i] = el
+                }}
+                role="tab"
+                type="button"
+                id={`mode-tab-${key}`}
+                aria-selected={isActive}
+                aria-controls="mode-panel"
+                tabIndex={isActive ? 0 : -1}
                 onClick={() => switchMode(key)}
-                className={`flex items-center gap-2 px-4 py-2.5 md:px-5 md:py-3 rounded-full border font-semibold text-sm md:text-base transition-all duration-300 cursor-pointer ${
+                className={`shrink-0 whitespace-nowrap flex items-center gap-2 pb-3 -mb-px border-b-2 text-base md:text-lg transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60 rounded-sm ${
                   isActive
-                    ? modeColors[key].active
-                    : 'border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:border-zinc-700 hover:text-zinc-300'
+                    ? `${modeColors[key].tab} font-semibold`
+                    : 'border-transparent text-zinc-500 hover:text-zinc-300'
                 }`}
               >
                 <Icon className="w-4 h-4 md:w-5 md:h-5" />
@@ -145,7 +192,12 @@ export function GameModes({ lang = 'de' }: { lang?: Locale }) {
       </div>
 
       {/* Scrollytelling area */}
-      <div className="relative">
+      <div
+        className="relative"
+        id="mode-panel"
+        role="tabpanel"
+        aria-labelledby={`mode-tab-${activeMode}`}
+      >
         {/* Sticky phone — stays centered behind the text */}
         <div className="sticky top-0 h-screen flex items-center justify-center pointer-events-none z-0">
           {/* The phone is drawn in CSS, in layers, because one bordered
