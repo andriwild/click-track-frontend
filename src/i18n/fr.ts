@@ -510,7 +510,7 @@ export const fr: Translations = {
         ],
         images: [
           '/app/fr/screens/home.webp',
-          '/app/fr/screens/setup.webp',
+          '/app/fr/screens/home.webp',
           '/app/fr/screens/rules.webp',
           '/app/fr/screens/scoreboard.webp',
         ],
@@ -542,7 +542,7 @@ export const fr: Translations = {
         ],
         images: [
           '/app/fr/screens/beacons.webp',
-          '/app/fr/screens/setup.webp',
+          '/app/fr/screens/home.webp',
           '/app/fr/screens/rules.webp',
           '/app/fr/screens/scoreboard.webp',
         ],
@@ -574,7 +574,7 @@ export const fr: Translations = {
         ],
         images: [
           '/app/fr/screens/beacons.webp',
-          '/app/fr/screens/setup.webp',
+          '/app/fr/screens/home.webp',
           '/app/fr/screens/rules.webp',
           '/app/fr/screens/scoreboard.webp',
         ],

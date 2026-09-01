@@ -154,7 +154,7 @@ export function GameModes({ lang = 'de' }: { lang?: Locale }) {
               recessed by an inset ring, one hard-edged glass glint and
               the side buttons. The screenshots inside carry no frame of
               their own. */}
-          <div className="relative w-[260px] sm:w-[280px] md:w-[300px]">
+          <div className="relative w-[300px] sm:w-[350px] md:w-[400px]">
             <div className="relative rounded-[2.6rem] p-px bg-[linear-gradient(135deg,#7a7a86_0%,#0a0a0d_62%,#2b2b33_100%)] shadow-[0_1px_2px_rgba(0,0,0,0.18),0_4px_8px_rgba(0,0,0,0.13),0_16px_32px_rgba(0,0,0,0.09),0_32px_64px_16px_rgba(0,0,0,0.07)]">
               <div className="rounded-[2.55rem] bg-[#17171b] p-[7px]">
                 <div className="relative rounded-[2.15rem] overflow-hidden bg-zinc-900">
