@@ -58,11 +58,17 @@ export function getLocaleFromPath(pathname: string): Locale {
   return 'de'
 }
 
+// Always returns a path with a trailing slash. GitHub Pages serves every page
+// as <path>/index.html and 301-redirects "/faq" to "/faq/", and the sitemap
+// lists the slash form. A canonical URL without the slash therefore points at a
+// redirect, and Google reports the real page as "Alternative Seite mit richtigem
+// kanonischen Tag".
 export function getLocalizedPath(path: string, locale: Locale): string {
-  // Remove existing locale prefix
-  const cleanPath = path.replace(/^\/(en|fr|it)(\/|$)/, '/')
-  if (locale === 'de') return cleanPath || '/'
-  return `/${locale}${cleanPath === '/' ? '' : cleanPath}`
+  const pathWithoutLocale = path
+    .replace(/^\/(en|fr|it)(\/|$)/, '/')
+    .replace(/\/+$/, '')
+  const prefix = locale === 'de' ? '' : `/${locale}`
+  return `${prefix}${pathWithoutLocale}/`
 }
 
 export function getCanonicalUrl(path: string, locale: Locale): string {
