@@ -451,6 +451,14 @@ export const de: Translations = {
     imprint: 'Impressum',
   },
 
+  thanks: {
+    title: 'Vielen Dank!',
+    subtitle: 'Deine Bestellung war erfolgreich.',
+    message:
+      'Wir haben deine Bestellung erhalten und werden sie so schnell wie möglich bearbeiten. Du erhältst in Kürze eine Bestätigungs-E-Mail mit weiteren Details zu deinem Kauf.',
+    backHome: 'Zurück zur Startseite',
+  },
+
   wip: {
     title: 'In Arbeit',
     message:

@@ -458,6 +458,14 @@ export const it: Translations = {
     imprint: 'Impressum',
   },
 
+  thanks: {
+    title: 'Grazie mille!',
+    subtitle: 'Il tuo ordine è andato a buon fine.',
+    message:
+      "Abbiamo ricevuto il tuo ordine e lo elaboreremo il prima possibile. A breve riceverai un'email di conferma con ulteriori dettagli sul tuo acquisto.",
+    backHome: 'Torna alla home',
+  },
+
   wip: {
     title: 'Lavori in corso',
     message:

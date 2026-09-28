@@ -41,7 +41,7 @@ export const pageAvailableLocales: Record<PageKey, Locale[]> = {
   faq: ['de', 'en', 'fr', 'it'],
   appPrivacy: ['de', 'en', 'fr', 'it'],
   imprint: ['de'],
-  thanks: ['de'],
+  thanks: ['de', 'en', 'fr', 'it'],
 }
 
 const translations: Record<Locale, Translations> = { de, en, fr, it }

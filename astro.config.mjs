@@ -11,6 +11,10 @@ export default defineConfig({
     react(),
     tailwind({ applyBaseStyles: false }),
     sitemap({
+      // Pages rendered with noindex must not be listed, otherwise Search
+      // Console reports "Submitted URL marked noindex".
+      filter: (page) =>
+        !/\/(thanks|newsletter-bestaetigt|newsletter-confirmed)\/$/.test(page),
       i18n: {
         defaultLocale: 'de',
         locales: {

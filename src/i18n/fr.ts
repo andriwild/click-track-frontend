@@ -455,6 +455,14 @@ export const fr: Translations = {
     imprint: 'Mentions légales',
   },
 
+  thanks: {
+    title: 'Merci beaucoup !',
+    subtitle: 'Votre commande a bien été passée.',
+    message:
+      'Nous avons bien reçu votre commande et la traiterons dans les plus brefs délais. Vous recevrez sous peu un e-mail de confirmation avec plus de détails sur votre achat.',
+    backHome: "Retour à l'accueil",
+  },
+
   wip: {
     title: 'En cours de développement',
     message:

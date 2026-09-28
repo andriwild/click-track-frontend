@@ -449,6 +449,14 @@ export const en: Translations = {
     imprint: 'Imprint',
   },
 
+  thanks: {
+    title: 'Thank you!',
+    subtitle: 'Your order was successful.',
+    message:
+      'We have received your order and will process it as quickly as possible. You will shortly receive a confirmation email with further details about your purchase.',
+    backHome: 'Back to home',
+  },
+
   wip: {
     title: 'Work in Progress',
     message:

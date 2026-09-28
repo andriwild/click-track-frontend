@@ -121,7 +121,7 @@ Deno.serve(async (req) => {
     // Build locale-aware URLs
     const baseUrl = 'https://klikkr.ch'
     const langPrefix = lang !== 'de' ? `/${lang}` : ''
-    const successUrl = `${baseUrl}${langPrefix}/thanks?session_id={CHECKOUT_SESSION_ID}`
+    const successUrl = `${baseUrl}${langPrefix}/thanks/?session_id={CHECKOUT_SESSION_ID}`
     const cancelUrl = `${baseUrl}${langPrefix}/#checkout`
 
     const session = await stripe.checkout.sessions.create({
